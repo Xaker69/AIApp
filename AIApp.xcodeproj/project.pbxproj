@@ -16,6 +16,7 @@
 		2CB8A6BC295D9041009A954E /* OnboardingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CB8A6BB295D9041009A954E /* OnboardingViewController.swift */; };
 		2CB8A6BE295D9063009A954E /* OnboardingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CB8A6BD295D9063009A954E /* OnboardingView.swift */; };
 		2CB8A6C1295D9193009A954E /* R.generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CB8A6C0295D9193009A954E /* R.generated.swift */; };
+		2CB8A6C5295D965E009A954E /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 2CB8A6C7295D965E009A954E /* Localizable.strings */; };
 		A38DFDA7966CD1A4B3CB31F6 /* Pods_AIApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 898E6A24F2F96D409C50EAD8 /* Pods_AIApp.framework */; };
 /* End PBXBuildFile section */
 
@@ -31,6 +32,7 @@
 		2CB8A6BB295D9041009A954E /* OnboardingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingViewController.swift; sourceTree = "<group>"; };
 		2CB8A6BD295D9063009A954E /* OnboardingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingView.swift; sourceTree = "<group>"; };
 		2CB8A6C0295D9193009A954E /* R.generated.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = R.generated.swift; sourceTree = "<group>"; };
+		2CB8A6C6295D965E009A954E /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		3F14C7F0519D2ECAD0A27451 /* Pods-AIApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AIApp.debug.xcconfig"; path = "Target Support Files/Pods-AIApp/Pods-AIApp.debug.xcconfig"; sourceTree = "<group>"; };
 		59B890C0393326A4F7AFDA71 /* Pods-AIApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AIApp.release.xcconfig"; path = "Target Support Files/Pods-AIApp/Pods-AIApp.release.xcconfig"; sourceTree = "<group>"; };
 		898E6A24F2F96D409C50EAD8 /* Pods_AIApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_AIApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -190,6 +192,7 @@
 		2CB8A6B8295D8B7A009A954E /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				2CB8A6C2295D964D009A954E /* Strings */,
 				2CB8A69C295D8AA7009A954E /* Assets.xcassets */,
 			);
 			path = Resources;
@@ -210,6 +213,14 @@
 				2CB8A6BD295D9063009A954E /* OnboardingView.swift */,
 			);
 			path = View;
+			sourceTree = "<group>";
+		};
+		2CB8A6C2295D964D009A954E /* Strings */ = {
+			isa = PBXGroup;
+			children = (
+				2CB8A6C7295D965E009A954E /* Localizable.strings */,
+			);
+			path = Strings;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -274,6 +285,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				2CB8A6A0295D8AA7009A954E /* LaunchScreen.storyboard in Resources */,
+				2CB8A6C5295D965E009A954E /* Localizable.strings in Resources */,
 				2CB8A69D295D8AA7009A954E /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -365,6 +377,14 @@
 				2CB8A69F295D8AA7009A954E /* Base */,
 			);
 			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+		2CB8A6C7295D965E009A954E /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				2CB8A6C6295D965E009A954E /* en */,
+			);
+			name = Localizable.strings;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
