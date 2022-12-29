@@ -13,6 +13,9 @@
 		2CB8A6B5295D8B26009A954E /* RootView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CB8A6AE295D8B26009A954E /* RootView.swift */; };
 		2CB8A6B6295D8B26009A954E /* UIIColor+hex.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CB8A6B1295D8B26009A954E /* UIIColor+hex.swift */; };
 		2CB8A6B7295D8B26009A954E /* ListCollectionContext+Dequeue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CB8A6B4295D8B26009A954E /* ListCollectionContext+Dequeue.swift */; };
+		2CB8A6BC295D9041009A954E /* OnboardingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CB8A6BB295D9041009A954E /* OnboardingViewController.swift */; };
+		2CB8A6BE295D9063009A954E /* OnboardingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CB8A6BD295D9063009A954E /* OnboardingView.swift */; };
+		2CB8A6C1295D9193009A954E /* R.generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CB8A6C0295D9193009A954E /* R.generated.swift */; };
 		A38DFDA7966CD1A4B3CB31F6 /* Pods_AIApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 898E6A24F2F96D409C50EAD8 /* Pods_AIApp.framework */; };
 /* End PBXBuildFile section */
 
@@ -25,6 +28,9 @@
 		2CB8A6AE295D8B26009A954E /* RootView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RootView.swift; sourceTree = "<group>"; };
 		2CB8A6B1295D8B26009A954E /* UIIColor+hex.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIIColor+hex.swift"; sourceTree = "<group>"; };
 		2CB8A6B4295D8B26009A954E /* ListCollectionContext+Dequeue.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "ListCollectionContext+Dequeue.swift"; sourceTree = "<group>"; };
+		2CB8A6BB295D9041009A954E /* OnboardingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingViewController.swift; sourceTree = "<group>"; };
+		2CB8A6BD295D9063009A954E /* OnboardingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingView.swift; sourceTree = "<group>"; };
+		2CB8A6C0295D9193009A954E /* R.generated.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = R.generated.swift; sourceTree = "<group>"; };
 		3F14C7F0519D2ECAD0A27451 /* Pods-AIApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AIApp.debug.xcconfig"; path = "Target Support Files/Pods-AIApp/Pods-AIApp.debug.xcconfig"; sourceTree = "<group>"; };
 		59B890C0393326A4F7AFDA71 /* Pods-AIApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AIApp.release.xcconfig"; path = "Target Support Files/Pods-AIApp/Pods-AIApp.release.xcconfig"; sourceTree = "<group>"; };
 		898E6A24F2F96D409C50EAD8 /* Pods_AIApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_AIApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -56,13 +62,13 @@
 				3F14C7F0519D2ECAD0A27451 /* Pods-AIApp.debug.xcconfig */,
 				59B890C0393326A4F7AFDA71 /* Pods-AIApp.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
 		2CB8A687295D8AA7009A954E = {
 			isa = PBXGroup;
 			children = (
+				2CB8A6C0295D9193009A954E /* R.generated.swift */,
 				2CB8A692295D8AA7009A954E /* AIApp */,
 				2CB8A691295D8AA7009A954E /* Products */,
 				2653B8C5CC6BDED613625B79 /* Pods */,
@@ -101,6 +107,7 @@
 		2CB8A6A8295D8AF3009A954E /* Modules */ = {
 			isa = PBXGroup;
 			children = (
+				2CB8A6B9295D8FF4009A954E /* Onboarding */,
 			);
 			path = Modules;
 			sourceTree = "<group>";
@@ -188,6 +195,23 @@
 			path = Resources;
 			sourceTree = "<group>";
 		};
+		2CB8A6B9295D8FF4009A954E /* Onboarding */ = {
+			isa = PBXGroup;
+			children = (
+				2CB8A6BA295D902B009A954E /* View */,
+				2CB8A6BB295D9041009A954E /* OnboardingViewController.swift */,
+			);
+			path = Onboarding;
+			sourceTree = "<group>";
+		};
+		2CB8A6BA295D902B009A954E /* View */ = {
+			isa = PBXGroup;
+			children = (
+				2CB8A6BD295D9063009A954E /* OnboardingView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -196,6 +220,7 @@
 			buildConfigurationList = 2CB8A6A4295D8AA7009A954E /* Build configuration list for PBXNativeTarget "AIApp" */;
 			buildPhases = (
 				FE7E98B82AE277FB3D539DDA /* [CP] Check Pods Manifest.lock */,
+				2CB8A6BF295D9118009A954E /* ShellScript */,
 				2CB8A68C295D8AA7009A954E /* Sources */,
 				2CB8A68D295D8AA7009A954E /* Frameworks */,
 				2CB8A68E295D8AA7009A954E /* Resources */,
@@ -256,6 +281,25 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
+		2CB8A6BF295D9118009A954E /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			alwaysOutOfDate = 1;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				$SRCROOT/R.generated.swift,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"$PODS_ROOT/R.swift/rswift\" generate \"$SRCROOT/R.generated.swift\"\n";
+		};
 		67DBA7FA7C78B1744281E2DC /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -303,7 +347,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				2CB8A6B7295D8B26009A954E /* ListCollectionContext+Dequeue.swift in Sources */,
+				2CB8A6C1295D9193009A954E /* R.generated.swift in Sources */,
 				2CB8A6B5295D8B26009A954E /* RootView.swift in Sources */,
+				2CB8A6BC295D9041009A954E /* OnboardingViewController.swift in Sources */,
+				2CB8A6BE295D9063009A954E /* OnboardingView.swift in Sources */,
 				2CB8A6B6295D8B26009A954E /* UIIColor+hex.swift in Sources */,
 				2CB8A694295D8AA7009A954E /* AppDelegate.swift in Sources */,
 			);
@@ -447,7 +494,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = N422RJM586;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = "/Users/xaker/Documents/my proj/projects/AIApp/AIApp/AIApp/Supporting files/Info.plist";
+				INFOPLIST_FILE = "AIApp/Supporting files/Info.plist";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
@@ -475,7 +522,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = N422RJM586;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = "/Users/xaker/Documents/my proj/projects/AIApp/AIApp/AIApp/Supporting files/Info.plist";
+				INFOPLIST_FILE = "AIApp/Supporting files/Info.plist";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
