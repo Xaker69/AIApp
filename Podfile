@@ -9,5 +9,10 @@ target 'AIApp' do
   pod 'R.swift'
   pod 'IGListKit'
   pod 'Atributika'
+  pod 'AWSS3'
+  pod 'FirebaseAnalytics'
+  pod 'FirebaseFirestore'
+  pod 'FirebaseStorage'
+  pod 'Kingfisher'
 
 end

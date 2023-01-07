@@ -1,11 +1,7 @@
-//
-//  AppDelegate.swift
-//  AIApp
-//
-//  Created by Max Xaker on 29.12.2022.
-//
-
 import UIKit
+import FirebaseCore
+import FirebaseFirestore
+import Kingfisher
 
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -14,6 +10,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         
+        FirebaseApp.configure()
+                
         window = UIWindow(frame: UIScreen.main.bounds)
         window?.rootViewController = OnboardingViewController()
         window?.makeKeyAndVisible()

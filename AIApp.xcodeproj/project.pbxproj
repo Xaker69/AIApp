@@ -17,6 +17,8 @@
 		2CB8A6BE295D9063009A954E /* OnboardingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CB8A6BD295D9063009A954E /* OnboardingView.swift */; };
 		2CB8A6C1295D9193009A954E /* R.generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CB8A6C0295D9193009A954E /* R.generated.swift */; };
 		2CB8A6C5295D965E009A954E /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 2CB8A6C7295D965E009A954E /* Localizable.strings */; };
+		2CB8A7192969A755009A954E /* CloudManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CB8A7182969A755009A954E /* CloudManager.swift */; };
+		2CB8A7572969BE68009A954E /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2CB8A7562969BE68009A954E /* GoogleService-Info.plist */; };
 		A38DFDA7966CD1A4B3CB31F6 /* Pods_AIApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 898E6A24F2F96D409C50EAD8 /* Pods_AIApp.framework */; };
 /* End PBXBuildFile section */
 
@@ -33,6 +35,8 @@
 		2CB8A6BD295D9063009A954E /* OnboardingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingView.swift; sourceTree = "<group>"; };
 		2CB8A6C0295D9193009A954E /* R.generated.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = R.generated.swift; sourceTree = "<group>"; };
 		2CB8A6C6295D965E009A954E /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
+		2CB8A7182969A755009A954E /* CloudManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CloudManager.swift; sourceTree = "<group>"; };
+		2CB8A7562969BE68009A954E /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		3F14C7F0519D2ECAD0A27451 /* Pods-AIApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AIApp.debug.xcconfig"; path = "Target Support Files/Pods-AIApp/Pods-AIApp.debug.xcconfig"; sourceTree = "<group>"; };
 		59B890C0393326A4F7AFDA71 /* Pods-AIApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AIApp.release.xcconfig"; path = "Target Support Files/Pods-AIApp/Pods-AIApp.release.xcconfig"; sourceTree = "<group>"; };
 		898E6A24F2F96D409C50EAD8 /* Pods_AIApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_AIApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -117,6 +121,7 @@
 		2CB8A6A9295D8AFD009A954E /* Shared */ = {
 			isa = PBXGroup;
 			children = (
+				2CB8A7162969A740009A954E /* Service */,
 				2CB8A6AB295D8B26009A954E /* Common */,
 				2CB8A6B8295D8B7A009A954E /* Resources */,
 			);
@@ -126,6 +131,7 @@
 		2CB8A6AA295D8B08009A954E /* Supporting files */ = {
 			isa = PBXGroup;
 			children = (
+				2CB8A7562969BE68009A954E /* GoogleService-Info.plist */,
 				2CB8A6A1295D8AA7009A954E /* Info.plist */,
 			);
 			path = "Supporting files";
@@ -223,6 +229,22 @@
 			path = Strings;
 			sourceTree = "<group>";
 		};
+		2CB8A7162969A740009A954E /* Service */ = {
+			isa = PBXGroup;
+			children = (
+				2CB8A7172969A746009A954E /* Cloud */,
+			);
+			path = Service;
+			sourceTree = "<group>";
+		};
+		2CB8A7172969A746009A954E /* Cloud */ = {
+			isa = PBXGroup;
+			children = (
+				2CB8A7182969A755009A954E /* CloudManager.swift */,
+			);
+			path = Cloud;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -285,6 +307,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				2CB8A6A0295D8AA7009A954E /* LaunchScreen.storyboard in Resources */,
+				2CB8A7572969BE68009A954E /* GoogleService-Info.plist in Resources */,
 				2CB8A6C5295D965E009A954E /* Localizable.strings in Resources */,
 				2CB8A69D295D8AA7009A954E /* Assets.xcassets in Resources */,
 			);
@@ -365,6 +388,7 @@
 				2CB8A6BE295D9063009A954E /* OnboardingView.swift in Sources */,
 				2CB8A6B6295D8B26009A954E /* UIIColor+hex.swift in Sources */,
 				2CB8A694295D8AA7009A954E /* AppDelegate.swift in Sources */,
+				2CB8A7192969A755009A954E /* CloudManager.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

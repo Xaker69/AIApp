@@ -1,4 +1,5 @@
 import UIKit
+import Kingfisher
 
 class OnboardingViewController: UIViewController {
 
@@ -13,7 +14,12 @@ class OnboardingViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        
+        loadImage()
     }
     
+    private func loadImage() {
+        CloudManager.shared.getImageUrl(for: .onboardingImage) { [weak self] url in
+            self?.mainView.imageView.kf.setImage(with: url, placeholder: R.image.onboardingTest())
+        }
+    }
 }
