@@ -1,7 +1,14 @@
 //Onboardig
 
-onboarding-privacy = "<all>By getting started I agree with\n<a href='https://xaker41.t.me'>Terms of Use</a> and <b href='https://xaker41.t.me'>Privacy Policy</b></all>";
+onboarding-privacy = "<all>By getting started I agree with\n<terms href='https://xaker41.t.me'>Terms of Use</terms> and <privacy href='https://xaker41.t.me'>Privacy Policy</privacy></all>";
 onboarding-start-button = "Get started";
 onboarding-subtitle = "Create personalized portraits\nfor you and your friends";
 onboarding-title = "<all>The Many <color>Different</color>\nSides of You</all>";
 onboarding-powered = "powered by ai";
+
+// Subscription
+
+subscription-restore = "Restore";
+subscription-privacy = "<all><terms href='https://xaker41.t.me'>Terms & Conditions</terms>・<privacy href='https://xaker41.t.me'>Privacy Policy</privacy>・<support href='https://xaker41.t.me'>Get Support</support></all>";
+subscription-continue = "Continue";
+subscription-title = "<all>Join the\n<color>Privilege</color> Club</all>";

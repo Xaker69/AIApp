@@ -4,7 +4,7 @@ import FirebaseStorage
 class CloudManager {
     
     enum ImageName: String {
-        case onboardingImage = "/photo_2022-12-07 23.21.28.jpeg"
+        case onboardingImage = "/OnboardingImage"
     }
     
     static var shared = CloudManager()

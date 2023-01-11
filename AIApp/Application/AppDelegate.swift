@@ -1,7 +1,6 @@
 import UIKit
 import FirebaseCore
 import FirebaseFirestore
-import Kingfisher
 
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -13,7 +12,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         FirebaseApp.configure()
                 
         window = UIWindow(frame: UIScreen.main.bounds)
-        window?.rootViewController = OnboardingViewController()
+        window?.rootViewController = SubscriptionViewController()
         window?.makeKeyAndVisible()
         
         return true

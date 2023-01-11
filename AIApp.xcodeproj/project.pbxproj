@@ -7,6 +7,17 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2C1E43F8296C07DB0000D015 /* SubscriptionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C1E43F7296C07DB0000D015 /* SubscriptionView.swift */; };
+		2C1E43FA296C08100000D015 /* SubscriptionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C1E43F9296C08100000D015 /* SubscriptionViewController.swift */; };
+		2C1E4401296C8DF00000D015 /* Inter-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 2C1E43FE296C8D840000D015 /* Inter-Bold.ttf */; };
+		2C1E4402296C8DF70000D015 /* Inter-ExtraBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 2C1E43FF296C8D840000D015 /* Inter-ExtraBold.ttf */; };
+		2C1E4403296C8DF70000D015 /* Inter-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 2C1E43FD296C8D840000D015 /* Inter-Medium.ttf */; };
+		2C1E4404296C8DF70000D015 /* Inter-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 2C1E4400296C8D840000D015 /* Inter-Regular.ttf */; };
+		2C1E4405296C8DF70000D015 /* Inter-SemiBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 2C1E43FC296C8D840000D015 /* Inter-SemiBold.ttf */; };
+		2C1E4408296C8E530000D015 /* UIFont+Custom.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C1E4407296C8E530000D015 /* UIFont+Custom.swift */; };
+		2C1E440E296DC7150000D015 /* Satoshi-Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 2C1E440B296DC6CC0000D015 /* Satoshi-Bold.otf */; };
+		2C1E440F296DC7150000D015 /* Satoshi-Medium.otf in Resources */ = {isa = PBXBuildFile; fileRef = 2C1E440C296DC6CC0000D015 /* Satoshi-Medium.otf */; };
+		2C1E4410296DC7150000D015 /* Satoshi-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = 2C1E440D296DC6CC0000D015 /* Satoshi-Regular.otf */; };
 		2CB8A694295D8AA7009A954E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CB8A693295D8AA7009A954E /* AppDelegate.swift */; };
 		2CB8A69D295D8AA7009A954E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2CB8A69C295D8AA7009A954E /* Assets.xcassets */; };
 		2CB8A6A0295D8AA7009A954E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2CB8A69E295D8AA7009A954E /* LaunchScreen.storyboard */; };
@@ -23,6 +34,17 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		2C1E43F7296C07DB0000D015 /* SubscriptionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubscriptionView.swift; sourceTree = "<group>"; };
+		2C1E43F9296C08100000D015 /* SubscriptionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubscriptionViewController.swift; sourceTree = "<group>"; };
+		2C1E43FC296C8D840000D015 /* Inter-SemiBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Inter-SemiBold.ttf"; sourceTree = "<group>"; };
+		2C1E43FD296C8D840000D015 /* Inter-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Inter-Medium.ttf"; sourceTree = "<group>"; };
+		2C1E43FE296C8D840000D015 /* Inter-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Inter-Bold.ttf"; sourceTree = "<group>"; };
+		2C1E43FF296C8D840000D015 /* Inter-ExtraBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Inter-ExtraBold.ttf"; sourceTree = "<group>"; };
+		2C1E4400296C8D840000D015 /* Inter-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Inter-Regular.ttf"; sourceTree = "<group>"; };
+		2C1E4407296C8E530000D015 /* UIFont+Custom.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIFont+Custom.swift"; sourceTree = "<group>"; };
+		2C1E440B296DC6CC0000D015 /* Satoshi-Bold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Satoshi-Bold.otf"; sourceTree = "<group>"; };
+		2C1E440C296DC6CC0000D015 /* Satoshi-Medium.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Satoshi-Medium.otf"; sourceTree = "<group>"; };
+		2C1E440D296DC6CC0000D015 /* Satoshi-Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Satoshi-Regular.otf"; sourceTree = "<group>"; };
 		2CB8A690295D8AA7009A954E /* AIApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AIApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2CB8A693295D8AA7009A954E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		2CB8A69C295D8AA7009A954E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -71,6 +93,54 @@
 			path = Pods;
 			sourceTree = "<group>";
 		};
+		2C1E43F5296C079D0000D015 /* Subscription */ = {
+			isa = PBXGroup;
+			children = (
+				2C1E43F6296C07B80000D015 /* View */,
+				2C1E43F9296C08100000D015 /* SubscriptionViewController.swift */,
+			);
+			path = Subscription;
+			sourceTree = "<group>";
+		};
+		2C1E43F6296C07B80000D015 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				2C1E43F7296C07DB0000D015 /* SubscriptionView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		2C1E43FB296C8CD50000D015 /* Font */ = {
+			isa = PBXGroup;
+			children = (
+				2C1E440A296DC5D90000D015 /* Satoshi */,
+				2C1E4409296DC4F50000D015 /* Inter */,
+			);
+			path = Font;
+			sourceTree = "<group>";
+		};
+		2C1E4409296DC4F50000D015 /* Inter */ = {
+			isa = PBXGroup;
+			children = (
+				2C1E43FE296C8D840000D015 /* Inter-Bold.ttf */,
+				2C1E43FF296C8D840000D015 /* Inter-ExtraBold.ttf */,
+				2C1E43FD296C8D840000D015 /* Inter-Medium.ttf */,
+				2C1E4400296C8D840000D015 /* Inter-Regular.ttf */,
+				2C1E43FC296C8D840000D015 /* Inter-SemiBold.ttf */,
+			);
+			path = Inter;
+			sourceTree = "<group>";
+		};
+		2C1E440A296DC5D90000D015 /* Satoshi */ = {
+			isa = PBXGroup;
+			children = (
+				2C1E440B296DC6CC0000D015 /* Satoshi-Bold.otf */,
+				2C1E440C296DC6CC0000D015 /* Satoshi-Medium.otf */,
+				2C1E440D296DC6CC0000D015 /* Satoshi-Regular.otf */,
+			);
+			path = Satoshi;
+			sourceTree = "<group>";
+		};
 		2CB8A687295D8AA7009A954E = {
 			isa = PBXGroup;
 			children = (
@@ -113,6 +183,7 @@
 		2CB8A6A8295D8AF3009A954E /* Modules */ = {
 			isa = PBXGroup;
 			children = (
+				2C1E43F5296C079D0000D015 /* Subscription */,
 				2CB8A6B9295D8FF4009A954E /* Onboarding */,
 			);
 			path = Modules;
@@ -175,6 +246,7 @@
 		2CB8A6B0295D8B26009A954E /* UIKit */ = {
 			isa = PBXGroup;
 			children = (
+				2C1E4407296C8E530000D015 /* UIFont+Custom.swift */,
 				2CB8A6B1295D8B26009A954E /* UIIColor+hex.swift */,
 			);
 			path = UIKit;
@@ -198,6 +270,7 @@
 		2CB8A6B8295D8B7A009A954E /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				2C1E43FB296C8CD50000D015 /* Font */,
 				2CB8A6C2295D964D009A954E /* Strings */,
 				2CB8A69C295D8AA7009A954E /* Assets.xcassets */,
 			);
@@ -306,6 +379,14 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2C1E440E296DC7150000D015 /* Satoshi-Bold.otf in Resources */,
+				2C1E440F296DC7150000D015 /* Satoshi-Medium.otf in Resources */,
+				2C1E4410296DC7150000D015 /* Satoshi-Regular.otf in Resources */,
+				2C1E4402296C8DF70000D015 /* Inter-ExtraBold.ttf in Resources */,
+				2C1E4403296C8DF70000D015 /* Inter-Medium.ttf in Resources */,
+				2C1E4404296C8DF70000D015 /* Inter-Regular.ttf in Resources */,
+				2C1E4405296C8DF70000D015 /* Inter-SemiBold.ttf in Resources */,
+				2C1E4401296C8DF00000D015 /* Inter-Bold.ttf in Resources */,
 				2CB8A6A0295D8AA7009A954E /* LaunchScreen.storyboard in Resources */,
 				2CB8A7572969BE68009A954E /* GoogleService-Info.plist in Resources */,
 				2CB8A6C5295D965E009A954E /* Localizable.strings in Resources */,
@@ -383,10 +464,13 @@
 			files = (
 				2CB8A6B7295D8B26009A954E /* ListCollectionContext+Dequeue.swift in Sources */,
 				2CB8A6C1295D9193009A954E /* R.generated.swift in Sources */,
+				2C1E43F8296C07DB0000D015 /* SubscriptionView.swift in Sources */,
 				2CB8A6B5295D8B26009A954E /* RootView.swift in Sources */,
 				2CB8A6BC295D9041009A954E /* OnboardingViewController.swift in Sources */,
 				2CB8A6BE295D9063009A954E /* OnboardingView.swift in Sources */,
+				2C1E43FA296C08100000D015 /* SubscriptionViewController.swift in Sources */,
 				2CB8A6B6295D8B26009A954E /* UIIColor+hex.swift in Sources */,
+				2C1E4408296C8E530000D015 /* UIFont+Custom.swift in Sources */,
 				2CB8A694295D8AA7009A954E /* AppDelegate.swift in Sources */,
 				2CB8A7192969A755009A954E /* CloudManager.swift in Sources */,
 			);
