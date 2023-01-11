@@ -18,6 +18,7 @@
 		2C1E440E296DC7150000D015 /* Satoshi-Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 2C1E440B296DC6CC0000D015 /* Satoshi-Bold.otf */; };
 		2C1E440F296DC7150000D015 /* Satoshi-Medium.otf in Resources */ = {isa = PBXBuildFile; fileRef = 2C1E440C296DC6CC0000D015 /* Satoshi-Medium.otf */; };
 		2C1E4410296DC7150000D015 /* Satoshi-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = 2C1E440D296DC6CC0000D015 /* Satoshi-Regular.otf */; };
+		2C5816B2296EF6480054270D /* SubAdvantageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C5816B1296EF6480054270D /* SubAdvantageView.swift */; };
 		2CB8A694295D8AA7009A954E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CB8A693295D8AA7009A954E /* AppDelegate.swift */; };
 		2CB8A69D295D8AA7009A954E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2CB8A69C295D8AA7009A954E /* Assets.xcassets */; };
 		2CB8A6A0295D8AA7009A954E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2CB8A69E295D8AA7009A954E /* LaunchScreen.storyboard */; };
@@ -45,6 +46,7 @@
 		2C1E440B296DC6CC0000D015 /* Satoshi-Bold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Satoshi-Bold.otf"; sourceTree = "<group>"; };
 		2C1E440C296DC6CC0000D015 /* Satoshi-Medium.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Satoshi-Medium.otf"; sourceTree = "<group>"; };
 		2C1E440D296DC6CC0000D015 /* Satoshi-Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Satoshi-Regular.otf"; sourceTree = "<group>"; };
+		2C5816B1296EF6480054270D /* SubAdvantageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubAdvantageView.swift; sourceTree = "<group>"; };
 		2CB8A690295D8AA7009A954E /* AIApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AIApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2CB8A693295D8AA7009A954E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		2CB8A69C295D8AA7009A954E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -105,6 +107,7 @@
 		2C1E43F6296C07B80000D015 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				2C5816B0296EF59F0054270D /* Subview */,
 				2C1E43F7296C07DB0000D015 /* SubscriptionView.swift */,
 			);
 			path = View;
@@ -139,6 +142,14 @@
 				2C1E440D296DC6CC0000D015 /* Satoshi-Regular.otf */,
 			);
 			path = Satoshi;
+			sourceTree = "<group>";
+		};
+		2C5816B0296EF59F0054270D /* Subview */ = {
+			isa = PBXGroup;
+			children = (
+				2C5816B1296EF6480054270D /* SubAdvantageView.swift */,
+			);
+			path = Subview;
 			sourceTree = "<group>";
 		};
 		2CB8A687295D8AA7009A954E = {
@@ -463,6 +474,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				2CB8A6B7295D8B26009A954E /* ListCollectionContext+Dequeue.swift in Sources */,
+				2C5816B2296EF6480054270D /* SubAdvantageView.swift in Sources */,
 				2CB8A6C1295D9193009A954E /* R.generated.swift in Sources */,
 				2C1E43F8296C07DB0000D015 /* SubscriptionView.swift in Sources */,
 				2CB8A6B5295D8B26009A954E /* RootView.swift in Sources */,

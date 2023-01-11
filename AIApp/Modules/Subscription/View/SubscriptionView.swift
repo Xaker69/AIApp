@@ -70,6 +70,21 @@ class SubscriptionView: RootView {
         return label
     }()
     
+    lazy var advatageStack: UIStackView = {
+        let view = UIStackView(arrangedSubviews: [
+            SubAdvantageView(label: R.string.localizable.subscriptionFirstAdvatage()),
+            SubAdvantageView(label: R.string.localizable.subscriptionSecondAdvatage()),
+            SubAdvantageView(label: R.string.localizable.subscriptionThirdAdvatage()),
+            SubAdvantageView(label: R.string.localizable.subscriptionFourthAdvatage())
+        ])
+        view.distribution = .fillEqually
+        view.alignment = .leading
+        view.axis = .vertical
+        view.spacing = 8
+        
+        return view
+    }()
+    
     override func setup() {
         backgroundColor = .init(hex6: 0x0F0F0F)
         
@@ -79,6 +94,7 @@ class SubscriptionView: RootView {
         addSubview(buttonGradientView)
         addSubview(continueButton)
         addSubview(titleLabel)
+        addSubview(advatageStack)
         
         setupConstraints()
     }
@@ -147,6 +163,11 @@ class SubscriptionView: RootView {
         titleLabel.snp.makeConstraints { make in
             make.top.equalTo(closeButton.snp.bottom).offset(60.0)
             make.left.right.equalToSuperview()
+        }
+        
+        advatageStack.snp.makeConstraints { make in
+            make.left.right.equalToSuperview().inset(40.0)
+            make.top.equalTo(titleLabel.snp.bottom).offset(40.0)
         }
     }
 }

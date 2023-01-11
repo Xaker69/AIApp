@@ -12,3 +12,7 @@ subscription-restore = "Restore";
 subscription-privacy = "<all><terms href='https://xaker41.t.me'>Terms & Conditions</terms>・<privacy href='https://xaker41.t.me'>Privacy Policy</privacy>・<support href='https://xaker41.t.me'>Get Support</support></all>";
 subscription-continue = "Continue";
 subscription-title = "<all>Join the\n<color>Privilege</color> Club</all>";
+subscription-first-advatage = "Discount for all packs";
+subscription-second-advatage = "Add 2 additional avatars for free";
+subscription-third-advatage = "Free packs every month ";
+subscription-fourth-advatage = "Always ad-free";
