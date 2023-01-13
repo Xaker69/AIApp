@@ -85,6 +85,35 @@ class SubscriptionView: RootView {
         return view
     }()
     
+    let priceLabel: AttributedLabel = {
+        let label = AttributedLabel()
+        label.textAlignment = .center
+        
+        let price = Style("price")
+            .foregroundColor(.white)
+            .font(.satoshiFont(ofSize: 18, weight: .bold))
+        
+        label.attributedText = R.string.localizable.subscriptionPrice("$4.99 / per month").style(tags: [price])
+        
+        return label
+    }()
+    
+    let priceSubtitleLabel: UILabel = {
+        let label = UILabel()
+        label.textColor = .white.withAlphaComponent(0.4)
+        label.font = .interFont(ofSize: 13, weight: .medium)
+        label.textAlignment = .center
+        label.text = R.string.localizable.subscriptionPriceSubtitle()
+        
+        return label
+    }()
+    
+    let trialEnableView: TrialEnableView = {
+        let view = TrialEnableView()
+        
+        return view
+    }()
+    
     override func setup() {
         backgroundColor = .init(hex6: 0x0F0F0F)
         
@@ -95,6 +124,9 @@ class SubscriptionView: RootView {
         addSubview(continueButton)
         addSubview(titleLabel)
         addSubview(advatageStack)
+        addSubview(priceLabel)
+        addSubview(priceSubtitleLabel)
+        addSubview(trialEnableView)
         
         setupConstraints()
     }
@@ -103,31 +135,25 @@ class SubscriptionView: RootView {
         super.layoutSubviews()
         
         if buttonGradientView.bounds != .zero && !isGradientDidSet {
-            let gradientLayer = CAGradientLayer()
-            gradientLayer.colors = [
-                UIColor.init(hex6: 0x6495FF).cgColor,
-                UIColor.init(hex6: 0xC53EF4).cgColor,
-                UIColor.init(hex6: 0xFFA94B).cgColor,
-                UIColor.init(hex6: 0xFBD066).cgColor
-            ]
-            gradientLayer.frame = buttonGradientView.bounds
-            gradientLayer.startPoint = CGPoint(x: 0, y: 1)
-            gradientLayer.endPoint = CGPoint(x: 1, y: 1)
-            gradientLayer.cornerRadius = 13
-            gradientLayer.cornerCurve = .continuous
-
-            buttonGradientView.layer.insertSublayer(gradientLayer, at: 0)
+            setGradientBorder()
         }
     }
         
-    func setGradientBorder(for view: UIView, colors: [UIColor]) {
+    private func setGradientBorder() {
         let gradientLayer = CAGradientLayer()
-        gradientLayer.colors = colors.map { $0.cgColor }
-        gradientLayer.frame = view.bounds
+        gradientLayer.colors = [
+            UIColor.init(hex6: 0x6495FF).cgColor,
+            UIColor.init(hex6: 0xC53EF4).cgColor,
+            UIColor.init(hex6: 0xFFA94B).cgColor,
+            UIColor.init(hex6: 0xFBD066).cgColor
+        ]
+        gradientLayer.frame = buttonGradientView.bounds
         gradientLayer.startPoint = CGPoint(x: 0, y: 1)
         gradientLayer.endPoint = CGPoint(x: 1, y: 1)
+        gradientLayer.cornerRadius = 13
+        gradientLayer.cornerCurve = .continuous
 
-        view.layer.insertSublayer(gradientLayer, at: 0)
+        buttonGradientView.layer.insertSublayer(gradientLayer, at: 0)
     }
     
     private func setupConstraints() {
@@ -168,6 +194,22 @@ class SubscriptionView: RootView {
         advatageStack.snp.makeConstraints { make in
             make.left.right.equalToSuperview().inset(40.0)
             make.top.equalTo(titleLabel.snp.bottom).offset(40.0)
+        }
+        
+        priceLabel.snp.makeConstraints { make in
+            make.left.right.equalToSuperview()
+            make.top.equalTo(advatageStack.snp.bottom).offset(48.0)
+        }
+        
+        priceSubtitleLabel.snp.makeConstraints { make in
+            make.left.right.equalToSuperview()
+            make.top.equalTo(priceLabel.snp.bottom).offset(2.0)
+        }
+        
+        trialEnableView.snp.makeConstraints { make in
+            make.top.equalTo(priceSubtitleLabel.snp.bottom).offset(24.0)
+            make.left.right.equalToSuperview().inset(20.0)
+            make.height.equalTo(78.0)
         }
     }
 }

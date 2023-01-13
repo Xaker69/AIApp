@@ -1,4 +1,3 @@
-import AWSS3
 import FirebaseStorage
 
 class CloudManager {

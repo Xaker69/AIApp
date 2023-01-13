@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		02B18A701BE16C19A2D82B04 /* Pods_AIApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AF8C43EAB52FFFA6CCD9996D /* Pods_AIApp.framework */; };
+		2C06FE11297183600013DD5C /* TrialEnableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C06FE10297183600013DD5C /* TrialEnableView.swift */; };
 		2C1E43F8296C07DB0000D015 /* SubscriptionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C1E43F7296C07DB0000D015 /* SubscriptionView.swift */; };
 		2C1E43FA296C08100000D015 /* SubscriptionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C1E43F9296C08100000D015 /* SubscriptionViewController.swift */; };
 		2C1E4401296C8DF00000D015 /* Inter-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 2C1E43FE296C8D840000D015 /* Inter-Bold.ttf */; };
@@ -31,10 +33,11 @@
 		2CB8A6C5295D965E009A954E /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 2CB8A6C7295D965E009A954E /* Localizable.strings */; };
 		2CB8A7192969A755009A954E /* CloudManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CB8A7182969A755009A954E /* CloudManager.swift */; };
 		2CB8A7572969BE68009A954E /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2CB8A7562969BE68009A954E /* GoogleService-Info.plist */; };
-		A38DFDA7966CD1A4B3CB31F6 /* Pods_AIApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 898E6A24F2F96D409C50EAD8 /* Pods_AIApp.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		0553871B9C02B049E6A2F04E /* Pods-AIApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AIApp.debug.xcconfig"; path = "Target Support Files/Pods-AIApp/Pods-AIApp.debug.xcconfig"; sourceTree = "<group>"; };
+		2C06FE10297183600013DD5C /* TrialEnableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrialEnableView.swift; sourceTree = "<group>"; };
 		2C1E43F7296C07DB0000D015 /* SubscriptionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubscriptionView.swift; sourceTree = "<group>"; };
 		2C1E43F9296C08100000D015 /* SubscriptionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubscriptionViewController.swift; sourceTree = "<group>"; };
 		2C1E43FC296C8D840000D015 /* Inter-SemiBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Inter-SemiBold.ttf"; sourceTree = "<group>"; };
@@ -61,9 +64,8 @@
 		2CB8A6C6295D965E009A954E /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		2CB8A7182969A755009A954E /* CloudManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CloudManager.swift; sourceTree = "<group>"; };
 		2CB8A7562969BE68009A954E /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
-		3F14C7F0519D2ECAD0A27451 /* Pods-AIApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AIApp.debug.xcconfig"; path = "Target Support Files/Pods-AIApp/Pods-AIApp.debug.xcconfig"; sourceTree = "<group>"; };
-		59B890C0393326A4F7AFDA71 /* Pods-AIApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AIApp.release.xcconfig"; path = "Target Support Files/Pods-AIApp/Pods-AIApp.release.xcconfig"; sourceTree = "<group>"; };
-		898E6A24F2F96D409C50EAD8 /* Pods_AIApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_AIApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		64AAA940E3536886A6CAF388 /* Pods-AIApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AIApp.release.xcconfig"; path = "Target Support Files/Pods-AIApp/Pods-AIApp.release.xcconfig"; sourceTree = "<group>"; };
+		AF8C43EAB52FFFA6CCD9996D /* Pods_AIApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_AIApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -71,26 +73,18 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A38DFDA7966CD1A4B3CB31F6 /* Pods_AIApp.framework in Frameworks */,
+				02B18A701BE16C19A2D82B04 /* Pods_AIApp.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		0A3A1E210241F7D7F5F4824D /* Frameworks */ = {
-			isa = PBXGroup;
-			children = (
-				898E6A24F2F96D409C50EAD8 /* Pods_AIApp.framework */,
-			);
-			name = Frameworks;
-			sourceTree = "<group>";
-		};
 		2653B8C5CC6BDED613625B79 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				3F14C7F0519D2ECAD0A27451 /* Pods-AIApp.debug.xcconfig */,
-				59B890C0393326A4F7AFDA71 /* Pods-AIApp.release.xcconfig */,
+				0553871B9C02B049E6A2F04E /* Pods-AIApp.debug.xcconfig */,
+				64AAA940E3536886A6CAF388 /* Pods-AIApp.release.xcconfig */,
 			);
 			path = Pods;
 			sourceTree = "<group>";
@@ -148,8 +142,17 @@
 			isa = PBXGroup;
 			children = (
 				2C5816B1296EF6480054270D /* SubAdvantageView.swift */,
+				2C06FE10297183600013DD5C /* TrialEnableView.swift */,
 			);
 			path = Subview;
+			sourceTree = "<group>";
+		};
+		2C659577CAB522526F09E771 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				AF8C43EAB52FFFA6CCD9996D /* Pods_AIApp.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 		2CB8A687295D8AA7009A954E = {
@@ -159,7 +162,7 @@
 				2CB8A692295D8AA7009A954E /* AIApp */,
 				2CB8A691295D8AA7009A954E /* Products */,
 				2653B8C5CC6BDED613625B79 /* Pods */,
-				0A3A1E210241F7D7F5F4824D /* Frameworks */,
+				2C659577CAB522526F09E771 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -336,12 +339,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 2CB8A6A4295D8AA7009A954E /* Build configuration list for PBXNativeTarget "AIApp" */;
 			buildPhases = (
-				FE7E98B82AE277FB3D539DDA /* [CP] Check Pods Manifest.lock */,
+				4FD5100258F769FB36535BC4 /* [CP] Check Pods Manifest.lock */,
 				2CB8A6BF295D9118009A954E /* ShellScript */,
 				2CB8A68C295D8AA7009A954E /* Sources */,
 				2CB8A68D295D8AA7009A954E /* Frameworks */,
 				2CB8A68E295D8AA7009A954E /* Resources */,
-				67DBA7FA7C78B1744281E2DC /* [CP] Embed Pods Frameworks */,
+				7A8C23424FC75D2F800950C7 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -427,24 +430,7 @@
 			shellPath = /bin/sh;
 			shellScript = "\"$PODS_ROOT/R.swift/rswift\" generate \"$SRCROOT/R.generated.swift\"\n";
 		};
-		67DBA7FA7C78B1744281E2DC /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-AIApp/Pods-AIApp-frameworks-${CONFIGURATION}-input-files.xcfilelist",
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-AIApp/Pods-AIApp-frameworks-${CONFIGURATION}-output-files.xcfilelist",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-AIApp/Pods-AIApp-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		FE7E98B82AE277FB3D539DDA /* [CP] Check Pods Manifest.lock */ = {
+		4FD5100258F769FB36535BC4 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -466,6 +452,23 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
+		7A8C23424FC75D2F800950C7 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-AIApp/Pods-AIApp-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-AIApp/Pods-AIApp-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-AIApp/Pods-AIApp-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -483,6 +486,7 @@
 				2C1E43FA296C08100000D015 /* SubscriptionViewController.swift in Sources */,
 				2CB8A6B6295D8B26009A954E /* UIIColor+hex.swift in Sources */,
 				2C1E4408296C8E530000D015 /* UIFont+Custom.swift in Sources */,
+				2C06FE11297183600013DD5C /* TrialEnableView.swift in Sources */,
 				2CB8A694295D8AA7009A954E /* AppDelegate.swift in Sources */,
 				2CB8A7192969A755009A954E /* CloudManager.swift in Sources */,
 			);
@@ -626,57 +630,69 @@
 		};
 		2CB8A6A5295D8AA7009A954E /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 3F14C7F0519D2ECAD0A27451 /* Pods-AIApp.debug.xcconfig */;
+			baseConfigurationReference = 0553871B9C02B049E6A2F04E /* Pods-AIApp.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
+				CURRENT_PROJECT_VERSION = 2;
 				DEVELOPMENT_TEAM = N422RJM586;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "AIApp/Supporting files/Info.plist";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UIRequiresFullScreen = NO;
+				INFOPLIST_KEY_UIStatusBarStyle = UIStatusBarStyleLightContent;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0;
+				MARKETING_VERSION = 0.0.1;
 				PRODUCT_BUNDLE_IDENTIFIER = org.xaker.AIApp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
 		2CB8A6A6295D8AA7009A954E /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 59B890C0393326A4F7AFDA71 /* Pods-AIApp.release.xcconfig */;
+			baseConfigurationReference = 64AAA940E3536886A6CAF388 /* Pods-AIApp.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
+				CURRENT_PROJECT_VERSION = 2;
 				DEVELOPMENT_TEAM = N422RJM586;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "AIApp/Supporting files/Info.plist";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UIRequiresFullScreen = NO;
+				INFOPLIST_KEY_UIStatusBarStyle = UIStatusBarStyleLightContent;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0;
+				MARKETING_VERSION = 0.0.1;
 				PRODUCT_BUNDLE_IDENTIFIER = org.xaker.AIApp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
