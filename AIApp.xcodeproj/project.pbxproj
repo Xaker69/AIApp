@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		02B18A701BE16C19A2D82B04 /* Pods_AIApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AF8C43EAB52FFFA6CCD9996D /* Pods_AIApp.framework */; };
 		2C06FE11297183600013DD5C /* TrialEnableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C06FE10297183600013DD5C /* TrialEnableView.swift */; };
+		2C06FE1A2971A25C0013DD5C /* AddAvatarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C06FE192971A25C0013DD5C /* AddAvatarView.swift */; };
+		2C06FE1C2971A4CF0013DD5C /* AddAvatarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C06FE1B2971A4CF0013DD5C /* AddAvatarViewController.swift */; };
 		2C1E43F8296C07DB0000D015 /* SubscriptionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C1E43F7296C07DB0000D015 /* SubscriptionView.swift */; };
 		2C1E43FA296C08100000D015 /* SubscriptionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C1E43F9296C08100000D015 /* SubscriptionViewController.swift */; };
 		2C1E4401296C8DF00000D015 /* Inter-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 2C1E43FE296C8D840000D015 /* Inter-Bold.ttf */; };
@@ -38,6 +40,8 @@
 /* Begin PBXFileReference section */
 		0553871B9C02B049E6A2F04E /* Pods-AIApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AIApp.debug.xcconfig"; path = "Target Support Files/Pods-AIApp/Pods-AIApp.debug.xcconfig"; sourceTree = "<group>"; };
 		2C06FE10297183600013DD5C /* TrialEnableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrialEnableView.swift; sourceTree = "<group>"; };
+		2C06FE192971A25C0013DD5C /* AddAvatarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddAvatarView.swift; sourceTree = "<group>"; };
+		2C06FE1B2971A4CF0013DD5C /* AddAvatarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddAvatarViewController.swift; sourceTree = "<group>"; };
 		2C1E43F7296C07DB0000D015 /* SubscriptionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubscriptionView.swift; sourceTree = "<group>"; };
 		2C1E43F9296C08100000D015 /* SubscriptionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubscriptionViewController.swift; sourceTree = "<group>"; };
 		2C1E43FC296C8D840000D015 /* Inter-SemiBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Inter-SemiBold.ttf"; sourceTree = "<group>"; };
@@ -87,6 +91,63 @@
 				64AAA940E3536886A6CAF388 /* Pods-AIApp.release.xcconfig */,
 			);
 			path = Pods;
+			sourceTree = "<group>";
+		};
+		2C06FE122971A15F0013DD5C /* CreateAvatar */ = {
+			isa = PBXGroup;
+			children = (
+				2C06FE172971A2330013DD5C /* AddAvatar */,
+				2C06FE132971A1720013DD5C /* UploadPhotos */,
+				2C06FE142971A17E0013DD5C /* SelectGender */,
+				2C06FE152971A2090013DD5C /* Name */,
+				2C06FE162971A2190013DD5C /* ChoosePack */,
+			);
+			path = CreateAvatar;
+			sourceTree = "<group>";
+		};
+		2C06FE132971A1720013DD5C /* UploadPhotos */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = UploadPhotos;
+			sourceTree = "<group>";
+		};
+		2C06FE142971A17E0013DD5C /* SelectGender */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = SelectGender;
+			sourceTree = "<group>";
+		};
+		2C06FE152971A2090013DD5C /* Name */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Name;
+			sourceTree = "<group>";
+		};
+		2C06FE162971A2190013DD5C /* ChoosePack */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ChoosePack;
+			sourceTree = "<group>";
+		};
+		2C06FE172971A2330013DD5C /* AddAvatar */ = {
+			isa = PBXGroup;
+			children = (
+				2C06FE182971A2460013DD5C /* View */,
+				2C06FE1B2971A4CF0013DD5C /* AddAvatarViewController.swift */,
+			);
+			path = AddAvatar;
+			sourceTree = "<group>";
+		};
+		2C06FE182971A2460013DD5C /* View */ = {
+			isa = PBXGroup;
+			children = (
+				2C06FE192971A25C0013DD5C /* AddAvatarView.swift */,
+			);
+			path = View;
 			sourceTree = "<group>";
 		};
 		2C1E43F5296C079D0000D015 /* Subscription */ = {
@@ -197,6 +258,7 @@
 		2CB8A6A8295D8AF3009A954E /* Modules */ = {
 			isa = PBXGroup;
 			children = (
+				2C06FE122971A15F0013DD5C /* CreateAvatar */,
 				2C1E43F5296C079D0000D015 /* Subscription */,
 				2CB8A6B9295D8FF4009A954E /* Onboarding */,
 			);
@@ -483,7 +545,9 @@
 				2CB8A6B5295D8B26009A954E /* RootView.swift in Sources */,
 				2CB8A6BC295D9041009A954E /* OnboardingViewController.swift in Sources */,
 				2CB8A6BE295D9063009A954E /* OnboardingView.swift in Sources */,
+				2C06FE1A2971A25C0013DD5C /* AddAvatarView.swift in Sources */,
 				2C1E43FA296C08100000D015 /* SubscriptionViewController.swift in Sources */,
+				2C06FE1C2971A4CF0013DD5C /* AddAvatarViewController.swift in Sources */,
 				2CB8A6B6295D8B26009A954E /* UIIColor+hex.swift in Sources */,
 				2C1E4408296C8E530000D015 /* UIFont+Custom.swift in Sources */,
 				2C06FE11297183600013DD5C /* TrialEnableView.swift in Sources */,

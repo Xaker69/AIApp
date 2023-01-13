@@ -12,7 +12,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         FirebaseApp.configure()
                 
         window = UIWindow(frame: UIScreen.main.bounds)
-        window?.rootViewController = SubscriptionViewController()
+        window?.rootViewController = AddAvatarViewController()
         window?.makeKeyAndVisible()
         
         return true

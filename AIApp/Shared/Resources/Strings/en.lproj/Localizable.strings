@@ -22,3 +22,7 @@ subscription-price-subtitle = "Auto-renewable. Cancel anytime";
 subscription-enable-trial-title = "Wanna explore first?";
 subscription-enable-trial-subtitle = "Enable free trial";
 subscription-trial-enabled = "Free trial enabled";
+
+// Add avatar
+add-avatar-title = "Add avatar";
+add-avatar-subtitle = "Create a workspace for the new avatar";
