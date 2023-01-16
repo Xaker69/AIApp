@@ -2,9 +2,13 @@ import UIKit
 
 class SubAdvantageView: RootView {
 
+    enum ImageType {
+        case green
+        case red
+    }
+    
     let imageView: UIImageView = {
         let view = UIImageView()
-        view.image = R.image.subStar()
         
         return view
     }()
@@ -18,10 +22,19 @@ class SubAdvantageView: RootView {
         return label
     }()
     
-    init(label text: String) {
+    init(type: ImageType = .green, label text: String, imageTint color: UIColor? = .green) {
         super.init(frame: .zero)
         
         titleLabel.text = text
+    
+        switch type {
+        case .green:
+            imageView.tintColor = color
+            imageView.image = R.image.starGood()
+            
+        case .red:
+            imageView.image = R.image.starBad()
+        }
     }
     
     required init?(coder: NSCoder) {

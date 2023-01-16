@@ -6,6 +6,7 @@ enum InterFontWeight: String {
     case medium = "-Medium"
     case regular = "-Regular"
     case semiBold = "-SemiBold"
+    case black = "-Black"
 }
 
 extension UIFont {

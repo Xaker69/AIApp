@@ -32,7 +32,19 @@ class SubscriptionView: RootView {
             .foregroundColor(.white.withAlphaComponent(0.4))
             .font(.interFont(ofSize: 12, weight: .medium))
         
-        label.attributedText = R.string.localizable.subscriptionPrivacy().style(tags: [all, Style("privacy"), Style("privacy"), Style("support")])
+        let terms = Style("terms")
+            .foregroundColor(.white.withAlphaComponent(0.4), .normal)
+            .foregroundColor(.white.withAlphaComponent(0.4), .highlighted)
+        
+        let privacy = Style("privacy")
+            .foregroundColor(.white.withAlphaComponent(0.4), .normal)
+            .foregroundColor(.white.withAlphaComponent(0.4), .highlighted)
+        
+        let support = Style("support")
+            .foregroundColor(.white.withAlphaComponent(0.4), .normal)
+            .foregroundColor(.white.withAlphaComponent(0.4), .highlighted)
+        
+        label.attributedText = R.string.localizable.subscriptionPrivacy().style(tags: [all, terms, privacy, support])
         
         return label
     }()
@@ -72,10 +84,10 @@ class SubscriptionView: RootView {
     
     lazy var advatageStack: UIStackView = {
         let view = UIStackView(arrangedSubviews: [
-            SubAdvantageView(label: R.string.localizable.subscriptionFirstAdvatage()),
-            SubAdvantageView(label: R.string.localizable.subscriptionSecondAdvatage()),
-            SubAdvantageView(label: R.string.localizable.subscriptionThirdAdvatage()),
-            SubAdvantageView(label: R.string.localizable.subscriptionFourthAdvatage())
+            SubAdvantageView(label: R.string.localizable.subscriptionFirstAdvatage(), imageTint: .init(hex6: 0x70E99F)),
+            SubAdvantageView(label: R.string.localizable.subscriptionSecondAdvatage(), imageTint: .init(hex6: 0x70E99F)),
+            SubAdvantageView(label: R.string.localizable.subscriptionThirdAdvatage(), imageTint: .init(hex6: 0x70E99F)),
+            SubAdvantageView(label: R.string.localizable.subscriptionFourthAdvatage(), imageTint: .init(hex6: 0x70E99F))
         ])
         view.distribution = .fillEqually
         view.alignment = .leading

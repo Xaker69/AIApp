@@ -11,8 +11,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         FirebaseApp.configure()
                 
+        let navVc = UINavigationController(rootViewController: OnboardingViewController())
+        navVc.isNavigationBarHidden = true
+        
         window = UIWindow(frame: UIScreen.main.bounds)
-        window?.rootViewController = AddAvatarViewController()
+        window?.rootViewController = navVc
         window?.makeKeyAndVisible()
         
         return true

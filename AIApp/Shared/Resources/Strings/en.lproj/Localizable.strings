@@ -1,4 +1,7 @@
-//Onboardig
+// Common
+create-avatar-step = "Step %@ of 4";
+
+// Onboardig
 
 onboarding-privacy = "<all>By getting started I agree with\n<terms href='https://xaker41.t.me'>Terms of Use</terms> and <privacy href='https://xaker41.t.me'>Privacy Policy</privacy></all>";
 onboarding-start-button = "Get started";
@@ -26,3 +29,24 @@ subscription-trial-enabled = "Free trial enabled";
 // Add avatar
 add-avatar-title = "Add avatar";
 add-avatar-subtitle = "Create a workspace for the new avatar";
+
+// Upload photos
+upload-photos-title = "Upload photos";
+upload-photos-subtitle = "The final result will highly depend on\nhow strictly you follow the requirements.";
+upload-photos-button = "Upload 15-20 photos";
+upload-photos-good-recommend-first = "From 10 to 20 selfies";
+upload-photos-good-recommend-second = "Same person on all photos";
+upload-photos-good-recommend-third = "Variety of head angles";
+upload-photos-good-recommend-fourth = "Variety of face expressions";
+upload-photos-bad-recommend-fitst = "No nudes";
+upload-photos-bad-recommend-second = "No kids, adults only";
+upload-photos-privacy = "<all>I agree with <privacy href='https://xaker41.t.me'>Privacy Policy</privacy> and <terms href='https://xaker41.t.me'>Terms of Use</terms></all>";
+
+// Select Gender
+select-gender-title = "Select gender";
+select-gender-female = "Female";
+select-gender-male = "Male";
+
+// Create name
+create-name-title = "Name";
+create-name-button = "Continue";

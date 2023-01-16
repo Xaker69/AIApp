@@ -1,6 +1,7 @@
 import UIKit
 import StoreKit
 import Atributika
+import SafariServices
 
 class SubscriptionViewController: UIViewController {
     
@@ -25,6 +26,10 @@ class SubscriptionViewController: UIViewController {
         productsRequest.start()
         
         mainView.trialEnableView.switcher.addTarget(self, action: #selector(switcherDidChanged), for: .valueChanged)
+        mainView.closeButton.addTarget(self, action: #selector(closeButtonTapped), for: .touchUpInside)
+        mainView.continueButton.addTarget(self, action: #selector(continueButtonTapped), for: .touchUpInside)
+        
+        setupClicablePrivacy()
     }
     
     @objc private func switcherDidChanged(_ sender: UISwitch) {
@@ -42,7 +47,27 @@ class SubscriptionViewController: UIViewController {
             mainView.priceLabel.attributedText = R.string.localizable.subscriptionPrice("$4.99 / per month").style(tags: [price])
         }
     }
+    
+    @objc private func continueButtonTapped() {
+        dismiss(animated: true)
+    }
+    
+    @objc private func closeButtonTapped() {
+        dismiss(animated: true)
+    }
 
+    private func setupClicablePrivacy() {
+        mainView.privacyLabel.onClick = { [weak self] label, detection in
+            switch detection.type {
+            case let .tag(tag):
+                if let href = tag.attributes["href"], let url = URL(string: href) {
+                    self?.present(SFSafariViewController(url: url), animated: true)
+                }
+            default:
+                break
+            }
+        }
+    }
 }
 
 // MARK: - SKProductsRequestDelegate

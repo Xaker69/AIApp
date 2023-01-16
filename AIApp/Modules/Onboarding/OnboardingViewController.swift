@@ -25,15 +25,14 @@ class OnboardingViewController: UIViewController {
         mainView.startButton.addTarget(self, action: #selector(startButtonTapped), for: .touchUpInside)
         
         loadImage()
+        setupClicablePrivacy()
     }
     
     // MARK: Private actions
     
     @objc private func startButtonTapped() {
-        let vc = SubscriptionViewController()
-        vc.modalPresentationStyle = .fullScreen
-        
-        present(vc, animated: true)
+        let vc = AddAvatarViewController()
+        navigationController?.pushViewController(vc, animated: true)
     }
     
     // MARK: Private methods
@@ -44,7 +43,7 @@ class OnboardingViewController: UIViewController {
         }
     }
     
-    private func setupSubtitle() {
+    private func setupClicablePrivacy() {
         mainView.privacyLabel.onClick = { [weak self] label, detection in
             switch detection.type {
             case let .tag(tag):

@@ -39,7 +39,8 @@ class AddAvatarView: RootView {
     }()
     
     override func setup() {
-       
+        backgroundColor = .init(hex6: 0x0F0F0F)
+        
         addSubview(backButton)
         addSubview(titleLabel)
         addSubview(subtitleLabel)
