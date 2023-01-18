@@ -21,6 +21,8 @@ class UploadPhotosViewController: UIViewController {
         setupClicablePrivacy()
     }
     
+    // MARK: - Private actions
+    
     @objc private func backButtonTapped() {
         navigationController?.popViewController(animated: true)
     }
@@ -36,6 +38,8 @@ class UploadPhotosViewController: UIViewController {
         let vc = SelectGenderViewController()
         navigationController?.pushViewController(vc, animated: true)
     }
+    
+    // MARK: - Private methods
 
     private func setupClicablePrivacy() {
         mainView.privacyLabel.onClick = { [weak self] label, detection in

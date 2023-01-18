@@ -1,6 +1,6 @@
 import UIKit
 
-class CreateNameView: RootView {
+class ChoosePackView: RootView {
 
     let backButton: UIButton = {
         let button = UIButton(type: .system)
@@ -12,7 +12,7 @@ class CreateNameView: RootView {
     
     let stepLabel: UILabel = {
         let label = UILabel()
-        label.text = R.string.localizable.createAvatarStep("3")
+        label.text = R.string.localizable.createAvatarStep("4")
         label.font = .interFont(ofSize: 15, weight: .bold)
         label.textColor = .white
         label.textAlignment = .center
@@ -22,7 +22,7 @@ class CreateNameView: RootView {
     
     let titleLabel: UILabel = {
         let label = UILabel()
-        label.text = R.string.localizable.createNameTitle()
+        label.text = R.string.localizable.choosePackTitle()
         label.font = .satoshiFont(ofSize: 24, weight: .bold)
         label.textColor = .white
         label.textAlignment = .center
@@ -32,27 +32,13 @@ class CreateNameView: RootView {
     
     let continueButton: UIButton = {
         let button = UIButton(type: .system)
-        button.setTitle(R.string.localizable.createNameButton(), for: .normal)
+        button.setTitle(R.string.localizable.choosePackButton(), for: .normal)
         button.setTitleColor(.black, for: .normal)
         button.titleLabel?.font = .interFont(ofSize: 15, weight: .bold)
         button.layer.cornerRadius = 10
         button.backgroundColor = .white
-        button.alpha = 0.1
-        button.isEnabled = false
         
         return button
-    }()
-    
-    let textField: UITextField = {
-        let field = UITextField()
-        field.font = .satoshiFont(ofSize: 24, weight: .black)
-        field.tintColor = .init(hex6: 0xA851FF)
-        field.textAlignment = .center
-        field.textColor = .white
-        field.keyboardAppearance = .dark
-        field.autocorrectionType = .no
-        
-        return field
     }()
     
     override func setup() {
@@ -62,7 +48,6 @@ class CreateNameView: RootView {
         addSubview(stepLabel)
         addSubview(titleLabel)
         addSubview(continueButton)
-        addSubview(textField)
         
         setupConstraints()
     }
@@ -88,13 +73,7 @@ class CreateNameView: RootView {
             make.left.right.equalToSuperview().inset(20.0)
             make.height.equalTo(56.0)
             make.bottom.equalTo(safeAreaLayoutGuide.snp.bottom).offset(-16.0)
-        }
-        
-        textField.snp.makeConstraints { make in
-            make.left.right.equalToSuperview().inset(30.0)
-            make.top.equalTo(titleLabel.snp.bottom).offset(65.0)
-            make.height.equalTo(35.0)
-        }
+        }        
     }
 
 }

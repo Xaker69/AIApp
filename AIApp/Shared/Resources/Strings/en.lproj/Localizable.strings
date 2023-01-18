@@ -50,3 +50,8 @@ select-gender-male = "Male";
 // Create name
 create-name-title = "Name";
 create-name-button = "Continue";
+
+// Choose Pack
+choose-pack-title = "Choose pack";
+choose-pack-button = "Continue";
+

@@ -32,6 +32,8 @@ class SubscriptionViewController: UIViewController {
         setupClicablePrivacy()
     }
     
+    // MARK: - Private actions
+    
     @objc private func switcherDidChanged(_ sender: UISwitch) {
         let price = Style("price")
             .foregroundColor(.white)
@@ -55,6 +57,8 @@ class SubscriptionViewController: UIViewController {
     @objc private func closeButtonTapped() {
         dismiss(animated: true)
     }
+    
+    // MARK: - Private methods
 
     private func setupClicablePrivacy() {
         mainView.privacyLabel.onClick = { [weak self] label, detection in

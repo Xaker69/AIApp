@@ -23,6 +23,8 @@ class AddAvatarViewController: UIViewController {
         presentSubscriptionVC()
     }
     
+    // MARK: - Private actions
+    
     @objc private func addButtonTapped() {
         let vc = UploadPhotosViewController()
         navigationController?.pushViewController(vc, animated: true)
@@ -31,6 +33,8 @@ class AddAvatarViewController: UIViewController {
     @objc private func backButtonTapped() {
         navigationController?.popViewController(animated: true)
     }
+    
+    // MARK: - Private methods
     
     private func presentSubscriptionVC() {
         let vc = SubscriptionViewController()

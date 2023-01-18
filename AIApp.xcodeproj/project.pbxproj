@@ -30,6 +30,9 @@
 		2C954FD72975E7C500D8881B /* CreateNameView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C954FD62975E7C500D8881B /* CreateNameView.swift */; };
 		2C954FD92975E85600D8881B /* CreateNameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C954FD82975E85600D8881B /* CreateNameViewController.swift */; };
 		2C954FDB2975EA8900D8881B /* Satoshi-Black.otf in Resources */ = {isa = PBXBuildFile; fileRef = 2C954FDA2975EA6500D8881B /* Satoshi-Black.otf */; };
+		2C9BEB2E2976C41A00202D54 /* RootNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C9BEB2D2976C41A00202D54 /* RootNavigationController.swift */; };
+		2C9BEB312976CD5900202D54 /* ChoosePackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C9BEB302976CD5900202D54 /* ChoosePackView.swift */; };
+		2C9BEB332976CD8400202D54 /* ChoosePackViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C9BEB322976CD8400202D54 /* ChoosePackViewController.swift */; };
 		2CB8A694295D8AA7009A954E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CB8A693295D8AA7009A954E /* AppDelegate.swift */; };
 		2CB8A69D295D8AA7009A954E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2CB8A69C295D8AA7009A954E /* Assets.xcassets */; };
 		2CB8A6A0295D8AA7009A954E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2CB8A69E295D8AA7009A954E /* LaunchScreen.storyboard */; };
@@ -68,6 +71,9 @@
 		2C954FD62975E7C500D8881B /* CreateNameView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateNameView.swift; sourceTree = "<group>"; };
 		2C954FD82975E85600D8881B /* CreateNameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateNameViewController.swift; sourceTree = "<group>"; };
 		2C954FDA2975EA6500D8881B /* Satoshi-Black.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Satoshi-Black.otf"; sourceTree = "<group>"; };
+		2C9BEB2D2976C41A00202D54 /* RootNavigationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RootNavigationController.swift; sourceTree = "<group>"; };
+		2C9BEB302976CD5900202D54 /* ChoosePackView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChoosePackView.swift; sourceTree = "<group>"; };
+		2C9BEB322976CD8400202D54 /* ChoosePackViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChoosePackViewController.swift; sourceTree = "<group>"; };
 		2CB8A690295D8AA7009A954E /* AIApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AIApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2CB8A693295D8AA7009A954E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		2CB8A69C295D8AA7009A954E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -149,6 +155,8 @@
 		2C06FE162971A2190013DD5C /* ChoosePack */ = {
 			isa = PBXGroup;
 			children = (
+				2C9BEB2F2976CD4200202D54 /* View */,
+				2C9BEB322976CD8400202D54 /* ChoosePackViewController.swift */,
 			);
 			path = ChoosePack;
 			sourceTree = "<group>";
@@ -260,6 +268,30 @@
 			path = View;
 			sourceTree = "<group>";
 		};
+		2C9BEB2A2976C3DD00202D54 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				2C9BEB2C2976C41A00202D54 /* NavigationController */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
+		2C9BEB2C2976C41A00202D54 /* NavigationController */ = {
+			isa = PBXGroup;
+			children = (
+				2C9BEB2D2976C41A00202D54 /* RootNavigationController.swift */,
+			);
+			path = NavigationController;
+			sourceTree = "<group>";
+		};
+		2C9BEB2F2976CD4200202D54 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				2C9BEB302976CD5900202D54 /* ChoosePackView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
 		2CB8A687295D8AA7009A954E = {
 			isa = PBXGroup;
 			children = (
@@ -340,6 +372,7 @@
 		2CB8A6AC295D8B26009A954E /* UI */ = {
 			isa = PBXGroup;
 			children = (
+				2C9BEB2A2976C3DD00202D54 /* Controllers */,
 				2CB8A6AD295D8B26009A954E /* Views */,
 			);
 			path = UI;
@@ -587,6 +620,8 @@
 				2CB8A6B7295D8B26009A954E /* ListCollectionContext+Dequeue.swift in Sources */,
 				2C5816B2296EF6480054270D /* SubAdvantageView.swift in Sources */,
 				2C954FD42975DDD600D8881B /* SelectGenderView.swift in Sources */,
+				2C9BEB312976CD5900202D54 /* ChoosePackView.swift in Sources */,
+				2C9BEB2E2976C41A00202D54 /* RootNavigationController.swift in Sources */,
 				2CB8A6C1295D9193009A954E /* R.generated.swift in Sources */,
 				2C1E43F8296C07DB0000D015 /* SubscriptionView.swift in Sources */,
 				2CB8A6B5295D8B26009A954E /* RootView.swift in Sources */,
@@ -598,6 +633,7 @@
 				2C954FCF2971AA3F00D8881B /* UploadPhotosViewController.swift in Sources */,
 				2C06FE1C2971A4CF0013DD5C /* AddAvatarViewController.swift in Sources */,
 				2CB8A6B6295D8B26009A954E /* UIIColor+hex.swift in Sources */,
+				2C9BEB332976CD8400202D54 /* ChoosePackViewController.swift in Sources */,
 				2C954FD22975DD5F00D8881B /* SelectGenderViewController.swift in Sources */,
 				2C1E4408296C8E530000D015 /* UIFont+Custom.swift in Sources */,
 				2C06FE11297183600013DD5C /* TrialEnableView.swift in Sources */,
@@ -755,9 +791,12 @@
 				DEVELOPMENT_TEAM = N422RJM586;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "AIApp/Supporting files/Info.plist";
+				INFOPLIST_KEY_CFBundleDisplayName = "AI Photo";
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.photography";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIRequiresFullScreen = NO;
+				INFOPLIST_KEY_UIStatusBarHidden = YES;
 				INFOPLIST_KEY_UIStatusBarStyle = UIStatusBarStyleLightContent;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
@@ -789,9 +828,12 @@
 				DEVELOPMENT_TEAM = N422RJM586;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "AIApp/Supporting files/Info.plist";
+				INFOPLIST_KEY_CFBundleDisplayName = "AI Photo";
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.photography";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIRequiresFullScreen = NO;
+				INFOPLIST_KEY_UIStatusBarHidden = YES;
 				INFOPLIST_KEY_UIStatusBarStyle = UIStatusBarStyleLightContent;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
