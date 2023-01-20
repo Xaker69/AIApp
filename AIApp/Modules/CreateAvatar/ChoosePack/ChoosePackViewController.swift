@@ -71,6 +71,12 @@ extension ChoosePackViewController: UICollectionViewDelegate, UICollectionViewDa
         return cell
     }
     
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let vc = PackDescriptionViewController()
+        
+        navigationController?.pushViewController(vc, animated: true)
+    }
+    
     func scrollViewWillBeginDragging(_ scrollView: UIScrollView) {
         indexOfCellBeforeDragging = indexOfMajorCell()
     }
@@ -81,7 +87,7 @@ extension ChoosePackViewController: UICollectionViewDelegate, UICollectionViewDa
         
         // calculate where scrollView should snap to:
         let indexOfMajorCell = self.indexOfMajorCell()
-        print("💚", indexOfMajorCell)
+        
         // calculate conditions:
         let swipeVelocityThreshold: CGFloat = 0.5 // after some trail and error
         let hasEnoughVelocityToSlideToTheNextCell = indexOfCellBeforeDragging + 1 < dataSource.count && velocity.x > swipeVelocityThreshold

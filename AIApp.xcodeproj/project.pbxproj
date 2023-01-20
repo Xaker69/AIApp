@@ -35,6 +35,16 @@
 		2C9BEB332976CD8400202D54 /* ChoosePackViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C9BEB322976CD8400202D54 /* ChoosePackViewController.swift */; };
 		2C9BEB362978370900202D54 /* PagingFlowLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C9BEB352978370900202D54 /* PagingFlowLayout.swift */; };
 		2C9BEB392978380F00202D54 /* ChoosePackCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C9BEB382978380F00202D54 /* ChoosePackCell.swift */; };
+		2C9BEB3D297A9FC100202D54 /* PackDescriptionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C9BEB3C297A9FC100202D54 /* PackDescriptionView.swift */; };
+		2C9BEB3F297AA02C00202D54 /* PackDescriptionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C9BEB3E297AA02C00202D54 /* PackDescriptionViewController.swift */; };
+		2C9BEB42297AAE4C00202D54 /* PackAdvantageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C9BEB41297AAE4C00202D54 /* PackAdvantageView.swift */; };
+		2C9BEB46297AB13F00202D54 /* PackImageExampleModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C9BEB45297AB13F00202D54 /* PackImageExampleModel.swift */; };
+		2C9BEB48297AB23300202D54 /* PackImageExampleSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C9BEB47297AB23300202D54 /* PackImageExampleSection.swift */; };
+		2C9BEB4B297AB46500202D54 /* PackImageExampleCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C9BEB4A297AB46500202D54 /* PackImageExampleCell.swift */; };
+		2C9BEB4D297ABB5D00202D54 /* PackDescriptionHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C9BEB4C297ABB5D00202D54 /* PackDescriptionHeaderView.swift */; };
+		2C9BEB4F297ACA6E00202D54 /* PackDescriptionModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C9BEB4E297ACA6E00202D54 /* PackDescriptionModel.swift */; };
+		2C9BEB51297ACC0200202D54 /* PackDescriptionSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C9BEB50297ACC0200202D54 /* PackDescriptionSection.swift */; };
+		2C9BEB53297ACCD200202D54 /* PackDescriptionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C9BEB52297ACCD200202D54 /* PackDescriptionCell.swift */; };
 		2CB8A694295D8AA7009A954E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CB8A693295D8AA7009A954E /* AppDelegate.swift */; };
 		2CB8A69D295D8AA7009A954E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2CB8A69C295D8AA7009A954E /* Assets.xcassets */; };
 		2CB8A6A0295D8AA7009A954E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2CB8A69E295D8AA7009A954E /* LaunchScreen.storyboard */; };
@@ -78,6 +88,16 @@
 		2C9BEB322976CD8400202D54 /* ChoosePackViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChoosePackViewController.swift; sourceTree = "<group>"; };
 		2C9BEB352978370900202D54 /* PagingFlowLayout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PagingFlowLayout.swift; sourceTree = "<group>"; };
 		2C9BEB382978380F00202D54 /* ChoosePackCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChoosePackCell.swift; sourceTree = "<group>"; };
+		2C9BEB3C297A9FC100202D54 /* PackDescriptionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PackDescriptionView.swift; sourceTree = "<group>"; };
+		2C9BEB3E297AA02C00202D54 /* PackDescriptionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PackDescriptionViewController.swift; sourceTree = "<group>"; };
+		2C9BEB41297AAE4C00202D54 /* PackAdvantageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PackAdvantageView.swift; sourceTree = "<group>"; };
+		2C9BEB45297AB13F00202D54 /* PackImageExampleModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PackImageExampleModel.swift; sourceTree = "<group>"; };
+		2C9BEB47297AB23300202D54 /* PackImageExampleSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PackImageExampleSection.swift; sourceTree = "<group>"; };
+		2C9BEB4A297AB46500202D54 /* PackImageExampleCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PackImageExampleCell.swift; sourceTree = "<group>"; };
+		2C9BEB4C297ABB5D00202D54 /* PackDescriptionHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PackDescriptionHeaderView.swift; sourceTree = "<group>"; };
+		2C9BEB4E297ACA6E00202D54 /* PackDescriptionModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PackDescriptionModel.swift; sourceTree = "<group>"; };
+		2C9BEB50297ACC0200202D54 /* PackDescriptionSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PackDescriptionSection.swift; sourceTree = "<group>"; };
+		2C9BEB52297ACCD200202D54 /* PackDescriptionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PackDescriptionCell.swift; sourceTree = "<group>"; };
 		2CB8A690295D8AA7009A954E /* AIApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AIApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2CB8A693295D8AA7009A954E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		2CB8A69C295D8AA7009A954E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -313,6 +333,63 @@
 			path = Cell;
 			sourceTree = "<group>";
 		};
+		2C9BEB3A297A9F9600202D54 /* PackDescription */ = {
+			isa = PBXGroup;
+			children = (
+				2C9BEB49297AB44A00202D54 /* Cell */,
+				2C9BEB44297AB0CF00202D54 /* Section */,
+				2C9BEB43297AB0C200202D54 /* Model */,
+				2C9BEB3B297A9FB000202D54 /* View */,
+				2C9BEB3E297AA02C00202D54 /* PackDescriptionViewController.swift */,
+			);
+			path = PackDescription;
+			sourceTree = "<group>";
+		};
+		2C9BEB3B297A9FB000202D54 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				2C9BEB40297AAE3400202D54 /* Subview */,
+				2C9BEB3C297A9FC100202D54 /* PackDescriptionView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		2C9BEB40297AAE3400202D54 /* Subview */ = {
+			isa = PBXGroup;
+			children = (
+				2C9BEB41297AAE4C00202D54 /* PackAdvantageView.swift */,
+				2C9BEB4C297ABB5D00202D54 /* PackDescriptionHeaderView.swift */,
+			);
+			path = Subview;
+			sourceTree = "<group>";
+		};
+		2C9BEB43297AB0C200202D54 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				2C9BEB45297AB13F00202D54 /* PackImageExampleModel.swift */,
+				2C9BEB4E297ACA6E00202D54 /* PackDescriptionModel.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		2C9BEB44297AB0CF00202D54 /* Section */ = {
+			isa = PBXGroup;
+			children = (
+				2C9BEB47297AB23300202D54 /* PackImageExampleSection.swift */,
+				2C9BEB50297ACC0200202D54 /* PackDescriptionSection.swift */,
+			);
+			path = Section;
+			sourceTree = "<group>";
+		};
+		2C9BEB49297AB44A00202D54 /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				2C9BEB4A297AB46500202D54 /* PackImageExampleCell.swift */,
+				2C9BEB52297ACCD200202D54 /* PackDescriptionCell.swift */,
+			);
+			path = Cell;
+			sourceTree = "<group>";
+		};
 		2CB8A687295D8AA7009A954E = {
 			isa = PBXGroup;
 			children = (
@@ -355,6 +432,7 @@
 		2CB8A6A8295D8AF3009A954E /* Modules */ = {
 			isa = PBXGroup;
 			children = (
+				2C9BEB3A297A9F9600202D54 /* PackDescription */,
 				2C06FE122971A15F0013DD5C /* CreateAvatar */,
 				2C1E43F5296C079D0000D015 /* Subscription */,
 				2CB8A6B9295D8FF4009A954E /* Onboarding */,
@@ -639,17 +717,25 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2C9BEB3D297A9FC100202D54 /* PackDescriptionView.swift in Sources */,
 				2CB8A6B7295D8B26009A954E /* ListCollectionContext+Dequeue.swift in Sources */,
+				2C9BEB48297AB23300202D54 /* PackImageExampleSection.swift in Sources */,
+				2C9BEB51297ACC0200202D54 /* PackDescriptionSection.swift in Sources */,
+				2C9BEB4B297AB46500202D54 /* PackImageExampleCell.swift in Sources */,
 				2C9BEB392978380F00202D54 /* ChoosePackCell.swift in Sources */,
 				2C5816B2296EF6480054270D /* SubAdvantageView.swift in Sources */,
+				2C9BEB53297ACCD200202D54 /* PackDescriptionCell.swift in Sources */,
 				2C954FD42975DDD600D8881B /* SelectGenderView.swift in Sources */,
 				2C9BEB312976CD5900202D54 /* ChoosePackView.swift in Sources */,
+				2C9BEB4D297ABB5D00202D54 /* PackDescriptionHeaderView.swift in Sources */,
 				2C9BEB2E2976C41A00202D54 /* RootNavigationController.swift in Sources */,
+				2C9BEB42297AAE4C00202D54 /* PackAdvantageView.swift in Sources */,
 				2CB8A6C1295D9193009A954E /* R.generated.swift in Sources */,
 				2C1E43F8296C07DB0000D015 /* SubscriptionView.swift in Sources */,
 				2CB8A6B5295D8B26009A954E /* RootView.swift in Sources */,
 				2CB8A6BC295D9041009A954E /* OnboardingViewController.swift in Sources */,
 				2CB8A6BE295D9063009A954E /* OnboardingView.swift in Sources */,
+				2C9BEB3F297AA02C00202D54 /* PackDescriptionViewController.swift in Sources */,
 				2C954FD92975E85600D8881B /* CreateNameViewController.swift in Sources */,
 				2C06FE1A2971A25C0013DD5C /* AddAvatarView.swift in Sources */,
 				2C1E43FA296C08100000D015 /* SubscriptionViewController.swift in Sources */,
@@ -661,10 +747,12 @@
 				2C1E4408296C8E530000D015 /* UIFont+Custom.swift in Sources */,
 				2C06FE11297183600013DD5C /* TrialEnableView.swift in Sources */,
 				2CB8A694295D8AA7009A954E /* AppDelegate.swift in Sources */,
+				2C9BEB46297AB13F00202D54 /* PackImageExampleModel.swift in Sources */,
 				2C954FCD2971A9C200D8881B /* UploadPhotosView.swift in Sources */,
 				2CB8A7192969A755009A954E /* CloudManager.swift in Sources */,
 				2C9BEB362978370900202D54 /* PagingFlowLayout.swift in Sources */,
 				2C954FD72975E7C500D8881B /* CreateNameView.swift in Sources */,
+				2C9BEB4F297ACA6E00202D54 /* PackDescriptionModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
