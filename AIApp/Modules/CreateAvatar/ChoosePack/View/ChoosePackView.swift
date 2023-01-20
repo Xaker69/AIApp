@@ -41,12 +41,38 @@ class ChoosePackView: RootView {
         return button
     }()
     
+    let collectionView: UICollectionView =  {
+        let layout = UICollectionViewFlowLayout()
+        layout.minimumLineSpacing = 0
+        layout.minimumInteritemSpacing = 0
+        layout.scrollDirection = .horizontal
+        layout.sectionInset = UIEdgeInsets(top: 0.0, left: 20.0, bottom: 0.0, right: 20.0)
+        
+        let view = UICollectionView(frame: .zero, collectionViewLayout: layout)
+        view.register(ChoosePackCell.self, forCellWithReuseIdentifier: ChoosePackCell.description())
+        view.backgroundColor = .clear
+        view.showsHorizontalScrollIndicator = false
+        
+        return view
+    }()
+    
+    let pageControl: UIPageControl = {
+        let page = UIPageControl()
+        page.currentPageIndicatorTintColor = .init(hex6: 0xA851FF)
+        page.pageIndicatorTintColor = .white.withAlphaComponent(0.1)
+        page.isUserInteractionEnabled = false
+        
+        return page
+    }()
+    
     override func setup() {
         backgroundColor = .init(hex6: 0x0F0F0F)
         
         addSubview(backButton)
         addSubview(stepLabel)
         addSubview(titleLabel)
+        addSubview(collectionView)
+        addSubview(pageControl)
         addSubview(continueButton)
         
         setupConstraints()
@@ -73,7 +99,18 @@ class ChoosePackView: RootView {
             make.left.right.equalToSuperview().inset(20.0)
             make.height.equalTo(56.0)
             make.bottom.equalTo(safeAreaLayoutGuide.snp.bottom).offset(-16.0)
-        }        
+        }
+        
+        collectionView.snp.makeConstraints { make in
+            make.top.equalTo(titleLabel.snp.bottom).offset(32.0)
+            make.left.right.equalToSuperview()
+            make.bottom.equalTo(pageControl.snp.top).offset(-24.0)
+        }
+        
+        pageControl.snp.makeConstraints { make in
+            make.bottom.equalTo(continueButton.snp.top).offset(-32.0)
+            make.centerX.equalToSuperview()
+        }
     }
 
 }

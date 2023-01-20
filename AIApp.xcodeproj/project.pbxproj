@@ -33,6 +33,8 @@
 		2C9BEB2E2976C41A00202D54 /* RootNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C9BEB2D2976C41A00202D54 /* RootNavigationController.swift */; };
 		2C9BEB312976CD5900202D54 /* ChoosePackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C9BEB302976CD5900202D54 /* ChoosePackView.swift */; };
 		2C9BEB332976CD8400202D54 /* ChoosePackViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C9BEB322976CD8400202D54 /* ChoosePackViewController.swift */; };
+		2C9BEB362978370900202D54 /* PagingFlowLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C9BEB352978370900202D54 /* PagingFlowLayout.swift */; };
+		2C9BEB392978380F00202D54 /* ChoosePackCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C9BEB382978380F00202D54 /* ChoosePackCell.swift */; };
 		2CB8A694295D8AA7009A954E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CB8A693295D8AA7009A954E /* AppDelegate.swift */; };
 		2CB8A69D295D8AA7009A954E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2CB8A69C295D8AA7009A954E /* Assets.xcassets */; };
 		2CB8A6A0295D8AA7009A954E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2CB8A69E295D8AA7009A954E /* LaunchScreen.storyboard */; };
@@ -74,6 +76,8 @@
 		2C9BEB2D2976C41A00202D54 /* RootNavigationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RootNavigationController.swift; sourceTree = "<group>"; };
 		2C9BEB302976CD5900202D54 /* ChoosePackView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChoosePackView.swift; sourceTree = "<group>"; };
 		2C9BEB322976CD8400202D54 /* ChoosePackViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChoosePackViewController.swift; sourceTree = "<group>"; };
+		2C9BEB352978370900202D54 /* PagingFlowLayout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PagingFlowLayout.swift; sourceTree = "<group>"; };
+		2C9BEB382978380F00202D54 /* ChoosePackCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChoosePackCell.swift; sourceTree = "<group>"; };
 		2CB8A690295D8AA7009A954E /* AIApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AIApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2CB8A693295D8AA7009A954E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		2CB8A69C295D8AA7009A954E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -155,6 +159,7 @@
 		2C06FE162971A2190013DD5C /* ChoosePack */ = {
 			isa = PBXGroup;
 			children = (
+				2C9BEB37297837F200202D54 /* Cell */,
 				2C9BEB2F2976CD4200202D54 /* View */,
 				2C9BEB322976CD8400202D54 /* ChoosePackViewController.swift */,
 			);
@@ -292,6 +297,22 @@
 			path = View;
 			sourceTree = "<group>";
 		};
+		2C9BEB342978370900202D54 /* CollectionViewLayouts */ = {
+			isa = PBXGroup;
+			children = (
+				2C9BEB352978370900202D54 /* PagingFlowLayout.swift */,
+			);
+			path = CollectionViewLayouts;
+			sourceTree = "<group>";
+		};
+		2C9BEB37297837F200202D54 /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				2C9BEB382978380F00202D54 /* ChoosePackCell.swift */,
+			);
+			path = Cell;
+			sourceTree = "<group>";
+		};
 		2CB8A687295D8AA7009A954E = {
 			isa = PBXGroup;
 			children = (
@@ -372,6 +393,7 @@
 		2CB8A6AC295D8B26009A954E /* UI */ = {
 			isa = PBXGroup;
 			children = (
+				2C9BEB342978370900202D54 /* CollectionViewLayouts */,
 				2C9BEB2A2976C3DD00202D54 /* Controllers */,
 				2CB8A6AD295D8B26009A954E /* Views */,
 			);
@@ -618,6 +640,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				2CB8A6B7295D8B26009A954E /* ListCollectionContext+Dequeue.swift in Sources */,
+				2C9BEB392978380F00202D54 /* ChoosePackCell.swift in Sources */,
 				2C5816B2296EF6480054270D /* SubAdvantageView.swift in Sources */,
 				2C954FD42975DDD600D8881B /* SelectGenderView.swift in Sources */,
 				2C9BEB312976CD5900202D54 /* ChoosePackView.swift in Sources */,
@@ -640,6 +663,7 @@
 				2CB8A694295D8AA7009A954E /* AppDelegate.swift in Sources */,
 				2C954FCD2971A9C200D8881B /* UploadPhotosView.swift in Sources */,
 				2CB8A7192969A755009A954E /* CloudManager.swift in Sources */,
+				2C9BEB362978370900202D54 /* PagingFlowLayout.swift in Sources */,
 				2C954FD72975E7C500D8881B /* CreateNameView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
