@@ -24,6 +24,7 @@ class ChoosePackCell: UICollectionViewCell {
         let view = UIImageView()
         view.contentMode = .scaleAspectFill
         view.image = R.image.choosePackCellTmp()
+        view.clipsToBounds = true
         
         return view
     }()
@@ -161,7 +162,6 @@ class BlurGradientView: UIView {
     override init(frame: CGRect) {
         super.init(frame: frame)
         
-        backgroundColor = .green
 //        let darkBlurEffect = UIBlurEffect(style: .dark)
 //        let darkBlurView = UIVisualEffectView(effect: darkBlurEffect)
 //

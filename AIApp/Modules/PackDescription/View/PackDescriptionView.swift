@@ -12,15 +12,20 @@ class PackDescriptionView: RootView {
     
     let collectionView: UICollectionView = {
         let layout = UICollectionViewFlowLayout()
-//        layout.minimumLineSpacing = 0
-//        layout.minimumInteritemSpacing = 0
-//        layout.scrollDirection = .horizontal
-//        layout.sectionInset = UIEdgeInsets(top: 0.0, left: 0.0, bottom: 0.0, right: 0.0)
+        layout.sectionInset = UIEdgeInsets(top: 0.0, left: 0.0, bottom: 0.0, right: 0.0)
         
         let view = UICollectionView(frame: .zero, collectionViewLayout: layout)
-//        view.register(PackImageExampleCell.self, forCellWithReuseIdentifier: PackImageExampleCell.description())
         view.backgroundColor = .clear
         view.showsHorizontalScrollIndicator = false
+        view.contentInset = .zero
+        view.contentOffset = .zero
+        view.contentInsetAdjustmentBehavior = .never
+        
+        return view
+    }()
+    
+    let paymentView: PackPaymentView = {
+        let view = PackPaymentView()
         
         return view
     }()
@@ -30,6 +35,7 @@ class PackDescriptionView: RootView {
         
         addSubview(collectionView)
         addSubview(backButton)
+        addSubview(paymentView)
         
         setupConstraints()
     }
@@ -43,6 +49,11 @@ class PackDescriptionView: RootView {
         
         collectionView.snp.makeConstraints { make in
             make.edges.equalToSuperview()
+        }
+        
+        paymentView.snp.makeConstraints { make in
+            make.bottom.equalToSuperview()
+            make.left.right.equalToSuperview()
         }
     }
 }

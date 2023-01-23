@@ -12,6 +12,7 @@ class PackImageExampleCell: UICollectionViewCell {
     
     override init(frame: CGRect) {
         super.init(frame: frame)
+        clipsToBounds = true
         
         contentView.addSubview(imageView)
         

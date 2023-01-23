@@ -55,3 +55,7 @@ create-name-button = "Continue";
 choose-pack-title = "Choose pack";
 choose-pack-button = "Continue";
 
+// Pack Description
+pack-description-header-title = "What to expect";
+pack-description-payment = "<all>Get only for <strike>$10</strike> $5 with</all>";
+pack-description-payment-button = "Get pack for $10";

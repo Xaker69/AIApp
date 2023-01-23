@@ -4,8 +4,10 @@ class PackDescriptionHeaderView: UICollectionReusableView {
      
     let titleLabel: UILabel = {
         let label = UILabel()
-        label.text = "TEXT"
+        label.text = R.string.localizable.packDescriptionHeaderTitle()
         label.textAlignment = .center
+        label.textColor = .white
+        label.font = .satoshiFont(ofSize: 24, weight: .bold)
         
         return label
     }()

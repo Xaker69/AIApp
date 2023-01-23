@@ -10,11 +10,13 @@ class PackAdvantageView: RootView {
     
     let titleLabel: UILabel = {
         let label = UILabel()
+        label.font = .interFont(ofSize: 13, weight: .medium)
+        label.textColor = .white
         
         return label
     }()
     
-    init(image: UIImage, label text: String) {
+    init(image: UIImage?, label text: String) {
         super.init(frame: .zero)
         
         imageView.image = image
@@ -33,6 +35,7 @@ class PackAdvantageView: RootView {
         backgroundColor = .clear
         layer.borderColor = UIColor.init(hex6: 0x272727).cgColor
         layer.borderWidth = 1
+        layer.cornerRadius = 24.0
         
         addSubview(imageView)
         addSubview(titleLabel)

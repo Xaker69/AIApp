@@ -20,6 +20,7 @@ class PackDescriptionViewController: UIViewController {
         
         adapter.collectionView = mainView.collectionView
         adapter.dataSource = self
+        adapter.scrollViewDelegate = self
     }
     
     // MARK: - Private actions
@@ -57,5 +58,21 @@ extension PackDescriptionViewController: ListAdapterDataSource {
     
     func emptyView(for listAdapter: ListAdapter) -> UIView? {
         return nil
+    }
+}
+
+// MARK: - UIScrollViewDelegate
+
+extension PackDescriptionViewController: UIScrollViewDelegate {
+    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        if scrollView.contentOffset.y > 464.0 {
+            UIView.animate(withDuration: 0.2) {
+                self.mainView.paymentView.layer.shadowColor = UIColor.clear.cgColor
+            }
+        } else {
+            UIView.animate(withDuration: 0.2) {
+                self.mainView.paymentView.layer.shadowColor = UIColor(white: 1, alpha: 0.3).cgColor
+            }
+        }
     }
 }
