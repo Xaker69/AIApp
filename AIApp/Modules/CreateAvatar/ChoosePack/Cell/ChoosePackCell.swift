@@ -70,6 +70,7 @@ class ChoosePackCell: UICollectionViewCell {
         let view = UIImageView()
         view.image = R.image.choosePackCellPics()
         view.contentMode = .scaleAspectFit
+        view.tintColor = .white
         
         return view
     }()

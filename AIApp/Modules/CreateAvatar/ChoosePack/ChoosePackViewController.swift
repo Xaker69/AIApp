@@ -22,6 +22,7 @@ class ChoosePackViewController: UIViewController {
         super.viewDidLoad()
 
         mainView.backButton.addTarget(self, action: #selector(backButtonTapped), for: .touchUpInside)
+        mainView.continueButton.addTarget(self, action: #selector(continueButtonTapped), for: .touchUpInside)
         
         mainView.collectionView.delegate = self
         mainView.collectionView.dataSource = self
@@ -42,8 +43,7 @@ class ChoosePackViewController: UIViewController {
     }
     
     @objc private func continueButtonTapped() {
-        let vc = UIViewController()
-        navigationController?.pushViewController(vc, animated: true)
+        navigationController?.setViewControllers([MainViewController()], animated: true)
     }
     
     private func indexOfMajorCell() -> Int {

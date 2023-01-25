@@ -7,7 +7,7 @@ class PackDescriptionViewController: UIViewController {
         return view as! PackDescriptionView
     }
     
-    private lazy var adapter = ListAdapter(updater: ListAdapterUpdater(), viewController: self, workingRangeSize: 0)
+    private lazy var adapter = ListAdapter(updater: ListAdapterUpdater(), viewController: self)
     
     override func loadView() {
         view = PackDescriptionView()
@@ -17,6 +17,7 @@ class PackDescriptionViewController: UIViewController {
         super.viewDidLoad()
 
         mainView.backButton.addTarget(self, action: #selector(backButtonTapped), for: .touchUpInside)
+        mainView.paymentView.getButton.addTarget(self, action: #selector(getButtonTapped), for: .touchUpInside)
         
         adapter.collectionView = mainView.collectionView
         adapter.dataSource = self
@@ -26,6 +27,10 @@ class PackDescriptionViewController: UIViewController {
     // MARK: - Private actions
     
     @objc private func backButtonTapped() {
+        navigationController?.popViewController(animated: true)
+    }
+    
+    @objc private func getButtonTapped() {
         navigationController?.popViewController(animated: true)
     }
     

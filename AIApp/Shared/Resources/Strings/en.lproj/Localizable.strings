@@ -59,3 +59,10 @@ choose-pack-button = "Continue";
 pack-description-header-title = "What to expect";
 pack-description-payment = "<all>Get only for <strike>$10</strike> $5 with</all>";
 pack-description-payment-button = "Get pack for $10";
+
+// Main
+main-add-profile = "Add new";
+main-header-explore = "Explore more packs";
+main-header-my-packs = "Loren’s  packs";
+main-header-my-packs-button = "See all";
+main-explore-button = "<all>Get for <strike>$10</strike> $5</all>";
