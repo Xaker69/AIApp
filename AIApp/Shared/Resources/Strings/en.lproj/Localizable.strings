@@ -69,3 +69,14 @@ main-explore-button = "<all>Get for <strike>$10</strike> $5</all>";
 
 // Generated
 generated-unlock = "Unlock 10 more photos for $0.50";
+generated-save = "Save image";
+generated-counter = "<current>%@</current><count>/%@</count>";
+
+// Settings
+settings-title = "Settings";
+settings-restore = "Restore Purchases";
+settings-feedback = "Give us a feedback";
+settings-privacy = "Privacy Policy";
+settings-terms = "Terms & Conditions";
+settings-manage-data = "Manage Personal Data";
+settings-version = "Version %@ (%@)";

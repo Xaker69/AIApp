@@ -45,7 +45,10 @@ extension AllGeneratedPhotosViewController: ListAdapterDataSource {
     func listAdapter(_ listAdapter: ListAdapter, sectionControllerFor object: Any) -> ListSectionController {
         switch object {
         case is GeneratedPhotosModel:
-            return GeneratedPhotosSection()
+            let section = GeneratedPhotosSection()
+            section.delegate = self
+            
+            return section
             
         case is UnlockMoreModel:
             return UnlockMoreSection()
@@ -57,5 +60,14 @@ extension AllGeneratedPhotosViewController: ListAdapterDataSource {
     
     func emptyView(for listAdapter: ListAdapter) -> UIView? {
         return nil
+    }
+}
+
+extension AllGeneratedPhotosViewController: GeneratedPhotosDelegate {
+    func generatedPhotos(_ controller: GeneratedPhotosSection, didSelect index: Int) {
+        let vc = SingleGeneratedPhotoViewController(startIndex: index, count: 100)
+        vc.modalPresentationStyle = .fullScreen
+        
+        present(vc, animated: true)
     }
 }

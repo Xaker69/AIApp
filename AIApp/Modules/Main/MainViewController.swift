@@ -16,13 +16,14 @@ class MainViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        mainView.settingsButton.addTarget(self, action: #selector(settingsButtonTapped), for: .touchUpInside)
+        
         adapter.collectionView = mainView.collectionView
         adapter.dataSource = self
     }
     
     @objc private func settingsButtonTapped() {
-        let vc = UIViewController()
-        vc.view.backgroundColor = .black
+        let vc = SettingsViewController()
         
         present(vc, animated: true)
     }

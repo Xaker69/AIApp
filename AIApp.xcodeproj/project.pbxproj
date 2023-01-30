@@ -31,6 +31,14 @@
 		2C5C2D6229875B1D009027F1 /* UnlockMoreModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C5C2D6129875B1D009027F1 /* UnlockMoreModel.swift */; };
 		2C5C2D6529875BC0009027F1 /* UnlockMoreSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C5C2D6429875BC0009027F1 /* UnlockMoreSection.swift */; };
 		2C5C2D6729875BE7009027F1 /* UnlockMoreCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C5C2D6629875BE7009027F1 /* UnlockMoreCell.swift */; };
+		2C5C2D6A2987ED6B009027F1 /* SingleGeneratedPhotoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C5C2D692987ED6B009027F1 /* SingleGeneratedPhotoView.swift */; };
+		2C5C2D6C2987F654009027F1 /* SingleGeneratedPhotoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C5C2D6B2987F654009027F1 /* SingleGeneratedPhotoViewController.swift */; };
+		2C5C2D7529880DE2009027F1 /* SingleGeneratedPhotoSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C5C2D7429880DE2009027F1 /* SingleGeneratedPhotoSection.swift */; };
+		2C5C2D7829882277009027F1 /* ActionsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C5C2D7729882277009027F1 /* ActionsView.swift */; };
+		2C5C2D7C29882D51009027F1 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C5C2D7B29882D51009027F1 /* SettingsViewController.swift */; };
+		2C5C2D7E29882D60009027F1 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C5C2D7D29882D60009027F1 /* SettingsView.swift */; };
+		2C5C2D8129882FD8009027F1 /* SettingsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C5C2D8029882FD8009027F1 /* SettingsCell.swift */; };
+		2C5C2D84298831F6009027F1 /* SettingsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C5C2D83298831F6009027F1 /* SettingsModel.swift */; };
 		2C954FCD2971A9C200D8881B /* UploadPhotosView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C954FCC2971A9C200D8881B /* UploadPhotosView.swift */; };
 		2C954FCF2971AA3F00D8881B /* UploadPhotosViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C954FCE2971AA3F00D8881B /* UploadPhotosViewController.swift */; };
 		2C954FD22975DD5F00D8881B /* SelectGenderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C954FD12975DD5F00D8881B /* SelectGenderViewController.swift */; };
@@ -113,6 +121,14 @@
 		2C5C2D6129875B1D009027F1 /* UnlockMoreModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnlockMoreModel.swift; sourceTree = "<group>"; };
 		2C5C2D6429875BC0009027F1 /* UnlockMoreSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnlockMoreSection.swift; sourceTree = "<group>"; };
 		2C5C2D6629875BE7009027F1 /* UnlockMoreCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnlockMoreCell.swift; sourceTree = "<group>"; };
+		2C5C2D692987ED6B009027F1 /* SingleGeneratedPhotoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SingleGeneratedPhotoView.swift; sourceTree = "<group>"; };
+		2C5C2D6B2987F654009027F1 /* SingleGeneratedPhotoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SingleGeneratedPhotoViewController.swift; sourceTree = "<group>"; };
+		2C5C2D7429880DE2009027F1 /* SingleGeneratedPhotoSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SingleGeneratedPhotoSection.swift; sourceTree = "<group>"; };
+		2C5C2D7729882277009027F1 /* ActionsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActionsView.swift; sourceTree = "<group>"; };
+		2C5C2D7B29882D51009027F1 /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
+		2C5C2D7D29882D60009027F1 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
+		2C5C2D8029882FD8009027F1 /* SettingsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsCell.swift; sourceTree = "<group>"; };
+		2C5C2D83298831F6009027F1 /* SettingsModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsModel.swift; sourceTree = "<group>"; };
 		2C954FCC2971A9C200D8881B /* UploadPhotosView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UploadPhotosView.swift; sourceTree = "<group>"; };
 		2C954FCE2971AA3F00D8881B /* UploadPhotosViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UploadPhotosViewController.swift; sourceTree = "<group>"; };
 		2C954FD12975DD5F00D8881B /* SelectGenderViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectGenderViewController.swift; sourceTree = "<group>"; };
@@ -343,6 +359,9 @@
 		2C5C2D5229874E68009027F1 /* Single */ = {
 			isa = PBXGroup;
 			children = (
+				2C5C2D6E29880D55009027F1 /* Section */,
+				2C5C2D682987ED40009027F1 /* View */,
+				2C5C2D6B2987F654009027F1 /* SingleGeneratedPhotoViewController.swift */,
 			);
 			path = Single;
 			sourceTree = "<group>";
@@ -380,6 +399,66 @@
 				2C5C2D6629875BE7009027F1 /* UnlockMoreCell.swift */,
 			);
 			path = Cell;
+			sourceTree = "<group>";
+		};
+		2C5C2D682987ED40009027F1 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				2C5C2D762988225E009027F1 /* Subview */,
+				2C5C2D692987ED6B009027F1 /* SingleGeneratedPhotoView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		2C5C2D6E29880D55009027F1 /* Section */ = {
+			isa = PBXGroup;
+			children = (
+				2C5C2D7429880DE2009027F1 /* SingleGeneratedPhotoSection.swift */,
+			);
+			path = Section;
+			sourceTree = "<group>";
+		};
+		2C5C2D762988225E009027F1 /* Subview */ = {
+			isa = PBXGroup;
+			children = (
+				2C5C2D7729882277009027F1 /* ActionsView.swift */,
+			);
+			path = Subview;
+			sourceTree = "<group>";
+		};
+		2C5C2D7929882D16009027F1 /* Settings */ = {
+			isa = PBXGroup;
+			children = (
+				2C5C2D82298831E7009027F1 /* Model */,
+				2C5C2D7F29882FC7009027F1 /* Cell */,
+				2C5C2D7A29882D43009027F1 /* View */,
+				2C5C2D7B29882D51009027F1 /* SettingsViewController.swift */,
+			);
+			path = Settings;
+			sourceTree = "<group>";
+		};
+		2C5C2D7A29882D43009027F1 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				2C5C2D7D29882D60009027F1 /* SettingsView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		2C5C2D7F29882FC7009027F1 /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				2C5C2D8029882FD8009027F1 /* SettingsCell.swift */,
+			);
+			path = Cell;
+			sourceTree = "<group>";
+		};
+		2C5C2D82298831E7009027F1 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				2C5C2D83298831F6009027F1 /* SettingsModel.swift */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 		2C659577CAB522526F09E771 /* Frameworks */ = {
@@ -629,6 +708,7 @@
 		2CB8A6A8295D8AF3009A954E /* Modules */ = {
 			isa = PBXGroup;
 			children = (
+				2C5C2D7929882D16009027F1 /* Settings */,
 				2C5C2D5029874DA3009027F1 /* Genrated */,
 				2C9BEB85298163A300202D54 /* Attantion */,
 				2C9BEB58297FFAAF00202D54 /* Main */,
@@ -918,11 +998,13 @@
 			files = (
 				2C9BEB6329800C9600202D54 /* ProfileModel.swift in Sources */,
 				2C9BEB3D297A9FC100202D54 /* PackDescriptionView.swift in Sources */,
+				2C5C2D6C2987F654009027F1 /* SingleGeneratedPhotoViewController.swift in Sources */,
 				2C5C2D5A29875660009027F1 /* GeneratedPhotosModel.swift in Sources */,
 				2C9BEB7829801A7900202D54 /* MainHeaderView.swift in Sources */,
 				2CB8A6B7295D8B26009A954E /* ListCollectionContext+Dequeue.swift in Sources */,
 				2C5C2D5E29875726009027F1 /* GeneratedPhotosSection.swift in Sources */,
 				2C5C2D6529875BC0009027F1 /* UnlockMoreSection.swift in Sources */,
+				2C5C2D7529880DE2009027F1 /* SingleGeneratedPhotoSection.swift in Sources */,
 				2C9BEB48297AB23300202D54 /* PackImageExampleSection.swift in Sources */,
 				2C9BEB51297ACC0200202D54 /* PackDescriptionSection.swift in Sources */,
 				2C5C2D6229875B1D009027F1 /* UnlockMoreModel.swift in Sources */,
@@ -930,12 +1012,14 @@
 				2C9BEB6529800CD200202D54 /* MyPacksModel.swift in Sources */,
 				2C9BEB5D297FFC6600202D54 /* MainView.swift in Sources */,
 				2C9BEB392978380F00202D54 /* ChoosePackCell.swift in Sources */,
+				2C5C2D7829882277009027F1 /* ActionsView.swift in Sources */,
 				2C5816B2296EF6480054270D /* SubAdvantageView.swift in Sources */,
 				2C9BEB80298158DE00202D54 /* MySinglePackCell.swift in Sources */,
 				2C9BEB7329800DC600202D54 /* NewPackCell.swift in Sources */,
 				2C9BEB7129800DBA00202D54 /* MyPacksCell.swift in Sources */,
 				2C9BEB53297ACCD200202D54 /* PackDescriptionCell.swift in Sources */,
 				2C954FD42975DDD600D8881B /* SelectGenderView.swift in Sources */,
+				2C5C2D7C29882D51009027F1 /* SettingsViewController.swift in Sources */,
 				2C9BEB312976CD5900202D54 /* ChoosePackView.swift in Sources */,
 				2C9BEB7A2980278100202D54 /* NewPackExampleCell.swift in Sources */,
 				2C9BEB8A298163DD00202D54 /* AttentionView.swift in Sources */,
@@ -950,6 +1034,7 @@
 				2C9BEB8429815E4800202D54 /* MySinglePackSection.swift in Sources */,
 				2CB8A6BC295D9041009A954E /* OnboardingViewController.swift in Sources */,
 				2C9BEB7E29802B5200202D54 /* NewPackExampleSection.swift in Sources */,
+				2C5C2D8129882FD8009027F1 /* SettingsCell.swift in Sources */,
 				2CB8A6BE295D9063009A954E /* OnboardingView.swift in Sources */,
 				2C9BEB3F297AA02C00202D54 /* PackDescriptionViewController.swift in Sources */,
 				2C954FD92975E85600D8881B /* CreateNameViewController.swift in Sources */,
@@ -970,6 +1055,7 @@
 				2C1E4408296C8E530000D015 /* UIFont+Custom.swift in Sources */,
 				2C9BEB57297E66DE00202D54 /* PackPaymentView.swift in Sources */,
 				2C9BEB762980110A00202D54 /* ProfileView.swift in Sources */,
+				2C5C2D84298831F6009027F1 /* SettingsModel.swift in Sources */,
 				2C06FE11297183600013DD5C /* TrialEnableView.swift in Sources */,
 				2CB8A694295D8AA7009A954E /* AppDelegate.swift in Sources */,
 				2C9BEB46297AB13F00202D54 /* PackImageExampleModel.swift in Sources */,
@@ -977,10 +1063,12 @@
 				2C5C2D6729875BE7009027F1 /* UnlockMoreCell.swift in Sources */,
 				2C954FCD2971A9C200D8881B /* UploadPhotosView.swift in Sources */,
 				2C5C2D5529874EC0009027F1 /* AllGeneratedPhotosView.swift in Sources */,
+				2C5C2D7E29882D60009027F1 /* SettingsView.swift in Sources */,
 				2CB8A7192969A755009A954E /* CloudManager.swift in Sources */,
 				2C9BEB88298163BB00202D54 /* AttentionViewController.swift in Sources */,
 				2C954FD72975E7C500D8881B /* CreateNameView.swift in Sources */,
 				2C9BEB4F297ACA6E00202D54 /* PackDescriptionModel.swift in Sources */,
+				2C5C2D6A2987ED6B009027F1 /* SingleGeneratedPhotoView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

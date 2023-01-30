@@ -4,9 +4,9 @@ class GeneratedPhotoCell: UICollectionViewCell {
     
     let imageView: UIImageView = {
         let view = UIImageView()
-        view.image = R.image.oilExample()
         view.contentMode = .scaleAspectFill
         view.clipsToBounds = true
+        view.backgroundColor = randomColor()
         
         return view
     }()
@@ -21,6 +21,11 @@ class GeneratedPhotoCell: UICollectionViewCell {
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
+    }
+    
+    override func prepareForReuse() {
+        super.prepareForReuse()
+        
     }
     
     private func setupConstraints() {

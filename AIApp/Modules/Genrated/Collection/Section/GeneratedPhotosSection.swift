@@ -1,6 +1,12 @@
 import IGListKit
 
+protocol GeneratedPhotosDelegate: AnyObject {
+    func generatedPhotos(_ controller: GeneratedPhotosSection, didSelect index: Int)
+}
+
 class GeneratedPhotosSection: ListSectionController {
+    
+    weak var delegate: GeneratedPhotosDelegate?
     
     override init() {
         super.init()
@@ -12,6 +18,10 @@ class GeneratedPhotosSection: ListSectionController {
     
     override func numberOfItems() -> Int {
         return 100
+    }
+    
+    override func didSelectItem(at index: Int) {
+        delegate?.generatedPhotos(self, didSelect: index)
     }
     
     override func sizeForItem(at index: Int) -> CGSize {

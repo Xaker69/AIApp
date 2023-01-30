@@ -19,7 +19,6 @@ class NewPackExampleSection: ListSectionController {
     
     override func cellForItem(at index: Int) -> UICollectionViewCell {
         let cell = collectionContext!.dequeue(of: NewPackExampleCell.self, for: self, at: index)
-        cell.imageView.image = R.image.newPackExample()
         
         return cell
     }
