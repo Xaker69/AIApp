@@ -43,7 +43,10 @@ extension MainViewController: ListAdapterDataSource {
             return ProfileSection()
             
         case is MyPacksModel:
-            return MyPacksSection()
+            let section = MyPacksSection()
+            section.delegate = self
+            
+            return section
             
         case is NewPacksModel:
             let section = NewPacksSection()
@@ -67,6 +70,17 @@ extension MainViewController: NewPacksDelegate {
     func newPacks(getPack index: Int) {
         let vc = AttentionViewController()
         vc.modalPresentationStyle = .overFullScreen
+        
+        present(vc, animated: true)
+    }
+}
+
+// MARK: - MyPacksDelegate
+
+extension MainViewController: MyPacksDelegate {
+    func myPacks(_ section: MyPacksSection, didSelect packIndex: Int) {
+        let vc = AllGeneratedPhotosViewController()
+        vc.modalPresentationStyle = .fullScreen
         
         present(vc, animated: true)
     }

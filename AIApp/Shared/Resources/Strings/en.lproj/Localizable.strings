@@ -66,3 +66,6 @@ main-header-explore = "Explore more packs";
 main-header-my-packs = "Loren’s  packs";
 main-header-my-packs-button = "See all";
 main-explore-button = "<all>Get for <strike>$10</strike> $5</all>";
+
+// Generated
+generated-unlock = "Unlock 10 more photos for $0.50";

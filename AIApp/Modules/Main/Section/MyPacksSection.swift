@@ -1,8 +1,14 @@
 import UIKit
 import IGListKit
 
+protocol MyPacksDelegate: AnyObject {
+    func myPacks(_ section: MyPacksSection, didSelect packIndex: Int)
+}
+
 class MyPacksSection: ListSectionController {
 
+    weak var delegate: MyPacksDelegate?
+    
     let template = MyPacksCell()
     lazy var adapter = ListAdapter(updater: ListAdapterUpdater(), viewController: viewController)
     
@@ -15,7 +21,7 @@ class MyPacksSection: ListSectionController {
     override func numberOfItems() -> Int {
         return 1
     }
-    
+        
     override func sizeForItem(at index: Int) -> CGSize {
         let size = CGSize(width: collectionContext!.containerSize.width, height: CGFloat.greatestFiniteMagnitude)
         configure(cell: template)
@@ -38,7 +44,6 @@ class MyPacksSection: ListSectionController {
         
         return cell
     }
-    
 }
 
 // MARK: - ListSupplementaryViewSource
@@ -69,10 +74,21 @@ extension MyPacksSection: ListAdapterDataSource {
     }
     
     func listAdapter(_ listAdapter: ListAdapter, sectionControllerFor object: Any) -> ListSectionController {
-        return MySinglePackSection()
+        let section = MySinglePackSection()
+        section.delegate = self
+        
+        return section
     }
     
     func emptyView(for listAdapter: ListAdapter) -> UIView? {
         nil
+    }
+}
+
+// MARK: - MySinglePackDelegate
+
+extension MyPacksSection: MySinglePackDelegate {
+    func mySinglePack(_ section: MySinglePackSection, didSelect packIndex: Int) {
+        delegate?.myPacks(self, didSelect: packIndex)
     }
 }

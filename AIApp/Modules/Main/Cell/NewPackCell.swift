@@ -10,8 +10,6 @@ class NewPackCell: UICollectionViewCell {
         let view = UICollectionView(frame: .zero, collectionViewLayout: layout)
         view.backgroundColor = .clear
         view.showsHorizontalScrollIndicator = false
-        view.contentInset = .zero
-        view.contentOffset = .zero
         
         return view
     }()
@@ -116,11 +114,12 @@ class NewPackCell: UICollectionViewCell {
             make.right.equalToSuperview().offset(-20.0)
             make.top.equalTo(collectionView.snp.bottom).offset(16.0)
             make.bottom.equalToSuperview().offset(-24.0)
+            make.height.equalTo(48.0)
         }
         
         getLabel.snp.makeConstraints { make in
             make.left.right.equalToSuperview().inset(24.0)
-            make.bottom.top.equalToSuperview().inset(14.0)
+            make.centerY.equalToSuperview()
         }
     }
 }

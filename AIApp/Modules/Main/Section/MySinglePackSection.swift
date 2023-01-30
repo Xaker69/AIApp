@@ -1,6 +1,12 @@
 import IGListKit
 
+protocol MySinglePackDelegate: AnyObject {
+    func mySinglePack(_ section: MySinglePackSection, didSelect packIndex: Int)
+}
+
 class MySinglePackSection: ListSectionController {
+    
+    weak var delegate: MySinglePackDelegate?
     
     override init() {
         super.init()
@@ -11,6 +17,10 @@ class MySinglePackSection: ListSectionController {
     
     override func numberOfItems() -> Int {
         return 5
+    }
+    
+    override func didSelectItem(at index: Int) {
+        delegate?.mySinglePack(self, didSelect: index)
     }
     
     override func sizeForItem(at index: Int) -> CGSize {

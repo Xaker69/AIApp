@@ -9,8 +9,6 @@ class MyPacksCell: UICollectionViewCell {
         let view = UICollectionView(frame: .zero, collectionViewLayout: layout)
         view.backgroundColor = .clear
         view.showsHorizontalScrollIndicator = false
-        view.contentInset = .zero
-        view.contentOffset = .zero
         
         return view
     }()
@@ -18,7 +16,7 @@ class MyPacksCell: UICollectionViewCell {
     override init(frame: CGRect) {
         super.init(frame: frame)
         
-        addSubview(collectionView)
+        contentView.addSubview(collectionView)
         
         setupConstraints()
     }

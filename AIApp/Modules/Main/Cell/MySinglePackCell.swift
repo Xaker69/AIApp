@@ -52,10 +52,10 @@ class MySinglePackCell: UICollectionViewCell {
     override init(frame: CGRect) {
         super.init(frame: frame)
         
-        addSubview(firstView)
-        addSubview(secondView)
-        addSubview(imageView)
-        addSubview(titleLabel)
+        contentView.addSubview(firstView)
+        contentView.addSubview(secondView)
+        contentView.addSubview(imageView)
+        contentView.addSubview(titleLabel)
         
         imageView.addSubview(gradientImageView)
         
