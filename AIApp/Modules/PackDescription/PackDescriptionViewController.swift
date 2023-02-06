@@ -31,7 +31,9 @@ class PackDescriptionViewController: UIViewController {
     }
     
     @objc private func getButtonTapped() {
-        navigationController?.popViewController(animated: true)
+        let vc = UploadingViewController()
+        
+        navigationController?.setViewControllers([vc], animated: true)
     }
     
 }

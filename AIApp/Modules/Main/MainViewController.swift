@@ -50,7 +50,7 @@ extension MainViewController: ListAdapterDataSource {
             return section
             
         case is NewPacksModel:
-            let section = NewPacksSection()
+            let section = NewPacksSection(headerType: .title)
             section.delegate = self
             
             return section

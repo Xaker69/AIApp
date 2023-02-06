@@ -80,3 +80,7 @@ settings-privacy = "Privacy Policy";
 settings-terms = "Terms & Conditions";
 settings-manage-data = "Manage Personal Data";
 settings-version = "Version %@ (%@)";
+
+// Uploading
+uploading-offer-title = "One time offer";
+uploading-offer-subtitle = "Packs with ultimate discount of <color>50%%</color>";

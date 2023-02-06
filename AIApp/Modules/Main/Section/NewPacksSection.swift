@@ -7,13 +7,20 @@ protocol NewPacksDelegate: AnyObject {
 
 class NewPacksSection: ListSectionController {
 
+    enum HeaderType {
+        case oneTimeOffer
+        case title
+    }
+    
     let template = NewPackCell()
+    let headerType: HeaderType
     
     weak var delegate: NewPacksDelegate?
     
     private lazy var adapter = ListAdapter(updater: ListAdapterUpdater(), viewController: viewController)
     
-    override init() {
+    init(headerType: HeaderType) {
+        self.headerType = headerType
         super.init()
         
         inset = UIEdgeInsets(top: 0, left: 0, bottom: 16, right: 0)
@@ -67,14 +74,36 @@ extension NewPacksSection: ListSupplementaryViewSource {
     }
     
     func viewForSupplementaryElement(ofKind elementKind: String, at index: Int) -> UICollectionReusableView {
-        let view = collectionContext!.dequeue(ofKind: UICollectionView.elementKindSectionHeader, for: self, of: MainHeaderView.self, at: index)
-        view.titleLabel.text = R.string.localizable.mainHeaderExplore()
-        
-        return view
+        switch headerType {
+        case .title:
+            let view = collectionContext!.dequeue(ofKind: UICollectionView.elementKindSectionHeader, for: self, of: MainHeaderView.self, at: index)
+            view.titleLabel.text = R.string.localizable.mainHeaderExplore()
+            
+            return view
+            
+        case .oneTimeOffer:
+            return collectionContext!.dequeue(ofKind: UICollectionView.elementKindSectionHeader, for: self, of: OfferHeaderView.self, at: index)
+        }
     }
     
     func sizeForSupplementaryView(ofKind elementKind: String, at index: Int) -> CGSize {
-        return CGSize(width: collectionContext!.containerSize.width, height: 56.0)
+        let template: UIView
+        let size = CGSize(width: collectionContext!.containerSize.width, height: CGFloat.greatestFiniteMagnitude)
+        
+        switch headerType {
+        case .oneTimeOffer:
+            template = OfferHeaderView()
+            
+        case .title:
+            let tmp = MainHeaderView()
+            tmp.titleLabel.text = R.string.localizable.mainHeaderExplore()
+            template = tmp
+        }
+        
+        template.frame.size = size
+        template.layoutIfNeeded()
+        
+        return template.systemLayoutSizeFitting(size)
     }
     
 }

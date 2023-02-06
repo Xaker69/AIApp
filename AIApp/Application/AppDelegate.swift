@@ -12,7 +12,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         FirebaseApp.configure()
         
         window = UIWindow(frame: UIScreen.main.bounds)
-        window?.rootViewController = RootNavigationController(rootViewController: OnboardingViewController())
+        window?.rootViewController = RootNavigationController(rootViewController: UploadingViewController())
         window?.makeKeyAndVisible()
         
         return true
