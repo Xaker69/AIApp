@@ -22,6 +22,7 @@
 		2C1E440E296DC7150000D015 /* Satoshi-Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 2C1E440B296DC6CC0000D015 /* Satoshi-Bold.otf */; };
 		2C1E440F296DC7150000D015 /* Satoshi-Medium.otf in Resources */ = {isa = PBXBuildFile; fileRef = 2C1E440C296DC6CC0000D015 /* Satoshi-Medium.otf */; };
 		2C1E4410296DC7150000D015 /* Satoshi-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = 2C1E440D296DC6CC0000D015 /* Satoshi-Regular.otf */; };
+		2C255E35299279A100B39A03 /* UploadingBottomView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C255E34299279A100B39A03 /* UploadingBottomView.swift */; };
 		2C52ADFA2989AE0600081112 /* UploadingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C52ADF92989AE0600081112 /* UploadingViewController.swift */; };
 		2C52ADFC2989AE1800081112 /* UploadingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C52ADFB2989AE1800081112 /* UploadingView.swift */; };
 		2C5816B2296EF6480054270D /* SubAdvantageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C5816B1296EF6480054270D /* SubAdvantageView.swift */; };
@@ -115,6 +116,7 @@
 		2C1E440B296DC6CC0000D015 /* Satoshi-Bold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Satoshi-Bold.otf"; sourceTree = "<group>"; };
 		2C1E440C296DC6CC0000D015 /* Satoshi-Medium.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Satoshi-Medium.otf"; sourceTree = "<group>"; };
 		2C1E440D296DC6CC0000D015 /* Satoshi-Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Satoshi-Regular.otf"; sourceTree = "<group>"; };
+		2C255E34299279A100B39A03 /* UploadingBottomView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UploadingBottomView.swift; sourceTree = "<group>"; };
 		2C52ADF92989AE0600081112 /* UploadingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UploadingViewController.swift; sourceTree = "<group>"; };
 		2C52ADFB2989AE1800081112 /* UploadingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UploadingView.swift; sourceTree = "<group>"; };
 		2C5816B1296EF6480054270D /* SubAdvantageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubAdvantageView.swift; sourceTree = "<group>"; };
@@ -333,6 +335,14 @@
 			path = Satoshi;
 			sourceTree = "<group>";
 		};
+		2C255E332992798E00B39A03 /* Subview */ = {
+			isa = PBXGroup;
+			children = (
+				2C255E34299279A100B39A03 /* UploadingBottomView.swift */,
+			);
+			path = Subview;
+			sourceTree = "<group>";
+		};
 		2C52ADF72989ADED00081112 /* Uploading */ = {
 			isa = PBXGroup;
 			children = (
@@ -345,6 +355,7 @@
 		2C52ADF82989ADF700081112 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				2C255E332992798E00B39A03 /* Subview */,
 				2C52ADFB2989AE1800081112 /* UploadingView.swift */,
 			);
 			path = View;
@@ -1026,6 +1037,7 @@
 				2C5C2D6C2987F654009027F1 /* SingleGeneratedPhotoViewController.swift in Sources */,
 				2C5C2D5A29875660009027F1 /* GeneratedPhotosModel.swift in Sources */,
 				2C9BEB7829801A7900202D54 /* MainHeaderView.swift in Sources */,
+				2C255E35299279A100B39A03 /* UploadingBottomView.swift in Sources */,
 				2CB8A6B7295D8B26009A954E /* ListCollectionContext+Dequeue.swift in Sources */,
 				2C5C2D5E29875726009027F1 /* GeneratedPhotosSection.swift in Sources */,
 				2C5C2D6529875BC0009027F1 /* UnlockMoreSection.swift in Sources */,

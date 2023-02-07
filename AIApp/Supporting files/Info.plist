@@ -2,6 +2,15 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
+    <key>UIUserNotificationSettings</key>
+    <dict>
+        <key>types</key>
+        <array>
+            <string>badge</string>
+            <string>sound</string>
+            <string>alert</string>
+        </array>
+    </dict>
 	<key>UIAppFonts</key>
 	<array>
 		<string>Inter-SemiBold.ttf</string>

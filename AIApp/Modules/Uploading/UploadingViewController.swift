@@ -16,8 +16,17 @@ class UploadingViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        mainView.bottomView.continueButton.addTarget(self, action: #selector(continueButtonTapped), for: .touchUpInside)
+        
         adapter.collectionView = mainView.collectionView
         adapter.dataSource = self
+    }
+    
+    @objc private func continueButtonTapped() {
+        let vc = AttentionViewController()
+        vc.modalPresentationStyle = .overFullScreen
+        
+        present(vc, animated: true)
     }
 
 }

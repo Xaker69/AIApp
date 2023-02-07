@@ -10,7 +10,6 @@ onboarding-title = "<all>The Many <color>Different</color>\nSides of You</all>";
 onboarding-powered = "powered by ai";
 
 // Subscription
-
 subscription-restore = "Restore";
 subscription-privacy = "<all><terms href='https://xaker41.t.me'>Terms & Conditions</terms>・<privacy href='https://xaker41.t.me'>Privacy Policy</privacy>・<support href='https://xaker41.t.me'>Get Support</support></all>";
 subscription-continue = "Continue";
@@ -84,3 +83,15 @@ settings-version = "Version %@ (%@)";
 // Uploading
 uploading-offer-title = "One time offer";
 uploading-offer-subtitle = "Packs with ultimate discount of <color>50%%</color>";
+uploading-continue = "Continue";
+uploading-bottom-title = "Uploading photos...";
+uploading-bottom-subititle = "Please keep the app open";
+
+//Attention
+attention-title = "Your photos are\nbeing processed";
+attention-granted-subtitle = "It may take about 15-20 minutes. We'll send a notification when it's done";
+attention-denied-subtitle = "It may take about 15-20 minutes. Turn on notifications to be notified when your results are ready";
+attention-secondary-button = "Maybe later";
+attention-denied-button = "Enable Notifications";
+attention-granted-button = "Okay";
+

@@ -1,9 +1,10 @@
 import UIKit
 import Atributika
+
 class PackPaymentView: RootView {
     
     var isGradientDidSet: Bool = false
-    let buttonGradientView = UIView()
+    let buttonGradientView: UIView = UIView()
     
     let titleLabel: AttributedLabel = {
         let label = AttributedLabel()
