@@ -31,27 +31,27 @@ class SelectGenderView: RootView {
     }()
     
     let femaleButton: UIButton = {
-        let button = UIButton(type: .system)
+        let button = UIButton()
         button.setTitle(R.string.localizable.selectGenderFemale(), for: .normal)
-        button.setTitleColor(.white.withAlphaComponent(0.6), for: .normal)
-        button.setTitleColor(.white, for: .selected)
+        button.setTitleColor(.white, for: .normal)
         button.titleLabel?.font = .interFont(ofSize: 15, weight: .medium)
         button.layer.cornerRadius = 10
-        button.backgroundColor = .init(hex6: 0x1D1D1D)
-        button.tintColor = .clear
+        button.backgroundColor = .clear
+        button.layer.borderColor = UIColor(white: 1, alpha: 0.1).cgColor
+        button.layer.borderWidth = 1
         
         return button
     }()
     
     let maleButton: UIButton = {
-        let button = UIButton(type: .system)
+        let button = UIButton()
         button.setTitle(R.string.localizable.selectGenderMale(), for: .normal)
-        button.setTitleColor(.white.withAlphaComponent(0.6), for: .normal)
-        button.setTitleColor(.white, for: .selected)
+        button.setTitleColor(.white, for: .normal)
         button.titleLabel?.font = .interFont(ofSize: 15, weight: .medium)
         button.layer.cornerRadius = 10
-        button.backgroundColor = .init(hex6: 0x1D1D1D)
-        button.tintColor = .clear
+        button.backgroundColor = .clear
+        button.layer.borderColor = UIColor(white: 1, alpha: 0.1).cgColor
+        button.layer.borderWidth = 1
         
         return button
     }()
