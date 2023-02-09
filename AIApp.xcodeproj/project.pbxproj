@@ -11,6 +11,7 @@
 		2C06FE11297183600013DD5C /* TrialEnableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C06FE10297183600013DD5C /* TrialEnableView.swift */; };
 		2C06FE1A2971A25C0013DD5C /* AddAvatarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C06FE192971A25C0013DD5C /* AddAvatarView.swift */; };
 		2C06FE1C2971A4CF0013DD5C /* AddAvatarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C06FE1B2971A4CF0013DD5C /* AddAvatarViewController.swift */; };
+		2C19F71C2994023400126536 /* DownloadOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C19F71B2994023400126536 /* DownloadOperation.swift */; };
 		2C1E43F8296C07DB0000D015 /* SubscriptionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C1E43F7296C07DB0000D015 /* SubscriptionView.swift */; };
 		2C1E43FA296C08100000D015 /* SubscriptionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C1E43F9296C08100000D015 /* SubscriptionViewController.swift */; };
 		2C1E4401296C8DF00000D015 /* Inter-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 2C1E43FE296C8D840000D015 /* Inter-Bold.ttf */; };
@@ -105,6 +106,7 @@
 		2C06FE10297183600013DD5C /* TrialEnableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrialEnableView.swift; sourceTree = "<group>"; };
 		2C06FE192971A25C0013DD5C /* AddAvatarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddAvatarView.swift; sourceTree = "<group>"; };
 		2C06FE1B2971A4CF0013DD5C /* AddAvatarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddAvatarViewController.swift; sourceTree = "<group>"; };
+		2C19F71B2994023400126536 /* DownloadOperation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DownloadOperation.swift; sourceTree = "<group>"; };
 		2C1E43F7296C07DB0000D015 /* SubscriptionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubscriptionView.swift; sourceTree = "<group>"; };
 		2C1E43F9296C08100000D015 /* SubscriptionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubscriptionViewController.swift; sourceTree = "<group>"; };
 		2C1E43FC296C8D840000D015 /* Inter-SemiBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Inter-SemiBold.ttf"; sourceTree = "<group>"; };
@@ -234,6 +236,7 @@
 		2C06FE132971A1720013DD5C /* UploadPhotos */ = {
 			isa = PBXGroup;
 			children = (
+				2C19F71A2994021C00126536 /* Operation */,
 				2C954FCB2971A9B000D8881B /* View */,
 				2C954FCE2971AA3F00D8881B /* UploadPhotosViewController.swift */,
 			);
@@ -283,6 +286,14 @@
 				2C06FE192971A25C0013DD5C /* AddAvatarView.swift */,
 			);
 			path = View;
+			sourceTree = "<group>";
+		};
+		2C19F71A2994021C00126536 /* Operation */ = {
+			isa = PBXGroup;
+			children = (
+				2C19F71B2994023400126536 /* DownloadOperation.swift */,
+			);
+			path = Operation;
 			sourceTree = "<group>";
 		};
 		2C1E43F5296C079D0000D015 /* Subscription */ = {
@@ -1085,6 +1096,7 @@
 				2C9BEB6729800CEF00202D54 /* NewPacksModel.swift in Sources */,
 				2C954FCF2971AA3F00D8881B /* UploadPhotosViewController.swift in Sources */,
 				2C06FE1C2971A4CF0013DD5C /* AddAvatarViewController.swift in Sources */,
+				2C19F71C2994023400126536 /* DownloadOperation.swift in Sources */,
 				2CB8A6B6295D8B26009A954E /* UIIColor+hex.swift in Sources */,
 				2C9BEB6D29800D6700202D54 /* NewPacksSection.swift in Sources */,
 				2C9BEB332976CD8400202D54 /* ChoosePackViewController.swift in Sources */,

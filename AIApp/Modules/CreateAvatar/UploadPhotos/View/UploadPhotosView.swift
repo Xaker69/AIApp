@@ -1,5 +1,6 @@
 import UIKit
 import Atributika
+import PhotosUI
 
 class UploadPhotosView: RootView {
     
@@ -117,6 +118,21 @@ class UploadPhotosView: RootView {
         view.spacing = 8
         
         return view
+    }()
+    
+    let configuration: PHPickerConfiguration = {
+        var configuration = PHPickerConfiguration(photoLibrary: PHPhotoLibrary.shared())
+        configuration.filter = .images
+        configuration.selectionLimit = 20
+        
+        return configuration
+    }()
+    
+    lazy var picker: PHPickerViewController = {
+        let picker = PHPickerViewController(configuration: configuration)
+        picker.overrideUserInterfaceStyle = .dark
+        
+        return picker
     }()
     
     override func setup() {
