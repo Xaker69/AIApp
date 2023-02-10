@@ -2,11 +2,21 @@ import UIKit
 
 class ProfileView: RootView {
 
-    let addContainer: UIView = {
+    let containerView: UIView = {
         let view = UIView()
-        view.layer.cornerRadius = 48/2
+        view.layer.cornerRadius = 49/2
         view.layer.borderColor = UIColor(white: 1, alpha: 0.2).cgColor
         view.layer.borderWidth = 1
+        
+        return view
+    }()
+    
+    let imageView: UIImageView = {
+        let view = UIImageView()
+        view.image = nil
+        view.contentMode = .scaleAspectFill
+        view.clipsToBounds = true
+        view.layer.cornerRadius = 48/2
         
         return view
     }()
@@ -28,31 +38,56 @@ class ProfileView: RootView {
         return label
     }()
     
+    let subtitleLabel: UILabel = {
+        let label = UILabel()
+        label.text = R.string.localizable.mainManyPacks("0")
+        label.font = .interFont(ofSize: 12, weight: .regular)
+        label.textColor = .init(white: 1, alpha: 0.6)
+        label.textAlignment = .left
+        
+        return label
+    }()
+    
+    lazy var titleStack: UIStackView = {
+        let view = UIStackView(arrangedSubviews: [
+            titleLabel
+        ])
+        view.axis = .vertical
+        view.spacing = 4
+        
+        return view
+    }()
+    
     override func setup() {
         layer.borderColor = UIColor(white: 1, alpha: 0.2).cgColor
         layer.borderWidth = 1
         layer.cornerRadius = 80/2
         
-        addSubview(addContainer)
-        addSubview(titleLabel)
+        addSubview(containerView)
+        addSubview(titleStack)
         
-        addContainer.addSubview(addImageView)
+        containerView.addSubview(addImageView)
+        containerView.addSubview(imageView)
         
         setupConstraints()
     }
     
     private func setupConstraints() {
-        addContainer.snp.makeConstraints { make in
+        containerView.snp.makeConstraints { make in
             make.top.left.bottom.equalToSuperview().inset(16.0)
         }
         
+        imageView.snp.makeConstraints { make in
+            make.edges.equalToSuperview().inset(1.0)
+        }
+        
         addImageView.snp.makeConstraints { make in
-            make.edges.equalToSuperview().inset(12.0)
+            make.edges.equalToSuperview().inset(13)
             make.size.equalTo(24.0)
         }
         
-        titleLabel.snp.makeConstraints { make in
-            make.left.equalTo(addContainer.snp.right).offset(8.0)
+        titleStack.snp.makeConstraints { make in
+            make.left.equalTo(imageView.snp.right).offset(8.0)
             make.right.equalToSuperview().offset(-16.0 * 2)
             make.centerY.equalToSuperview()
         }

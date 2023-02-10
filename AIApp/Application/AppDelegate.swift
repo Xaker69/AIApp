@@ -11,8 +11,15 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         FirebaseApp.configure()
         
+        let rootVC: UIViewController
+        if let persons = PersonManager.shared.getPersons(), persons.count > 0 {
+            rootVC = MainViewController()
+        } else {
+            rootVC = OnboardingViewController()
+        }
+                
         window = UIWindow(frame: UIScreen.main.bounds)
-        window?.rootViewController = RootNavigationController(rootViewController: UploadPhotosViewController())
+        window?.rootViewController = RootNavigationController(rootViewController: rootVC)
         window?.makeKeyAndVisible()
         
         return true

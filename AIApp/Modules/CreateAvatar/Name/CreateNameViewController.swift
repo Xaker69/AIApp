@@ -2,8 +2,21 @@ import UIKit
 
 class CreateNameViewController: UIViewController {
 
+    let selectedImages: [UIImage]
+    let gender: String
+    
     var mainView: CreateNameView {
         return view as! CreateNameView
+    }
+    
+    init(selectedImages: [UIImage], gender: String) {
+        self.selectedImages = selectedImages
+        self.gender = gender
+        super.init(nibName: nil, bundle: nil)
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
     }
     
     override func loadView() {
@@ -18,8 +31,6 @@ class CreateNameViewController: UIViewController {
         mainView.continueButton.addTarget(self, action: #selector(continueButtonTapped), for: .touchUpInside)
         mainView.backButton.addTarget(self, action: #selector(backButtonTapped), for: .touchUpInside)
         
-//        NotificationCenter.default.addObserver(self, selector: #selector(keyboardFrameChanged), name: UIResponder.keyboardWillShowNotification, object: nil)
-//        NotificationCenter.default.addObserver(self, selector: #selector(keyboardFrameChanged), name: UIResponder.keyboardWillHideNotification, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardFrameChanged), name: UIResponder.keyboardWillChangeFrameNotification, object: nil)
     }
     
@@ -69,6 +80,9 @@ class CreateNameViewController: UIViewController {
     }
     
     @objc private func continueButtonTapped() {
+        let name = mainView.textField.text ?? ""
+        PersonManager.shared.createPerson(images: selectedImages, gender: gender, name: name)
+        
         let vc = ChoosePackViewController()
         navigationController?.pushViewController(vc, animated: true)
     }

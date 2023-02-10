@@ -1,6 +1,6 @@
 import PhotosUI
 
-class DownloadOperation: Operation {
+class ImageDownloader: Operation {
     let result: PHPickerResult
     let faceDetector: CIDetector
     let completion: (UIImage?, Bool) -> Void
@@ -18,10 +18,27 @@ class DownloadOperation: Operation {
             guard let self = self, !self.isCancelled else { return }
             
             if let photo = item as? UIImage {
-                let ciImage = CIImage(image: photo)
+                let fixedImage = photo.fixOrientation()
+                print("💙 image orentation: ", fixedImage.imageOrientation.rawValue)
+                let ciImage = CIImage(image: fixedImage)
                 let features = self.faceDetector.features(in: ciImage!)
-                self.completion(photo, features.count > 0)
+                self.completion(fixedImage, features.count > 0)
             }
         }
+    }
+}
+
+extension UIImage {
+    func fixOrientation() -> UIImage {
+        if imageOrientation == .up {
+            return self
+        }
+
+        UIGraphicsBeginImageContextWithOptions(size, false, scale)
+        draw(in: CGRect(origin: .zero, size: size))
+        let fixedImage = UIGraphicsGetImageFromCurrentImageContext()
+        UIGraphicsEndImageContext()
+
+        return fixedImage!
     }
 }

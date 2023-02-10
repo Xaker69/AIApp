@@ -5,7 +5,7 @@ import PhotosUI
 class UploadPhotosViewController: UIViewController {
     
     var queue = OperationQueue()
-    var operations = [DownloadOperation]()
+    var operations = [ImageDownloader]()
     
     var mainView: UploadPhotosView {
         return view as! UploadPhotosView
@@ -86,7 +86,7 @@ class UploadPhotosViewController: UIViewController {
             var detectedImages = [UIImage]()
             
             results.forEach { result in
-                let operation = DownloadOperation(result: result, faceDetector: faceDetector) { photo, isDetected in
+                let operation = ImageDownloader(result: result, faceDetector: faceDetector) { photo, isDetected in
                     DispatchQueue.main.async {
                         if let photo = photo, isDetected {
                             detectedImages.append(photo)
@@ -102,7 +102,7 @@ class UploadPhotosViewController: UIViewController {
                                 self.cancelDownload()
                                 
                                 if detectedImages.count >= 15 {
-                                    // TODO: сохранить фото и редирект на 2ой шаг
+                                    self.photosDowloaded(detectedImages)
                                 } else {
                                     self.showNotEnoughAlert(notDetectedIDs: notDetectedIds, results: results.count)
                                 }
@@ -162,6 +162,11 @@ class UploadPhotosViewController: UIViewController {
     private func cancelDownload() {
         operations.forEach { $0.cancel() }
         operations.removeAll()
+    }
+    
+    private func photosDowloaded(_ photos: [UIImage]) {
+        let vc = SelectGenderViewController(selectedImages: photos)
+        navigationController?.pushViewController(vc, animated: true)
     }
     
 }

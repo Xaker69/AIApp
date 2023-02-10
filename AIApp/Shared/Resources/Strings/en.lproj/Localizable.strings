@@ -61,6 +61,8 @@ pack-description-payment-button = "Get pack for $10";
 
 // Main
 main-add-profile = "Add new";
+main-one-pack = "1 pack";
+main-many-packs = "%@ packs";
 main-header-explore = "Explore more packs";
 main-header-my-packs = "Loren’s  packs";
 main-header-my-packs-button = "See all";

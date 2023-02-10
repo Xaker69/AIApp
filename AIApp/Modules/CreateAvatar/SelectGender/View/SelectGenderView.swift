@@ -39,6 +39,7 @@ class SelectGenderView: RootView {
         button.backgroundColor = .clear
         button.layer.borderColor = UIColor(white: 1, alpha: 0.1).cgColor
         button.layer.borderWidth = 1
+        button.tag = 0
         
         return button
     }()
@@ -52,6 +53,7 @@ class SelectGenderView: RootView {
         button.backgroundColor = .clear
         button.layer.borderColor = UIColor(white: 1, alpha: 0.1).cgColor
         button.layer.borderWidth = 1
+        button.tag = 1
         
         return button
     }()

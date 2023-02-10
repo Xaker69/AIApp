@@ -3,6 +3,8 @@ import IGListKit
 
 class MainViewController: UIViewController {
 
+    var profileModel: ProfilesModel!
+    
     var mainView: MainView {
         return view as! MainView
     }
@@ -18,6 +20,12 @@ class MainViewController: UIViewController {
 
         mainView.settingsButton.addTarget(self, action: #selector(settingsButtonTapped), for: .touchUpInside)
         
+        if let persons = PersonManager.shared.getPersons() {
+            profileModel = ProfilesModel(persons: Array(persons))
+        } else {
+            profileModel = ProfilesModel(persons: [])
+        }
+        
         adapter.collectionView = mainView.collectionView
         adapter.dataSource = self
     }
@@ -32,7 +40,7 @@ class MainViewController: UIViewController {
 extension MainViewController: ListAdapterDataSource {
     func objects(for listAdapter: ListAdapter) -> [ListDiffable] {
         return [
-            ProfileModel(name: "profile"),
+            profileModel,
             MyPacksModel(name: "myPacks"),
             NewPacksModel(name: "morePacks")
         ]
@@ -40,8 +48,11 @@ extension MainViewController: ListAdapterDataSource {
     
     func listAdapter(_ listAdapter: ListAdapter, sectionControllerFor object: Any) -> ListSectionController {
         switch object {
-        case is ProfileModel:
-            return ProfileSection()
+        case is ProfilesModel:
+            let section = ProfilesSection()
+            section.delegate = self
+            
+            return section
             
         case is MyPacksModel:
             let section = MyPacksSection()
@@ -84,5 +95,16 @@ extension MainViewController: MyPacksDelegate {
         vc.modalPresentationStyle = .fullScreen
         
         present(vc, animated: true)
+    }
+}
+
+// MARK: -
+extension MainViewController: ProfileSectionDelegate {
+    func profileSection(_ controller: ProfilesSection, didSelect person: Person?) {
+        if let person = person {
+            
+        } else {
+            navigationController?.pushViewController(AddAvatarViewController(), animated: true)
+        }
     }
 }
