@@ -19,7 +19,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         }
                 
         window = UIWindow(frame: UIScreen.main.bounds)
-        window?.rootViewController = RootNavigationController(rootViewController: rootVC)
+        window?.rootViewController = RootNavigationController(rootViewController: UploadPhotosViewController())
         window?.makeKeyAndVisible()
         
         return true

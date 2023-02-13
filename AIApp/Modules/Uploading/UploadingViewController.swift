@@ -1,5 +1,6 @@
 import UIKit
 import IGListKit
+import Alamofire
 
 class UploadingViewController: UIViewController {
 
@@ -28,7 +29,49 @@ class UploadingViewController: UIViewController {
         
         present(vc, animated: true)
     }
+    
+    private func testAlamofire() {
+        let apiKey = "your_api_key_here"
+        let url = "https://api.astria.ai/tunes"
 
+        let parameters: [String: Any] = [
+          "tune": [
+            "name": "cat",
+            "branch": "fast",
+            "image_urls": [
+              "https://i.imgur.com/HLHBnl9.jpeg",
+              "https://i.imgur.com/HLHBnl9.jpeg",
+              "https://i.imgur.com/HLHBnl9.jpeg",
+              "https://i.imgur.com/HLHBnl9.jpeg"
+            ],
+            "title": "grumpy cat",
+            "prompts_attributes": [
+              [
+                "text": "zwx cat in space circa 1979 French illustration"
+              ],
+              [
+                "text": "zwx cat getting into trouble viral meme"
+              ]
+            ]
+          ]
+        ]
+
+        let headers: HTTPHeaders = [
+          "Authorization": "Bearer \(apiKey)",
+          "Content-Type": "application/json"
+        ]
+
+        AF.request(url, method: .post, parameters: parameters, encoding: JSONEncoding.default, headers: headers)
+          .responseJSON { response in
+            switch response.result {
+            case .success(let value):
+              print("Success: \(value)")
+            case .failure(let error):
+              print("Error: \(error)")
+            }
+          }
+
+    }
 }
 
 // MARK: - ListAdapterDataSource

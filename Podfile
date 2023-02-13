@@ -14,5 +14,6 @@ target 'AIApp' do
   pod 'FirebaseStorage'
   pod 'Kingfisher'
   pod 'RealmSwift'
+  pod 'Alamofire' 
 
 end
