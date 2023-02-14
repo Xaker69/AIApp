@@ -129,6 +129,7 @@
 		2C1E440C296DC6CC0000D015 /* Satoshi-Medium.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Satoshi-Medium.otf"; sourceTree = "<group>"; };
 		2C1E440D296DC6CC0000D015 /* Satoshi-Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Satoshi-Regular.otf"; sourceTree = "<group>"; };
 		2C255E34299279A100B39A03 /* UploadingBottomView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UploadingBottomView.swift; sourceTree = "<group>"; };
+		2C4E7184299C0F1100E44957 /* AIApp.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = AIApp.entitlements; sourceTree = "<group>"; };
 		2C52ADF92989AE0600081112 /* UploadingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UploadingViewController.swift; sourceTree = "<group>"; };
 		2C52ADFB2989AE1800081112 /* UploadingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UploadingView.swift; sourceTree = "<group>"; };
 		2C5816B1296EF6480054270D /* SubAdvantageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubAdvantageView.swift; sourceTree = "<group>"; };
@@ -762,6 +763,7 @@
 		2CB8A692295D8AA7009A954E /* AIApp */ = {
 			isa = PBXGroup;
 			children = (
+				2C4E7184299C0F1100E44957 /* AIApp.entitlements */,
 				2CB8A6A7295D8AE4009A954E /* Application */,
 				2CB8A6A8295D8AF3009A954E /* Modules */,
 				2CB8A6A9295D8AFD009A954E /* Shared */,
@@ -1302,6 +1304,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = AIApp/AIApp.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 12;
 				DEVELOPMENT_TEAM = N422RJM586;
@@ -1309,6 +1312,7 @@
 				INFOPLIST_FILE = "AIApp/Supporting files/Info.plist";
 				INFOPLIST_KEY_CFBundleDisplayName = "AI Photo";
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.photography";
+				INFOPLIST_KEY_NSPhotoLibraryUsageDescription = "We need photos from your library for generate ai avatar";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIRequiresFullScreen = NO;
@@ -1339,6 +1343,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = AIApp/AIApp.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 12;
 				DEVELOPMENT_TEAM = N422RJM586;
@@ -1346,6 +1351,7 @@
 				INFOPLIST_FILE = "AIApp/Supporting files/Info.plist";
 				INFOPLIST_KEY_CFBundleDisplayName = "AI Photo";
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.photography";
+				INFOPLIST_KEY_NSPhotoLibraryUsageDescription = "We need photos from your library for generate ai avatar";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIRequiresFullScreen = NO;

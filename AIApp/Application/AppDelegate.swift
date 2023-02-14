@@ -1,9 +1,10 @@
 import UIKit
 import FirebaseCore
 import FirebaseFirestore
+import UserNotifications
 
 @main
-class AppDelegate: UIResponder, UIApplicationDelegate {
+class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterDelegate {
 
     var window: UIWindow?
 
@@ -19,10 +20,20 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         }
                 
         window = UIWindow(frame: UIScreen.main.bounds)
-        window?.rootViewController = RootNavigationController(rootViewController: UploadPhotosViewController())
+        window?.rootViewController = RootNavigationController(rootViewController: UploadingViewController())
         window?.makeKeyAndVisible()
         
         return true
+    }
+    
+    func application(_ application: UIApplication, didRegisterForRemoteNotificationsWithDeviceToken deviceToken: Data) {
+        let apnsDeviceToken = deviceToken.map { String(format: "%02.2hhx", $0) }.joined()
+        print("💙 Device token:", apnsDeviceToken)
+    }
+    
+    func application(_ application: UIApplication, didReceiveRemoteNotification userInfo: [AnyHashable : Any]) async -> UIBackgroundFetchResult {
+        
+        return .noData
     }
 
 }
