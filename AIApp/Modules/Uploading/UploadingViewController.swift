@@ -21,144 +21,79 @@ class UploadingViewController: UIViewController {
         
         adapter.collectionView = mainView.collectionView
         adapter.dataSource = self
-                
-        let images = Array(PersonManager.shared.getPersons()![0].photos)
-        uploadImage(images: images.compactMap { UIImage(data: $0 ?? Data()) }, apiKey: "sd_eda1h1G19zmkSwsb9gqRYkc3tHiKix") { result in
+              
+        uploadPhotos()
+    }
+    
+    @objc private func continueButtonTapped() {
+        let vc = AttentionViewController()
+        vc.modalPresentationStyle = .overFullScreen
+        vc.dismissCompletion = { [weak self] in
+            self?.navigationController?.setViewControllers([MainViewController()], animated: true)
+        }
+        
+        present(vc, animated: true)
+    }
+    
+    private func uploadPhotos() {
+        let images = Array(UserManager.shared.users[0].photos)
+        let apiKey = "sd_eda1h1G19zmkSwsb9gqRYkc3tHiKix"
+        
+        uploadImage(images: images, apiKey: apiKey) { result in
             switch result {
             case .success(let data):
-                guard let data = data else {
-                    print("❤️ success completion uploadImage with wrong data DATA IS NILL")
-                    return
-                }
+                self.mainView.bottomView.animateCompleteLoad()
                 print("💙 success complition with json:", data)
-                
+
             case .failure(let error):
                 print("❤️ failure complition uploadImage with error:", error)
             }
         }
     }
     
-//    override func viewDidAppear(_ animated: Bool) {
-//        
-//    }
-    
-    @objc private func continueButtonTapped() {
-        let vc = AttentionViewController()
-        vc.modalPresentationStyle = .overFullScreen
-        
-        present(vc, animated: true)
-    }
-    
-    func uploadImage(images: [UIImage], apiKey: String, completion: @escaping (Result<String?, Error>) -> Void) {
+    private func uploadImage(images: [Data], apiKey: String, completion: @escaping (Result<String, Error>) -> Void) {
+        print("💛 photos count", images.count)
         let DOMAIN = "https://api.astria.ai"
-        
-        let url = URL(string: DOMAIN + "/tunes")
-        guard let requestUrl = url else { return }
-        
-        var request = URLRequest(url: requestUrl)
-        request.httpMethod = "POST"
-        request.setValue("Bearer " + apiKey, forHTTPHeaderField: "Authorization")
+        let url = URL(string: DOMAIN + "/tunes")!
 
-        let formData = NSMutableData()
+        let headers: HTTPHeaders = [
+            "Authorization": "Bearer " + apiKey
+        ]
+
         let boundary = "Boundary-\(UUID().uuidString)"
-
-        formData.append("--\(boundary)\r\n".data(using: .utf8)!)
-        formData.append("Content-Disposition: form-data; name=\"tune[title]\"\r\n\r\n".data(using: .utf8)!)
-        formData.append("TEST\r\n".data(using: .utf8)!)
-
-        formData.append("--\(boundary)\r\n".data(using: .utf8)!)
-        formData.append("Content-Disposition: form-data; name=\"tune[branch]\"\r\n\r\n".data(using: .utf8)!)
-        formData.append("fast\r\n".data(using: .utf8)!)
-
-        formData.append("--\(boundary)\r\n".data(using: .utf8)!)
-        formData.append("Content-Disposition: form-data; name=\"tune[token]\"\r\n\r\n".data(using: .utf8)!)
-        formData.append("zwx\r\n".data(using: .utf8)!)
-
-        formData.append("--\(boundary)\r\n".data(using: .utf8)!)
-        formData.append("Content-Disposition: form-data; name=\"tune[name]\"\r\n\r\n".data(using: .utf8)!)
-        formData.append("man\r\n".data(using: .utf8)!)
+        let formData = MultipartFormData()
+        formData.append("TEST".data(using: .utf8)!, withName: "tune[title]")
+        formData.append("fast".data(using: .utf8)!, withName: "tune[branch]")
+        formData.append("zwx".data(using: .utf8)!, withName: "tune[token]")
+        formData.append("man".data(using: .utf8)!, withName: "tune[name]")
 
         for image in images {
-            guard let data = image.jpegData(compressionQuality: 0.5) else { return }
-            let filename = image.accessibilityIdentifier ?? "ImageName-\(Int.random(in: 0...100000))"
+            let filename = image.hashValue.description
             let mimetype = "image/jpeg"
             
-            formData.append("--\(boundary)\r\n".data(using: .utf8)!)
-            formData.append("Content-Disposition: form-data; name=\"tune[images][]\"; filename=\"\(filename)\"\r\n".data(using: .utf8)!)
-            formData.append("Content-Type: \(mimetype)\r\n\r\n".data(using: .utf8)!)
-            
-            formData.append(data)
-            formData.append("\r\n".data(using: .utf8)!)
+            formData.append(image, withName: "tune[images][]", fileName: filename, mimeType: mimetype)
         }
-        
-//        formData.append("--\(boundary)\r\n".data(using: .utf8)!)
-//        formData.append("Content-Disposition: form-data; name=\"tune[callback]\"\r\n\r\n".data(using: .utf8)!)
-//        formData.append("https://optional-callback-url.com/to-your-service-when-ready\r\n".data(using: .utf8)!)
 
-        formData.append("--\(boundary)--\r\n".data(using: .utf8)!)
+        if let deviceToken = UserSettings.deviceToken {
+            let callback = "https://us-central1-lensa-ai-app.cloudfunctions.net/apn?deviceToken=\(deviceToken)"
+            formData.append(callback.data(using: .utf8)!, withName: "tune[callback]")
+        }
 
-        request.setValue("multipart/form-data; boundary=\(boundary)", forHTTPHeaderField: "Content-Type")
-        request.setValue("\(formData.length)", forHTTPHeaderField: "Content-Length")
-        request.httpBody = formData as Data
-
-        let task = URLSession.shared.dataTask(with: request) { data, response, error in
-            if let error = error {
-                completion(.failure(error))
-            } else if let data = data, let response = response as? HTTPURLResponse {
-                print("Status code: \(response.statusCode)")
-                do {
-                    let json = try JSONSerialization.jsonObject(with: data, options: [])
-                    print("Response: \(json)")
-                } catch {
-                    print("Error: \(error)")
+        AF.upload(multipartFormData: formData, to: url, method: .post, headers: headers)
+            .uploadProgress(closure: handleProgress)
+            .responseString { response in
+                switch response.result {
+                case .success(let value):
+                    completion(.success(value))
+                case .failure(let error):
+                    completion(.failure(error))
                 }
-                completion(.success(String(data: data, encoding: .utf8)))
             }
-        }
-
-        task.resume()
     }
     
-    func photoDataToFormData(data: Data, boundary: String) -> Data {
-        var fullData = Data()
-        
-        let lineOne = "--" + boundary + "\r\n"
-        fullData.append(lineOne.data(using: .utf8)!)
-        
-        let lineTwo = "Content-Disposition: form-data; name=\"tune[images][]\"\r\n"
-        fullData.append(lineTwo.data(using: .utf8)!)
-        
-        let lineFive = "\r\n"
-        fullData.append(lineFive.data(using: .utf8)!)
-        
-        fullData.append(data)
-        
-        let lineSix = "\r\n"
-        fullData.append(lineSix.data(using: .utf8)!)
-
-        return fullData
+    private func handleProgress(_ progress: Progress) {
+        mainView.bottomView.progressView.setProgress(Float(progress.fractionCompleted), animated: true)
     }
-
-func testRequest() {
-    //    AF.upload(multipartFormData: { (multipartFormData) in
-    //        for (key, value) in parameters {
-    //            multipartFormData.append("\(value)".data(using: String.Encoding.utf8)!, withName: key)
-    //        }
-    //        for (index, image) in images.enumerated() {
-    //            guard let imageData = image.jpegData(compressionQuality: 0.5) else { return }
-    //            multipartFormData.append(imageData, withName: "tune[images][]", fileName: "image\(index).jpeg", mimeType: "image/jpeg")
-    ////                multipartFormData.append(imageData, withName: "tune[images][]")
-    //        }
-    //    }, to: url, headers: headers).responseString { response in
-    //        switch response.result {
-    //        case .success(let data):
-    //            completion(.success(data))
-    //
-    //        case .failure(let error):
-    //            completion(.failure(error))
-    //        }
-}
-    
 }
 
 // MARK: - ListAdapterDataSource

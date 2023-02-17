@@ -11,6 +11,7 @@ class UploadingBottomView: RootView {
         button.titleLabel?.font = .interFont(ofSize: 15, weight: .bold)
         button.layer.cornerRadius = 10
         button.backgroundColor = .white
+        button.alpha = 0
         
         return button
     }()
@@ -49,12 +50,20 @@ class UploadingBottomView: RootView {
         view.progressViewStyle = .bar
         view.backgroundColor = .clear
         view.layer.cornerRadius = 8/2
-        view.progress = 0.5
+        view.progress = 0
         view.clipsToBounds = true
         view.progressTintColor = .white
         view.trackTintColor = .init(white: 1, alpha: 0.05)
         view.layer.sublayers![1].cornerRadius = 8/2
         view.subviews[1].clipsToBounds = true
+        
+        return view
+    }()
+    
+    let completeImageView: UIImageView = {
+        let view = UIImageView()
+        view.image = R.image.uploadComplete()
+        view.alpha = 0
         
         return view
     }()
@@ -69,6 +78,7 @@ class UploadingBottomView: RootView {
         addSubview(titleLabel)
         addSubview(subtitleLabel)
         addSubview(progressContainer)
+        addSubview(completeImageView)
         
         progressContainer.addSubview(progressView)
         
@@ -94,6 +104,42 @@ class UploadingBottomView: RootView {
         layer.masksToBounds = false
     }
     
+    func animateCompleteLoad() {
+        progressContainer.snp.remakeConstraints { make in
+            make.width.equalTo(32.0)
+            make.centerX.equalToSuperview()
+            make.top.equalTo(subtitleLabel.snp.bottom).offset(16.0)
+            make.bottom.equalTo(safeAreaLayoutGuide.snp.bottom).offset(-16.0)
+        }
+        
+        UIView.animate(withDuration: 0.3, delay: 0, options: .curveEaseInOut) {
+            self.layoutIfNeeded()
+            self.progressContainer.alpha = 0
+            self.completeImageView.alpha = 1
+            self.completeImageView.transform = CGAffineTransform(scaleX: 2.0, y: 2.0)
+        } completion: { _ in
+            DispatchQueue.main.asyncAfter(deadline: .now() + 1.5) {
+                self.progressContainer.removeFromSuperview()
+                self.completeImageView.removeFromSuperview()
+                self.titleLabel.removeFromSuperview()
+                self.subtitleLabel.removeFromSuperview()
+                
+                self.continueButton.snp.makeConstraints { make in
+                    make.top.equalToSuperview().offset(16.0)
+                    make.left.right.equalToSuperview().inset(20.0)
+                    make.bottom.equalTo(self.safeAreaLayoutGuide.snp.bottom).offset(-16.0)
+                    make.height.equalTo(56.0)
+                }
+                
+                UIView.animate(withDuration: 0.3) {
+                    self.layoutIfNeeded()
+                    self.continueButton.alpha = 1
+                }
+            }
+        }
+
+    }
+    
     private func setupConstraints() {
         titleLabel.snp.makeConstraints { make in
             make.left.right.top.equalToSuperview().inset(16.0)
@@ -110,9 +156,22 @@ class UploadingBottomView: RootView {
             make.bottom.equalTo(safeAreaLayoutGuide.snp.bottom).offset(-16.0)
         }
         
+        completeImageView.snp.makeConstraints { make in
+            make.top.equalTo(subtitleLabel.snp.bottom).offset(20.0)
+            make.bottom.equalTo(safeAreaLayoutGuide.snp.bottom).offset(-20.0)
+            make.size.equalTo(32.0/2.0)
+            make.centerX.equalToSuperview()
+        }
+        
         progressView.snp.makeConstraints { make in
             make.top.bottom.left.right.equalToSuperview().inset(8.0)
             make.height.equalTo(8.0)
+        }
+        
+        continueButton.snp.makeConstraints { make in
+            make.left.right.equalToSuperview().inset(20.0)
+            make.bottom.equalTo(self.safeAreaLayoutGuide.snp.bottom).offset(-16.0)
+            make.height.equalTo(56.0)
         }
     }
 

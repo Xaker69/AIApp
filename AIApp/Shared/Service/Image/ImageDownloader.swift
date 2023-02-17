@@ -19,26 +19,10 @@ class ImageDownloader: Operation {
             
             if let photo = item as? UIImage {
                 let fixedImage = photo.fixOrientation()
-                print("💙 image orentation: ", fixedImage.imageOrientation.rawValue)
                 let ciImage = CIImage(image: fixedImage)
                 let features = self.faceDetector.features(in: ciImage!)
                 self.completion(fixedImage, features.count > 0)
             }
         }
-    }
-}
-
-extension UIImage {
-    func fixOrientation() -> UIImage {
-        if imageOrientation == .up {
-            return self
-        }
-
-        UIGraphicsBeginImageContextWithOptions(size, false, scale)
-        draw(in: CGRect(origin: .zero, size: size))
-        let fixedImage = UIGraphicsGetImageFromCurrentImageContext()
-        UIGraphicsEndImageContext()
-
-        return fixedImage!
     }
 }
