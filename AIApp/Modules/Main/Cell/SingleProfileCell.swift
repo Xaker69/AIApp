@@ -20,6 +20,13 @@ class SingleProfileCell: UICollectionViewCell {
         fatalError("init(coder:) has not been implemented")
     }
     
+    override func prepareForReuse() {
+        super.prepareForReuse()
+        
+        profileView.imageView.image = nil
+        profileView.addImageView.isHidden = false
+    }
+    
     private func setupConstraints() {
         profileView.snp.makeConstraints { make in
             make.left.right.equalToSuperview().inset(4.0)

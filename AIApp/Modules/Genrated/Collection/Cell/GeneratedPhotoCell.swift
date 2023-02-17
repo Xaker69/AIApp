@@ -6,7 +6,7 @@ class GeneratedPhotoCell: UICollectionViewCell {
         let view = UIImageView()
         view.contentMode = .scaleAspectFill
         view.clipsToBounds = true
-        view.backgroundColor = randomColor()
+        view.backgroundColor = .init(hex6: 0x272727)
         
         return view
     }()
@@ -26,6 +26,7 @@ class GeneratedPhotoCell: UICollectionViewCell {
     override func prepareForReuse() {
         super.prepareForReuse()
         
+        imageView.image = nil
     }
     
     private func setupConstraints() {

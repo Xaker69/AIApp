@@ -8,7 +8,7 @@ protocol GeneratedPhotosDelegate: AnyObject {
 class GeneratedPhotosSection: ListSectionController {
     
     weak var delegate: GeneratedPhotosDelegate?
-//    let person = PersonManager.shared.getPersons()![0]
+    let user = UserManager.shared.users[0]
     
     override init() {
         super.init()
@@ -19,7 +19,7 @@ class GeneratedPhotosSection: ListSectionController {
     }
     
     override func numberOfItems() -> Int {
-        return 100
+        return user.photos.count
     }
     
     override func didSelectItem(at index: Int) {
@@ -35,9 +35,7 @@ class GeneratedPhotosSection: ListSectionController {
     override func cellForItem(at index: Int) -> UICollectionViewCell {
         let cell = collectionContext!.dequeue(of: GeneratedPhotoCell.self, for: self, at: index)
         
-//        if let imageData = person.photos[index] {
-//            cell.imageView.image = UIImage(data: imageData)
-//        }
+        ImageService.setImage(from: user.photos[index], to: cell.imageView)
         
         return cell
     }

@@ -47,11 +47,12 @@ class SingleProfileSection: ListSectionController {
     
     @discardableResult
     private func configure(cell: SingleProfileCell) -> SingleProfileCell {
-        if let person = model.person, let firstData = person.photos.last, let data = firstData {
+        if let user = model.user, let data = user.photos.last {
             cell.profileView.addImageView.isHidden = true
-            cell.profileView.imageView.image = UIImage(data: data)
-            cell.profileView.titleLabel.text = person.name
+            cell.profileView.titleLabel.text = user.name
             cell.profileView.titleStack.addArrangedSubview(cell.profileView.subtitleLabel)
+            
+            ImageService.setImage(from: data, to: cell.profileView.imageView)
         }
         
         return cell
