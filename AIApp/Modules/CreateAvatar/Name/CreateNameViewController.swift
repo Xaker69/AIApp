@@ -2,14 +2,14 @@ import UIKit
 
 class CreateNameViewController: UIViewController {
 
-    let selectedImages: [UIImage]
+    let selectedImages: [Data]
     let gender: String
     
     var mainView: CreateNameView {
         return view as! CreateNameView
     }
     
-    init(selectedImages: [UIImage], gender: String) {
+    init(selectedImages: [Data], gender: String) {
         self.selectedImages = selectedImages
         self.gender = gender
         super.init(nibName: nil, bundle: nil)
@@ -81,7 +81,7 @@ class CreateNameViewController: UIViewController {
     
     @objc private func continueButtonTapped() {
         let name = mainView.textField.text ?? ""
-        PersonManager.shared.createPerson(images: selectedImages, gender: gender, name: name)
+        UserManager.shared.createUser(name: name, gender: gender, photos: selectedImages)
         
         let vc = ChoosePackViewController()
         navigationController?.pushViewController(vc, animated: true)

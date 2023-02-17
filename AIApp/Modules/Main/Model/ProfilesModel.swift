@@ -1,16 +1,16 @@
 import IGListDiffKit
 
 class ProfilesModel {
-    let persons: [Person]
+    let users: [User]
     
-    init(persons: [Person]) {
-        self.persons = persons
+    init(users: [User]) {
+        self.users = users
     }
 }
 
 extension ProfilesModel: ListDiffable {
     func diffIdentifier() -> NSObjectProtocol {
-        return persons as NSObjectProtocol
+        return users.map { $0.id } as NSObjectProtocol
     }
     
     func isEqual(toDiffableObject object: ListDiffable?) -> Bool {
@@ -18,6 +18,6 @@ extension ProfilesModel: ListDiffable {
             return false
         }
         
-        return object.persons == persons
+        return object.users == users
     }
 }

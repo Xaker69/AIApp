@@ -1,7 +1,7 @@
 import IGListKit
 
 protocol SingleProfileDelegate: AnyObject {
-    func singleProfile(_ section: SingleProfileSection, person: Person?)
+    func singleProfile(_ section: SingleProfileSection, user: User?)
 }
 
 class SingleProfileSection: ListSectionController {
@@ -22,7 +22,7 @@ class SingleProfileSection: ListSectionController {
     }
     
     override func didSelectItem(at index: Int) {
-        delegate?.singleProfile(self, person: model.person)
+        delegate?.singleProfile(self, user: model.user)
     }
     
     override func sizeForItem(at index: Int) -> CGSize {

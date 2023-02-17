@@ -2,13 +2,13 @@ import UIKit
 
 class SelectGenderViewController: UIViewController {
 
-    var selectedImages: [UIImage]
+    var selectedImages: [Data]
     
     var mainView: SelectGenderView {
         return view as! SelectGenderView
     }
     
-    init(selectedImages: [UIImage]) {
+    init(selectedImages: [Data]) {
         self.selectedImages  = selectedImages
         super.init(nibName: nil, bundle: nil)
     }

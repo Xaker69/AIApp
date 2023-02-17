@@ -102,6 +102,7 @@ class UploadPhotosViewController: UIViewController {
                                 self.cancelDownload()
                                 
                                 if detectedImages.count >= 15 {
+                                    print("💙 dtected images count:", detectedImages.count)
                                     self.photosDowloaded(detectedImages)
                                 } else {
                                     self.showNotEnoughAlert(notDetectedIDs: notDetectedIds, results: results.count)
@@ -165,7 +166,9 @@ class UploadPhotosViewController: UIViewController {
     }
     
     private func photosDowloaded(_ photos: [UIImage]) {
-        let vc = SelectGenderViewController(selectedImages: photos)
+        let photosData = photos.compactMap { $0.jpegData(compressionQuality: 0.5) }
+        let vc = SelectGenderViewController(selectedImages: photosData)
+        
         navigationController?.pushViewController(vc, animated: true)
     }
     

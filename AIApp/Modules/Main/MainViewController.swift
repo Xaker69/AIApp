@@ -20,11 +20,7 @@ class MainViewController: UIViewController {
 
         mainView.settingsButton.addTarget(self, action: #selector(settingsButtonTapped), for: .touchUpInside)
         
-        if let persons = PersonManager.shared.getPersons() {
-            profileModel = ProfilesModel(persons: Array(persons))
-        } else {
-            profileModel = ProfilesModel(persons: [])
-        }
+        profileModel = ProfilesModel(users: UserManager.shared.users)
         
         adapter.collectionView = mainView.collectionView
         adapter.dataSource = self
@@ -100,8 +96,8 @@ extension MainViewController: MyPacksDelegate {
 
 // MARK: -
 extension MainViewController: ProfileSectionDelegate {
-    func profileSection(_ controller: ProfilesSection, didSelect person: Person?) {
-        if let person = person {
+    func profileSection(_ controller: ProfilesSection, didSelect user: User?) {
+        if let user = user {
             
         } else {
             navigationController?.pushViewController(AddAvatarViewController(), animated: true)

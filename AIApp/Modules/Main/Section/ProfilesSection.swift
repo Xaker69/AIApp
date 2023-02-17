@@ -2,7 +2,7 @@ import UIKit
 import IGListKit
 
 protocol ProfileSectionDelegate: AnyObject {
-    func profileSection(_ controller: ProfilesSection, didSelect person: Person?)
+    func profileSection(_ controller: ProfilesSection, didSelect user: User?)
 }
 
 class ProfilesSection: ListSectionController {
@@ -49,8 +49,8 @@ class ProfilesSection: ListSectionController {
 
 extension ProfilesSection: ListAdapterDataSource {
     func objects(for listAdapter: ListAdapter) -> [ListDiffable] {
-        var objects = model.persons.map { SingleProfileModel(person: $0) }
-        objects.append(SingleProfileModel(person: nil))
+        var objects = model.users.map { SingleProfileModel(user: $0) }
+        objects.append(SingleProfileModel(user: nil))
         
         return objects
     }
@@ -70,7 +70,7 @@ extension ProfilesSection: ListAdapterDataSource {
 // MARK: - SingleProfileDelegate
 
 extension ProfilesSection: SingleProfileDelegate {
-    func singleProfile(_ section: SingleProfileSection, person: Person?) {
-        delegate?.profileSection(self, didSelect: person)
+    func singleProfile(_ section: SingleProfileSection, user: User?) {
+        delegate?.profileSection(self, didSelect: user)
     }
 }

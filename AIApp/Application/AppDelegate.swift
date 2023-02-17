@@ -10,17 +10,18 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         
+        UIApplication.shared.registerForRemoteNotifications()
         FirebaseApp.configure()
         
         let rootVC: UIViewController
-        if let persons = PersonManager.shared.getPersons(), persons.count > 0 {
+        if UserManager.shared.getUsersCount() > 0 {
             rootVC = MainViewController()
         } else {
             rootVC = OnboardingViewController()
         }
                 
         window = UIWindow(frame: UIScreen.main.bounds)
-        window?.rootViewController = RootNavigationController(rootViewController: UploadingViewController())
+        window?.rootViewController = RootNavigationController(rootViewController: rootVC)
         window?.makeKeyAndVisible()
         
         return true
@@ -28,6 +29,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
     
     func application(_ application: UIApplication, didRegisterForRemoteNotificationsWithDeviceToken deviceToken: Data) {
         let apnsDeviceToken = deviceToken.map { String(format: "%02.2hhx", $0) }.joined()
+        
+        UserSettings.deviceToken = apnsDeviceToken
         print("💙 Device token:", apnsDeviceToken)
     }
     
