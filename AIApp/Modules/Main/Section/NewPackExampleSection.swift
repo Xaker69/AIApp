@@ -1,6 +1,12 @@
 import IGListKit
 
+protocol NewPackExampleDelegate: AnyObject {
+    func newPackExample(didSelect index: Int)
+}
+
 class NewPackExampleSection: ListSectionController {
+    
+    weak var delegate: NewPackExampleDelegate?
     
     override init() {
         super.init()
@@ -21,6 +27,10 @@ class NewPackExampleSection: ListSectionController {
         let cell = collectionContext!.dequeue(of: NewPackExampleCell.self, for: self, at: index)
         
         return cell
+    }
+    
+    override func didSelectItem(at index: Int) {
+        delegate?.newPackExample(didSelect: index)
     }
     
 }

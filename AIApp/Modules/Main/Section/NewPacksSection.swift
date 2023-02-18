@@ -3,6 +3,7 @@ import IGListKit
 
 protocol NewPacksDelegate: AnyObject {
     func newPacks(getPack index: Int)
+    func newPacks(didSelect index: Int)
 }
 
 class NewPacksSection: ListSectionController {
@@ -44,6 +45,10 @@ class NewPacksSection: ListSectionController {
         let cell = collectionContext!.dequeue(of: NewPackCell.self, for: self, at: index)
         
         return configure(cell: cell, index: index)
+    }
+    
+    override func didSelectItem(at index: Int) {
+        delegate?.newPacks(didSelect: index)
     }
     
     @objc private func getPackTapped(_ sender: UITapGestureRecognizer) {
@@ -116,10 +121,21 @@ extension NewPacksSection: ListAdapterDataSource {
     }
     
     func listAdapter(_ listAdapter: ListAdapter, sectionControllerFor object: Any) -> ListSectionController {
-        return NewPackExampleSection()
+        let section = NewPackExampleSection()
+        section.delegate = self
+        
+        return section
     }
     
     func emptyView(for listAdapter: ListAdapter) -> UIView? {
         nil
+    }
+}
+
+// MARK: - NewPackExampleDelegate
+
+extension NewPacksSection: NewPackExampleDelegate {
+    func newPackExample(didSelect index: Int) {
+        delegate?.newPacks(didSelect: index)
     }
 }

@@ -22,7 +22,15 @@ class UploadingViewController: UIViewController {
         adapter.collectionView = mainView.collectionView
         adapter.dataSource = self
               
+        navigationController?.interactivePopGestureRecognizer?.isEnabled = false
+        
         uploadPhotos()
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        
+        navigationController?.interactivePopGestureRecognizer?.isEnabled = true
     }
     
     @objc private func continueButtonTapped() {
@@ -119,6 +127,10 @@ extension UploadingViewController: ListAdapterDataSource {
 
 extension UploadingViewController: NewPacksDelegate {
     func newPacks(getPack index: Int) {
+        
+    }
+    
+    func newPacks(didSelect index: Int) {
         
     }
 }

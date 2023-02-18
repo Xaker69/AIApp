@@ -12,6 +12,7 @@ class UploadingView: RootView {
         view.contentInset = .zero
         view.contentOffset = .zero
         view.contentInsetAdjustmentBehavior = .never
+        view.contentInset = UIEdgeInsets(top: 0, left: 0, bottom: 152, right: 0)
         
         return view
     }()

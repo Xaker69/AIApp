@@ -76,10 +76,11 @@ extension MainViewController: ListAdapterDataSource {
 
 extension MainViewController: NewPacksDelegate {
     func newPacks(getPack index: Int) {
-        let vc = AttentionViewController()
-        vc.modalPresentationStyle = .overFullScreen
-        
-        present(vc, animated: true)
+        navigationController?.pushViewController(UploadingViewController(), animated: true)
+    }
+    
+    func newPacks(didSelect index: Int) {
+        navigationController?.pushViewController(PackDescriptionViewController(), animated: true)
     }
 }
 
@@ -94,7 +95,8 @@ extension MainViewController: MyPacksDelegate {
     }
 }
 
-// MARK: -
+// MARK: - ProfileSectionDelegate
+
 extension MainViewController: ProfileSectionDelegate {
     func profileSection(_ controller: ProfilesSection, didSelect user: User?) {
         if let user = user {
