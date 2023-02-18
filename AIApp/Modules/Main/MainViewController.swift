@@ -98,7 +98,8 @@ extension MainViewController: MyPacksDelegate {
 extension MainViewController: ProfileSectionDelegate {
     func profileSection(_ controller: ProfilesSection, didSelect user: User?) {
         if let user = user {
-            
+            UserManager.shared.selectUser(user: user)
+            adapter.reloadData()
         } else {
             navigationController?.pushViewController(AddAvatarViewController(), animated: true)
         }

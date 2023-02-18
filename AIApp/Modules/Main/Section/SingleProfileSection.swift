@@ -51,6 +51,8 @@ class SingleProfileSection: ListSectionController {
             cell.profileView.addImageView.isHidden = true
             cell.profileView.titleLabel.text = user.name
             cell.profileView.titleStack.addArrangedSubview(cell.profileView.subtitleLabel)
+            cell.profileView.layer.borderWidth = user.isSelected ? 0 : 1
+            cell.profileView.backgroundColor = user.isSelected ? UIColor(white: 1, alpha: 0.1) : .clear
             
             ImageService.setImage(from: data, to: cell.profileView.imageView)
         }

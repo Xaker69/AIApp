@@ -4,6 +4,10 @@ class UserManager {
     
     static let shared = UserManager()
     
+    var selectedUser: User {
+        return users.first(where: { $0.isSelected })!
+    }
+    
     private(set) var users: [User] = []
     private let saveQueue: DispatchQueue = DispatchQueue(label: "\(Bundle.main.bundleIdentifier!).userQeue")
     
@@ -21,14 +25,21 @@ class UserManager {
     @discardableResult
     func createUser(name: String, gender: String, photos: [Data]) -> User {
         let newUser = User(id: generateUniqueID(), name: name, gender: gender, photos: photos)
-        users.append(newUser)
+        users.insert(newUser, at: 0)
+        selectUser(user: newUser)
+        
         saveUsers()
         
         return newUser
     }
-        
+    
     func getUsersCount() -> Int {
         return users.count
+    }
+    
+    func selectUser(user: User) {
+        users.forEach { $0.isSelected = $0 == user }
+        saveUsers()
     }
     
     // MARK: - Private methods

@@ -25,6 +25,7 @@ class SingleProfileCell: UICollectionViewCell {
         
         profileView.imageView.image = nil
         profileView.addImageView.isHidden = false
+        profileView.titleLabel.text = R.string.localizable.mainAddProfile()
     }
     
     private func setupConstraints() {
