@@ -42,6 +42,11 @@ class UserManager {
         saveUsers()
     }
     
+    func deleteAllUsers() {
+        users.removeAll()        
+        saveUsers()
+    }
+    
     // MARK: - Private methods
     
     private func generateUniqueID() -> String {

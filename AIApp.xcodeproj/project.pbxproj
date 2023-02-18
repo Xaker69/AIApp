@@ -33,6 +33,8 @@
 		2C4E718C299F5CA500E44957 /* UserManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C4E718B299F5CA500E44957 /* UserManager.swift */; };
 		2C4E718E299F71F500E44957 /* UIImage+Orientation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C4E718D299F71F500E44957 /* UIImage+Orientation.swift */; };
 		2C4E7191299F737E00E44957 /* ImageService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C4E7190299F737E00E44957 /* ImageService.swift */; };
+		2C4E719329A166F500E44957 /* ManageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C4E719229A166F500E44957 /* ManageViewController.swift */; };
+		2C4E719529A1670800E44957 /* ManageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C4E719429A1670800E44957 /* ManageView.swift */; };
 		2C52ADFA2989AE0600081112 /* UploadingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C52ADF92989AE0600081112 /* UploadingViewController.swift */; };
 		2C52ADFC2989AE1800081112 /* UploadingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C52ADFB2989AE1800081112 /* UploadingView.swift */; };
 		2C5816B2296EF6480054270D /* SubAdvantageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C5816B1296EF6480054270D /* SubAdvantageView.swift */; };
@@ -138,6 +140,8 @@
 		2C4E718B299F5CA500E44957 /* UserManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserManager.swift; sourceTree = "<group>"; };
 		2C4E718D299F71F500E44957 /* UIImage+Orientation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+Orientation.swift"; sourceTree = "<group>"; };
 		2C4E7190299F737E00E44957 /* ImageService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageService.swift; sourceTree = "<group>"; };
+		2C4E719229A166F500E44957 /* ManageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ManageViewController.swift; sourceTree = "<group>"; };
+		2C4E719429A1670800E44957 /* ManageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ManageView.swift; sourceTree = "<group>"; };
 		2C52ADF92989AE0600081112 /* UploadingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UploadingViewController.swift; sourceTree = "<group>"; };
 		2C52ADFB2989AE1800081112 /* UploadingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UploadingView.swift; sourceTree = "<group>"; };
 		2C5816B1296EF6480054270D /* SubAdvantageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubAdvantageView.swift; sourceTree = "<group>"; };
@@ -521,6 +525,7 @@
 				2C5C2D7F29882FC7009027F1 /* Cell */,
 				2C5C2D7A29882D43009027F1 /* View */,
 				2C5C2D7B29882D51009027F1 /* SettingsViewController.swift */,
+				2C4E719229A166F500E44957 /* ManageViewController.swift */,
 			);
 			path = Settings;
 			sourceTree = "<group>";
@@ -529,6 +534,7 @@
 			isa = PBXGroup;
 			children = (
 				2C5C2D7D29882D60009027F1 /* SettingsView.swift */,
+				2C4E719429A1670800E44957 /* ManageView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -1109,10 +1115,12 @@
 				2C5C2D6529875BC0009027F1 /* UnlockMoreSection.swift in Sources */,
 				2C5C2D7529880DE2009027F1 /* SingleGeneratedPhotoSection.swift in Sources */,
 				2C9BEB48297AB23300202D54 /* PackImageExampleSection.swift in Sources */,
+				2C4E719329A166F500E44957 /* ManageViewController.swift in Sources */,
 				2C9BEB51297ACC0200202D54 /* PackDescriptionSection.swift in Sources */,
 				2C5C2D6229875B1D009027F1 /* UnlockMoreModel.swift in Sources */,
 				2C9BEB4B297AB46500202D54 /* PackImageExampleCell.swift in Sources */,
 				2C9BEB6529800CD200202D54 /* MyPacksModel.swift in Sources */,
+				2C4E719529A1670800E44957 /* ManageView.swift in Sources */,
 				2C9BEB5D297FFC6600202D54 /* MainView.swift in Sources */,
 				2C52ADFC2989AE1800081112 /* UploadingView.swift in Sources */,
 				2C9BEB392978380F00202D54 /* ChoosePackCell.swift in Sources */,

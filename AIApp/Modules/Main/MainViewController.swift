@@ -27,9 +27,10 @@ class MainViewController: UIViewController {
     }
     
     @objc private func settingsButtonTapped() {
-        let vc = SettingsViewController()
+        let navVC = UINavigationController(rootViewController: SettingsViewController())
+        navVC.navigationBar.isHidden = true
         
-        present(vc, animated: true)
+        present(navVC, animated: true)
     }
 }
 

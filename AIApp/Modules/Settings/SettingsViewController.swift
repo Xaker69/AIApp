@@ -35,6 +35,15 @@ class SettingsViewController: UIViewController {
         dismiss(animated: true)
     }
     
+    private func handleSelection(cell type: SettingsModel.SettingType) {
+        switch type {
+        case .manage:
+            navigationController?.pushViewController(ManageViewController(), animated: true)
+            
+        default:
+            break
+        }
+    }
 }
 
 // MARK: - UITableViewDataSource
@@ -59,5 +68,7 @@ extension SettingsViewController: UITableViewDataSource {
 extension SettingsViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
+        
+        handleSelection(cell: dataSource[indexPath.row].type)
     }    
 }

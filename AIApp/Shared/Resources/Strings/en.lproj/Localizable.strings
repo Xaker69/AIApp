@@ -81,6 +81,7 @@ settings-privacy = "Privacy Policy";
 settings-terms = "Terms & Conditions";
 settings-manage-data = "Manage Personal Data";
 settings-version = "Version %@ (%@)";
+settings-remove-data = "Remove Personal Data";
 
 // Uploading
 uploading-offer-title = "One time offer";
