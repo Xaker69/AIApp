@@ -28,6 +28,8 @@
 		2C1E440F296DC7150000D015 /* Satoshi-Medium.otf in Resources */ = {isa = PBXBuildFile; fileRef = 2C1E440C296DC6CC0000D015 /* Satoshi-Medium.otf */; };
 		2C1E4410296DC7150000D015 /* Satoshi-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = 2C1E440D296DC6CC0000D015 /* Satoshi-Regular.otf */; };
 		2C255E35299279A100B39A03 /* UploadingBottomView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C255E34299279A100B39A03 /* UploadingBottomView.swift */; };
+		2C3BE48B29A270C6000358C0 /* AllGeneratedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C3BE48A29A270C6000358C0 /* AllGeneratedView.swift */; };
+		2C3BE48D29A271B6000358C0 /* AllGeneratedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C3BE48C29A271B6000358C0 /* AllGeneratedViewController.swift */; };
 		2C4E7187299DD37C00E44957 /* UserSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C4E7186299DD37C00E44957 /* UserSettings.swift */; };
 		2C4E7189299F5B9700E44957 /* UserDefaults+JsonModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C4E7188299F5B9700E44957 /* UserDefaults+JsonModel.swift */; };
 		2C4E718C299F5CA500E44957 /* UserManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C4E718B299F5CA500E44957 /* UserManager.swift */; };
@@ -134,6 +136,8 @@
 		2C1E440C296DC6CC0000D015 /* Satoshi-Medium.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Satoshi-Medium.otf"; sourceTree = "<group>"; };
 		2C1E440D296DC6CC0000D015 /* Satoshi-Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Satoshi-Regular.otf"; sourceTree = "<group>"; };
 		2C255E34299279A100B39A03 /* UploadingBottomView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UploadingBottomView.swift; sourceTree = "<group>"; };
+		2C3BE48A29A270C6000358C0 /* AllGeneratedView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllGeneratedView.swift; sourceTree = "<group>"; };
+		2C3BE48C29A271B6000358C0 /* AllGeneratedViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllGeneratedViewController.swift; sourceTree = "<group>"; };
 		2C4E7184299C0F1100E44957 /* AIApp.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = AIApp.entitlements; sourceTree = "<group>"; };
 		2C4E7186299DD37C00E44957 /* UserSettings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserSettings.swift; sourceTree = "<group>"; };
 		2C4E7188299F5B9700E44957 /* UserDefaults+JsonModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UserDefaults+JsonModel.swift"; sourceTree = "<group>"; };
@@ -374,6 +378,32 @@
 				2C255E34299279A100B39A03 /* UploadingBottomView.swift */,
 			);
 			path = Subview;
+			sourceTree = "<group>";
+		};
+		2C3BE48729A27044000358C0 /* AllGenerated */ = {
+			isa = PBXGroup;
+			children = (
+				2C3BE48829A2707C000358C0 /* AllGenerated */,
+				2C5C2D5029874DA3009027F1 /* Genrated */,
+			);
+			path = AllGenerated;
+			sourceTree = "<group>";
+		};
+		2C3BE48829A2707C000358C0 /* AllGenerated */ = {
+			isa = PBXGroup;
+			children = (
+				2C3BE48929A270B9000358C0 /* View */,
+				2C3BE48C29A271B6000358C0 /* AllGeneratedViewController.swift */,
+			);
+			path = AllGenerated;
+			sourceTree = "<group>";
+		};
+		2C3BE48929A270B9000358C0 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				2C3BE48A29A270C6000358C0 /* AllGeneratedView.swift */,
+			);
+			path = View;
 			sourceTree = "<group>";
 		};
 		2C4E7185299DD37000E44957 /* Helpers */ = {
@@ -807,9 +837,9 @@
 		2CB8A6A8295D8AF3009A954E /* Modules */ = {
 			isa = PBXGroup;
 			children = (
+				2C3BE48729A27044000358C0 /* AllGenerated */,
 				2C52ADF72989ADED00081112 /* Uploading */,
 				2C5C2D7929882D16009027F1 /* Settings */,
-				2C5C2D5029874DA3009027F1 /* Genrated */,
 				2C9BEB85298163A300202D54 /* Attantion */,
 				2C9BEB58297FFAAF00202D54 /* Main */,
 				2C9BEB3A297A9F9600202D54 /* PackDescription */,
@@ -1121,6 +1151,7 @@
 				2C9BEB4B297AB46500202D54 /* PackImageExampleCell.swift in Sources */,
 				2C9BEB6529800CD200202D54 /* MyPacksModel.swift in Sources */,
 				2C4E719529A1670800E44957 /* ManageView.swift in Sources */,
+				2C3BE48D29A271B6000358C0 /* AllGeneratedViewController.swift in Sources */,
 				2C9BEB5D297FFC6600202D54 /* MainView.swift in Sources */,
 				2C52ADFC2989AE1800081112 /* UploadingView.swift in Sources */,
 				2C9BEB392978380F00202D54 /* ChoosePackCell.swift in Sources */,
@@ -1142,6 +1173,7 @@
 				2C52ADFA2989AE0600081112 /* UploadingViewController.swift in Sources */,
 				2C9BEB2E2976C41A00202D54 /* RootNavigationController.swift in Sources */,
 				2C9BEB42297AAE4C00202D54 /* PackAdvantageView.swift in Sources */,
+				2C3BE48B29A270C6000358C0 /* AllGeneratedView.swift in Sources */,
 				2CB8A6C1295D9193009A954E /* R.generated.swift in Sources */,
 				2C1E43F8296C07DB0000D015 /* SubscriptionView.swift in Sources */,
 				2CB8A6B5295D8B26009A954E /* RootView.swift in Sources */,

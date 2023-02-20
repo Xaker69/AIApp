@@ -3,6 +3,7 @@ import IGListKit
 
 protocol MyPacksDelegate: AnyObject {
     func myPacks(_ section: MyPacksSection, didSelect packIndex: Int)
+    func myPacks(needShowAllPacks section: MyPacksSection)
 }
 
 class MyPacksSection: ListSectionController {
@@ -37,6 +38,10 @@ class MyPacksSection: ListSectionController {
         return configure(cell: cell)
     }
     
+    @objc private func seeAllButtonTapped() {
+        delegate?.myPacks(needShowAllPacks: self)
+    }
+    
     @discardableResult
     private func configure(cell: MyPacksCell) -> MyPacksCell {
         adapter.collectionView = cell.collectionView
@@ -57,6 +62,7 @@ extension MyPacksSection: ListSupplementaryViewSource {
         let view = collectionContext!.dequeue(ofKind: UICollectionView.elementKindSectionHeader, for: self, of: MainHeaderView.self, at: index)
         view.titleLabel.text = R.string.localizable.mainHeaderMyPacks()
         view.rightButton.isHidden = false
+        view.rightButton.addTarget(self, action: #selector(seeAllButtonTapped), for: .touchUpInside)
         
         return view
     }
@@ -70,11 +76,11 @@ extension MyPacksSection: ListSupplementaryViewSource {
 
 extension MyPacksSection: ListAdapterDataSource {
     func objects(for listAdapter: ListAdapter) -> [ListDiffable] {
-        [MySinglePackModel(name: "mySinglePack")]
+        return [MySinglePackModel(name: "mySinglePack")]
     }
     
     func listAdapter(_ listAdapter: ListAdapter, sectionControllerFor object: Any) -> ListSectionController {
-        let section = MySinglePackSection()
+        let section = MySinglePackSection(direction: .horizontal)
         section.delegate = self
         
         return section

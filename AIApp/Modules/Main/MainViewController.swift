@@ -34,6 +34,8 @@ class MainViewController: UIViewController {
     }
 }
 
+// MARK: - ListAdapterDataSource
+
 extension MainViewController: ListAdapterDataSource {
     func objects(for listAdapter: ListAdapter) -> [ListDiffable] {
         return [
@@ -93,6 +95,13 @@ extension MainViewController: MyPacksDelegate {
         vc.modalPresentationStyle = .fullScreen
         
         present(vc, animated: true)
+    }
+    
+    func myPacks(needShowAllPacks section: MyPacksSection) {
+        let navVc = RootNavigationController(rootViewController: AllGeneratedViewController())
+        navVc.modalPresentationStyle = .fullScreen
+        
+        present(navVc, animated: true)
     }
 }
 

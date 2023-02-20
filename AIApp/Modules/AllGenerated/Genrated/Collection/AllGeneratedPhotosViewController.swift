@@ -7,7 +7,7 @@ class AllGeneratedPhotosViewController: UIViewController {
         return view as! AllGeneratedPhotosView
     }
     
-    lazy var adapter: ListAdapter = ListAdapter(updater: ListAdapterUpdater(), viewController: self)
+    private lazy var adapter: ListAdapter = ListAdapter(updater: ListAdapterUpdater(), viewController: self)
     
     override var preferredStatusBarStyle: UIStatusBarStyle {
         return .lightContent
@@ -24,12 +24,21 @@ class AllGeneratedPhotosViewController: UIViewController {
         
         adapter.collectionView = mainView.collectionView
         adapter.dataSource = self
+        
+        setupCloseButton()
     }
     
     @objc private func closeButtonTapped() {
         dismiss(animated: true)
     }
     
+    private func setupCloseButton() {
+        if navigationController != nil {
+            mainView.closeButton.setImage(R.image.back(), for: .normal)
+        } else {
+            mainView.closeButton.setImage(R.image.close(), for: .normal)
+        }
+    }
 }
 
 // MARK: - ListAdapterDataSource

@@ -8,11 +8,23 @@ class MySinglePackSection: ListSectionController {
     
     weak var delegate: MySinglePackDelegate?
     
-    override init() {
+    init(direction: UICollectionView.ScrollDirection) {
         super.init()
         
         inset = UIEdgeInsets(top: 0, left: 20.0, bottom: 0, right: 20.0)
-        minimumLineSpacing = 8.0
+        
+        switch direction {
+        case .horizontal:
+            minimumLineSpacing = 8.0
+            minimumInteritemSpacing = 0.0
+            
+        case .vertical:
+            minimumLineSpacing = 16
+            minimumInteritemSpacing = 8.0
+            
+        default:
+            break
+        }
     }
     
     override func numberOfItems() -> Int {
@@ -24,7 +36,11 @@ class MySinglePackSection: ListSectionController {
     }
     
     override func sizeForItem(at index: Int) -> CGSize {
-        return CGSize(width: 165.0, height: 198.0)
+        let width = collectionContext!.containerSize.width/2 - 20 - 4
+        let ratio = 198.0/165.0
+        let height = width * ratio
+        
+        return CGSize(width: width, height: height)
     }
     
     override func cellForItem(at index: Int) -> UICollectionViewCell {
