@@ -87,7 +87,7 @@ extension MyPacksSection: ListAdapterDataSource {
     }
     
     func emptyView(for listAdapter: ListAdapter) -> UIView? {
-        nil
+        return nil
     }
 }
 

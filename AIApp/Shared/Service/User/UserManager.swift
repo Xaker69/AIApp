@@ -9,7 +9,7 @@ class UserManager {
     }
     
     private(set) var users: [User] = []
-    private let saveQueue: DispatchQueue = DispatchQueue(label: "\(Bundle.main.bundleIdentifier!).userQeue")
+    private let userQueue: DispatchQueue = DispatchQueue(label: "\(Bundle.main.bundleIdentifier!).userQeue")
     
     init() {
         do {
@@ -31,10 +31,6 @@ class UserManager {
         saveUsers()
         
         return newUser
-    }
-    
-    func getUsersCount() -> Int {
-        return users.count
     }
     
     func selectUser(user: User) {
@@ -59,7 +55,7 @@ class UserManager {
     }
     
     private func saveUsers() {
-        saveQueue.async {
+        userQueue.async {
             do {
                 let data = try JSONEncoder().encode(self.users)
                 UserSettings.users = data
