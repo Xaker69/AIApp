@@ -4,6 +4,7 @@ import IGListKit
 class MainViewController: UIViewController {
 
     var profileModel: ProfilesModel!
+    var newPacksModel: [NewPacksModel] = []
     
     var mainView: MainView {
         return view as! MainView
@@ -17,13 +18,16 @@ class MainViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         mainView.settingsButton.addTarget(self, action: #selector(settingsButtonTapped), for: .touchUpInside)
         
         profileModel = ProfilesModel(users: UserManager.shared.users)
+        newPacksModel = CloudManager.shared.packs.map { NewPacksModel(pack: $0) }
         
         adapter.collectionView = mainView.collectionView
         adapter.dataSource = self
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(packsDidLoaded), name: .packsDidLoaded, object: nil)
     }
     
     @objc private func settingsButtonTapped() {
@@ -31,6 +35,13 @@ class MainViewController: UIViewController {
         navVC.navigationBar.isHidden = true
         
         present(navVC, animated: true)
+    }
+    
+    //TODO: Нужно сделать метод который обновляет модели новых паков и своих паков и уже обновлять с анимацией мб
+    
+    @objc private func packsDidLoaded() {
+        newPacksModel = CloudManager.shared.packs.map { NewPacksModel(pack: $0) }
+        adapter.reloadData()
     }
 }
 
@@ -41,8 +52,7 @@ extension MainViewController: ListAdapterDataSource {
         return [
             profileModel,
             MyPacksModel(name: "myPacks"),
-            NewPacksModel(name: "morePacks")
-        ]
+        ] + newPacksModel
     }
     
     func listAdapter(_ listAdapter: ListAdapter, sectionControllerFor object: Any) -> ListSectionController {
@@ -83,7 +93,9 @@ extension MainViewController: NewPacksDelegate {
     }
     
     func newPacks(didSelect index: Int) {
-        navigationController?.pushViewController(PackDescriptionViewController(), animated: true)
+        let pack = CloudManager.shared.packs[index]
+        let vc = PackDescriptionViewController(pack: pack)
+        navigationController?.pushViewController(vc, animated: true)
     }
 }
 

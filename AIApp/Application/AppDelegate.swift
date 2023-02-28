@@ -13,8 +13,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
         UIApplication.shared.registerForRemoteNotifications()
         FirebaseApp.configure()
         
+        CloudManager.shared.loadPacks()
+        
         let rootVC: UIViewController
-        if UserManager.shared.getUsersCount() > 0 {
+        if UserManager.shared.users.count > 0 {
             rootVC = MainViewController()
         } else {
             rootVC = OnboardingViewController()
@@ -50,4 +52,3 @@ func randomColor() -> UIColor {
   let blue = CGFloat.random(in: 0...1)
   return UIColor(red: red, green: green, blue: blue, alpha: 1.0)
 }
-

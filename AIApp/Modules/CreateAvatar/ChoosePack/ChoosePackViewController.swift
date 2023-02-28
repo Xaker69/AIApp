@@ -72,9 +72,9 @@ extension ChoosePackViewController: UICollectionViewDelegate, UICollectionViewDa
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        let vc = PackDescriptionViewController()
-        
-        navigationController?.pushViewController(vc, animated: true)
+//        let vc = PackDescriptionViewController()
+//        
+//        navigationController?.pushViewController(vc, animated: true)
     }
     
     func scrollViewWillBeginDragging(_ scrollView: UIScrollView) {

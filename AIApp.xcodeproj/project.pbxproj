@@ -99,6 +99,8 @@
 		2C9BEB8429815E4800202D54 /* MySinglePackSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C9BEB8329815E4800202D54 /* MySinglePackSection.swift */; };
 		2C9BEB88298163BB00202D54 /* AttentionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C9BEB87298163BB00202D54 /* AttentionViewController.swift */; };
 		2C9BEB8A298163DD00202D54 /* AttentionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C9BEB89298163DD00202D54 /* AttentionView.swift */; };
+		2CAC42C029AD8612003E4318 /* Pack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CAC42BF29AD8612003E4318 /* Pack.swift */; };
+		2CAC42C229AE4AB5003E4318 /* Notification+Name.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CAC42C129AE4AB5003E4318 /* Notification+Name.swift */; };
 		2CB8A694295D8AA7009A954E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CB8A693295D8AA7009A954E /* AppDelegate.swift */; };
 		2CB8A69D295D8AA7009A954E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2CB8A69C295D8AA7009A954E /* Assets.xcassets */; };
 		2CB8A6A0295D8AA7009A954E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2CB8A69E295D8AA7009A954E /* LaunchScreen.storyboard */; };
@@ -208,6 +210,8 @@
 		2C9BEB8329815E4800202D54 /* MySinglePackSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MySinglePackSection.swift; sourceTree = "<group>"; };
 		2C9BEB87298163BB00202D54 /* AttentionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AttentionViewController.swift; sourceTree = "<group>"; };
 		2C9BEB89298163DD00202D54 /* AttentionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AttentionView.swift; sourceTree = "<group>"; };
+		2CAC42BF29AD8612003E4318 /* Pack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Pack.swift; sourceTree = "<group>"; };
+		2CAC42C129AE4AB5003E4318 /* Notification+Name.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Notification+Name.swift"; sourceTree = "<group>"; };
 		2CB8A690295D8AA7009A954E /* AIApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AIApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2CB8A693295D8AA7009A954E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		2CB8A69C295D8AA7009A954E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -318,6 +322,7 @@
 			isa = PBXGroup;
 			children = (
 				2C19F72429950F3F00126536 /* User.swift */,
+				2CAC42BF29AD8612003E4318 /* Pack.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -922,6 +927,7 @@
 			isa = PBXGroup;
 			children = (
 				2C4E7188299F5B9700E44957 /* UserDefaults+JsonModel.swift */,
+				2CAC42C129AE4AB5003E4318 /* Notification+Name.swift */,
 			);
 			path = Foundation;
 			sourceTree = "<group>";
@@ -1139,6 +1145,7 @@
 				2C4E718E299F71F500E44957 /* UIImage+Orientation.swift in Sources */,
 				2C5C2D5A29875660009027F1 /* GeneratedPhotosModel.swift in Sources */,
 				2C9BEB7829801A7900202D54 /* MainHeaderView.swift in Sources */,
+				2CAC42C229AE4AB5003E4318 /* Notification+Name.swift in Sources */,
 				2C255E35299279A100B39A03 /* UploadingBottomView.swift in Sources */,
 				2CB8A6B7295D8B26009A954E /* ListCollectionContext+Dequeue.swift in Sources */,
 				2C5C2D5E29875726009027F1 /* GeneratedPhotosSection.swift in Sources */,
@@ -1149,6 +1156,7 @@
 				2C9BEB51297ACC0200202D54 /* PackDescriptionSection.swift in Sources */,
 				2C5C2D6229875B1D009027F1 /* UnlockMoreModel.swift in Sources */,
 				2C9BEB4B297AB46500202D54 /* PackImageExampleCell.swift in Sources */,
+				2CAC42C029AD8612003E4318 /* Pack.swift in Sources */,
 				2C9BEB6529800CD200202D54 /* MyPacksModel.swift in Sources */,
 				2C4E719529A1670800E44957 /* ManageView.swift in Sources */,
 				2C3BE48D29A271B6000358C0 /* AllGeneratedViewController.swift in Sources */,

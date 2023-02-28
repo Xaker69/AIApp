@@ -6,6 +6,8 @@ protocol NewPackExampleDelegate: AnyObject {
 
 class NewPackExampleSection: ListSectionController {
     
+    var model: NewPackExampleModel!
+    
     weak var delegate: NewPackExampleDelegate?
     
     override init() {
@@ -16,7 +18,7 @@ class NewPackExampleSection: ListSectionController {
     }
     
     override func numberOfItems() -> Int {
-        return 5
+        return model.images.count
     }
     
     override func sizeForItem(at index: Int) -> CGSize {
@@ -26,11 +28,18 @@ class NewPackExampleSection: ListSectionController {
     override func cellForItem(at index: Int) -> UICollectionViewCell {
         let cell = collectionContext!.dequeue(of: NewPackExampleCell.self, for: self, at: index)
         
+        cell.imageView.kf.setImage(with: model.images[index])
+        
         return cell
     }
     
     override func didSelectItem(at index: Int) {
         delegate?.newPackExample(didSelect: index)
+    }
+    
+    override func didUpdate(to object: Any) {
+        precondition(object is NewPackExampleModel)
+        model = object as? NewPackExampleModel
     }
     
 }

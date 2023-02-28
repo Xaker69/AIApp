@@ -15,6 +15,7 @@ class NewPacksSection: ListSectionController {
     
     let template = NewPackCell()
     let headerType: HeaderType
+    var model: NewPacksModel!
     
     weak var delegate: NewPacksDelegate?
     
@@ -25,7 +26,6 @@ class NewPacksSection: ListSectionController {
         super.init()
         
         inset = UIEdgeInsets(top: 0, left: 0, bottom: 16, right: 0)
-        supplementaryViewSource = self
     }
     
     override func sizeForItem(at index: Int) -> CGSize {
@@ -38,7 +38,7 @@ class NewPacksSection: ListSectionController {
     }
     
     override func numberOfItems() -> Int {
-        return 10
+        return 1
     }
     
     override func cellForItem(at index: Int) -> UICollectionViewCell {
@@ -48,13 +48,26 @@ class NewPacksSection: ListSectionController {
     }
     
     override func didSelectItem(at index: Int) {
-        delegate?.newPacks(didSelect: index)
+        delegate?.newPacks(didSelect: section - 2)
     }
+    
+    override func didUpdate(to object: Any) {
+        precondition(object is NewPacksModel)
+        model = object as? NewPacksModel
+        
+        if section < 3 {
+            supplementaryViewSource = self
+        }
+    }
+    
+    // MARK: - Private actions
     
     @objc private func getPackTapped(_ sender: UITapGestureRecognizer) {
         guard let index = sender.view?.tag else { return }
         delegate?.newPacks(getPack: index)
     }
+    
+    // MARK: - Private methods
     
     @discardableResult
     private func configure(cell: NewPackCell, index: Int) -> NewPackCell {
@@ -62,6 +75,7 @@ class NewPacksSection: ListSectionController {
         adapter.dataSource = self
         
         cell.getContainer.tag = index
+        cell.titleLabel.text = model.pack.name
         
         let gesture = UITapGestureRecognizer(target: self, action: #selector(getPackTapped))
         cell.getContainer.addGestureRecognizer(gesture)
@@ -75,7 +89,7 @@ class NewPacksSection: ListSectionController {
 
 extension NewPacksSection: ListSupplementaryViewSource {
     func supportedElementKinds() -> [String] {
-        [UICollectionView.elementKindSectionHeader]
+        return [UICollectionView.elementKindSectionHeader]
     }
     
     func viewForSupplementaryElement(ofKind elementKind: String, at index: Int) -> UICollectionReusableView {
@@ -117,7 +131,7 @@ extension NewPacksSection: ListSupplementaryViewSource {
 
 extension NewPacksSection: ListAdapterDataSource {
     func objects(for listAdapter: ListAdapter) -> [ListDiffable] {
-        return [NewPackExampleModel(images: [UIImage()])]
+        return [NewPackExampleModel(images: model.pack.examples)]
     }
     
     func listAdapter(_ listAdapter: ListAdapter, sectionControllerFor object: Any) -> ListSectionController {
@@ -136,6 +150,6 @@ extension NewPacksSection: ListAdapterDataSource {
 
 extension NewPacksSection: NewPackExampleDelegate {
     func newPackExample(didSelect index: Int) {
-        delegate?.newPacks(didSelect: index)
+        delegate?.newPacks(didSelect: section - 2)
     }
 }

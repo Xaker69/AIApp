@@ -3,11 +3,22 @@ import IGListKit
 
 class PackDescriptionViewController: UIViewController {
 
+    let pack: Pack
+    
     var mainView: PackDescriptionView {
         return view as! PackDescriptionView
     }
     
     private lazy var adapter = ListAdapter(updater: ListAdapterUpdater(), viewController: self)
+    
+    init(pack: Pack) {
+        self.pack = pack
+        super.init(nibName: nil, bundle: nil)
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
     
     override func loadView() {
         view = PackDescriptionView()
@@ -43,8 +54,8 @@ class PackDescriptionViewController: UIViewController {
 extension PackDescriptionViewController: ListAdapterDataSource {
     func objects(for listAdapter: ListAdapter) -> [ListDiffable] {
         let models: [ListDiffable] = [
-            PackDescriptionModel(title: ""),
-            PackImageExampleModel(images: [UIImage()])
+            PackDescriptionModel(description: pack.description, image: pack.previewImage, title: pack.name),
+            PackImageExampleModel(images: pack.examples)
         ]
         
         return models

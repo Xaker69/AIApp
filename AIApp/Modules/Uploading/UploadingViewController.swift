@@ -108,7 +108,8 @@ class UploadingViewController: UIViewController {
 
 extension UploadingViewController: ListAdapterDataSource {
     func objects(for listAdapter: ListAdapter) -> [ListDiffable] {
-        return [NewPacksModel(name: "morePacks")]
+//        return [NewPacksModel(pack: [])]
+        return []
     }
     
     func listAdapter(_ listAdapter: ListAdapter, sectionControllerFor object: Any) -> ListSectionController {

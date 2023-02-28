@@ -1,9 +1,9 @@
 import IGListDiffKit
 
 class NewPackExampleModel {
-    let images: [UIImage]
+    let images: [URL]
     
-    init(images: [UIImage]) {
+    init(images: [URL]) {
         self.images = images
     }
 }

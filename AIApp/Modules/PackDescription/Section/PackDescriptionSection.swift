@@ -3,10 +3,16 @@ import IGListKit
 class PackDescriptionSection: ListSectionController {
     
     private let template = PackDescriptionCell()
+    private var model: PackDescriptionModel!
     
     override init() {
         super.init()
                 
+    }
+    
+    override func didUpdate(to object: Any) {
+        precondition(object is PackDescriptionModel)
+        model = object as? PackDescriptionModel
     }
     
     override func numberOfItems() -> Int {
@@ -24,12 +30,17 @@ class PackDescriptionSection: ListSectionController {
     
     override func cellForItem(at index: Int) -> UICollectionViewCell {
         let cell = collectionContext!.dequeue(of: PackDescriptionCell.self, for: self, at: index)
-                
+        
+        cell.imageView.kf.setImage(with: model.image)
+        
         return configure(cell: cell)
     }
     
     @discardableResult
     private func configure(cell: PackDescriptionCell) -> PackDescriptionCell {
+        cell.setSubtitle(model.description)
+        cell.titleLabel.text = model.title
+        
         return cell
     }
     

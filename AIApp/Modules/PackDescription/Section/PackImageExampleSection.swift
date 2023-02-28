@@ -2,6 +2,8 @@ import IGListKit
 
 class PackImageExampleSection: ListSectionController {
     
+    private var model: PackImageExampleModel!
+    
     override init() {
         super.init()
         
@@ -12,8 +14,13 @@ class PackImageExampleSection: ListSectionController {
         minimumInteritemSpacing = 8
     }
     
+    override func didUpdate(to object: Any) {
+        precondition(object is PackImageExampleModel)
+        model = object as? PackImageExampleModel
+    }
+    
     override func numberOfItems() -> Int {
-        return 4
+        return model.images.count
     }
     
     override func sizeForItem(at index: Int) -> CGSize {
@@ -22,6 +29,8 @@ class PackImageExampleSection: ListSectionController {
     
     override func cellForItem(at index: Int) -> UICollectionViewCell {
         let cell = collectionContext!.dequeue(of: PackImageExampleCell.self, for: self, at: index)
+        
+        cell.imageView.kf.setImage(with: model.images[index])
         
         return cell
     }

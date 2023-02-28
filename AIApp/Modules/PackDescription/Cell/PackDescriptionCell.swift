@@ -7,19 +7,20 @@ class PackDescriptionCell: UICollectionViewCell {
         let view = UIImageView()
         view.image = R.image.choosePackCellTmp()
         view.contentMode = .scaleAspectFill
+        view.clipsToBounds = true
         
         return view
     }()
     
-//    let blurView: UIVisualEffectView = {
-//        let view = UIVisualEffectView(effect: UIBlurEffect(style: .dark))
-//
-//        return view
-//    }()
+    let blurView: UIVisualEffectView = {
+        let view = UIVisualEffectView(effect: UIBlurEffect(style: .dark))
+
+        return view
+    }()
     
     let maskBlurView: UIImageView = {
         let view = UIImageView()
-        view.image = R.image.packDescFade()
+//        view.image = R.image.packDescFade()
         
         return view
     }()
@@ -112,8 +113,9 @@ class PackDescriptionCell: UICollectionViewCell {
         contentView.addSubview(topStackView)
         contentView.addSubview(bottomStackView)
         
-//        imageView.addSubview(blurView)
         imageView.addSubview(maskBlurView)
+        imageView.addSubview(blurView)
+//        imageView.addSubview(maskBlurView)
         imageView.addSubview(titleLabel)
         imageView.addSubview(picsCountContainer)
         
@@ -126,17 +128,30 @@ class PackDescriptionCell: UICollectionViewCell {
     override func layoutSubviews() {
         super.layoutSubviews()
 
-//        let gradient = CAGradientLayer()
-//        gradient.colors = [UIColor.white.cgColor, UIColor.white.withAlphaComponent(0).cgColor]
-//        gradient.startPoint = CGPoint(x: 0, y: 0.4)
-//        gradient.endPoint = CGPoint(x: 0, y: 0.8)
-//        gradient.frame = maskBlurView.bounds
-//
-//        maskBlurView.layer.mask = gradient
+        let gradient = CAGradientLayer()
+        gradient.colors = [UIColor.white.cgColor, UIColor.white.withAlphaComponent(0).cgColor]
+        gradient.startPoint = CGPoint(x: 0, y: 0.4)
+        gradient.endPoint = CGPoint(x: 0, y: 0.8)
+        gradient.frame = maskBlurView.bounds
+
+        maskBlurView.layer.mask = gradient
     }
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
+    }
+    
+    func setSubtitle(_ text: String) {
+        let paragraphStyle = NSMutableParagraphStyle()
+        paragraphStyle.lineHeightMultiple = 1.32
+        paragraphStyle.alignment = .center
+        
+        let style = Style()
+            .paragraphStyle(paragraphStyle)
+            .foregroundColor(.white)
+            .font(.interFont(ofSize: 15, weight: .medium))
+                
+        descriptionLabel.attributedText = text.styleAll(style)
     }
     
     private func setupConstraints() {
@@ -145,9 +160,9 @@ class PackDescriptionCell: UICollectionViewCell {
             make.width.equalTo(UIScreen.main.bounds.width)
         }
         
-//        blurView.snp.makeConstraints { make in
-//            make.edges.equalToSuperview()
-//        }
+        blurView.snp.makeConstraints { make in
+            make.edges.equalToSuperview()
+        }
         
         maskBlurView.snp.makeConstraints { make in
             make.left.right.equalToSuperview()
