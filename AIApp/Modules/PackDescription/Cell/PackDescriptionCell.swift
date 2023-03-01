@@ -2,7 +2,7 @@ import UIKit
 import Atributika
 
 class PackDescriptionCell: UICollectionViewCell {
-    
+        
     let imageView: UIImageView = {
         let view = UIImageView()
         view.image = R.image.choosePackCellTmp()
@@ -14,15 +14,35 @@ class PackDescriptionCell: UICollectionViewCell {
     
     let blurView: UIVisualEffectView = {
         let view = UIVisualEffectView(effect: UIBlurEffect(style: .dark))
+        view.autoresizingMask = [.flexibleWidth, .flexibleHeight]
+        
+        return view
+    }()
 
+    let gradientView: UIView = {
+        let view = UIView()
+        
         return view
     }()
     
-    let maskBlurView: UIImageView = {
-        let view = UIImageView()
-//        view.image = R.image.packDescFade()
+    let blackGradientLayer: CAGradientLayer = {
+        let layer = CAGradientLayer()
+        layer.colors = [UIColor.clear.cgColor, UIColor(hex6: 0x0F0F0F).cgColor]
+        layer.locations = [0, 1]
+        layer.startPoint = CGPoint(x: 0, y: 0)
+        layer.endPoint = CGPoint(x: 0, y: 0.7)
         
-        return view
+        return layer
+    }()
+    
+    let blurGradientLayer: CAGradientLayer = {
+        let layer = CAGradientLayer()
+        layer.colors = [UIColor.clear.cgColor, UIColor.black.cgColor]
+        layer.locations = [0, 1]
+        layer.startPoint = CGPoint(x: 0, y: 0.3)
+        layer.endPoint = CGPoint(x: 0, y: 0.7)
+        
+        return layer
     }()
     
     let titleLabel: UILabel = {
@@ -112,15 +132,17 @@ class PackDescriptionCell: UICollectionViewCell {
         contentView.addSubview(descriptionLabel)
         contentView.addSubview(topStackView)
         contentView.addSubview(bottomStackView)
-        
-        imageView.addSubview(maskBlurView)
+
         imageView.addSubview(blurView)
-//        imageView.addSubview(maskBlurView)
+        imageView.addSubview(gradientView)
         imageView.addSubview(titleLabel)
         imageView.addSubview(picsCountContainer)
-        
+                
         picsCountContainer.addSubview(picsCountLabel)
         picsCountContainer.addSubview(picsCountImageView)
+        
+        blurView.layer.mask = blurGradientLayer
+        gradientView.layer.insertSublayer(blackGradientLayer, at: 0)
         
         setupConstraints()
     }
@@ -128,13 +150,10 @@ class PackDescriptionCell: UICollectionViewCell {
     override func layoutSubviews() {
         super.layoutSubviews()
 
-        let gradient = CAGradientLayer()
-        gradient.colors = [UIColor.white.cgColor, UIColor.white.withAlphaComponent(0).cgColor]
-        gradient.startPoint = CGPoint(x: 0, y: 0.4)
-        gradient.endPoint = CGPoint(x: 0, y: 0.8)
-        gradient.frame = maskBlurView.bounds
-
-        maskBlurView.layer.mask = gradient
+        let rect = CGRect(x: 0, y: picsCountContainer.frame.minY - 48.0, width: imageView.bounds.width, height: 168.0)
+        
+        blackGradientLayer.frame = CGRect(origin: .zero, size: rect.size)
+        blurGradientLayer.frame = imageView.bounds
     }
     
     required init?(coder: NSCoder) {
@@ -163,10 +182,11 @@ class PackDescriptionCell: UICollectionViewCell {
         blurView.snp.makeConstraints { make in
             make.edges.equalToSuperview()
         }
-        
-        maskBlurView.snp.makeConstraints { make in
+
+        gradientView.snp.makeConstraints { make in
+            make.bottom.equalToSuperview()
             make.left.right.equalToSuperview()
-            make.bottom.equalToSuperview().offset(49.0)
+            make.height.equalTo(168.0)
         }
         
         titleLabel.snp.makeConstraints { make in

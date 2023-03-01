@@ -95,6 +95,8 @@ extension MainViewController: NewPacksDelegate {
     func newPacks(didSelect index: Int) {
         let pack = CloudManager.shared.packs[index]
         let vc = PackDescriptionViewController(pack: pack)
+        vc.mainView.layoutIfNeeded()
+        
         navigationController?.pushViewController(vc, animated: true)
     }
 }

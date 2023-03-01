@@ -32,6 +32,7 @@ class PackDescriptionSection: ListSectionController {
         let cell = collectionContext!.dequeue(of: PackDescriptionCell.self, for: self, at: index)
         
         cell.imageView.kf.setImage(with: model.image)
+        cell.layoutIfNeeded()
         
         return configure(cell: cell)
     }
