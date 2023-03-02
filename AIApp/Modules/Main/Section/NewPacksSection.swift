@@ -28,6 +28,15 @@ class NewPacksSection: ListSectionController {
         inset = UIEdgeInsets(top: 0, left: 0, bottom: 16, right: 0)
     }
     
+    override func didUpdate(to object: Any) {
+        precondition(object is NewPacksModel)
+        model = object as? NewPacksModel
+        
+        if section < 3 {
+            supplementaryViewSource = self
+        }
+    }
+    
     override func sizeForItem(at index: Int) -> CGSize {
         let size = CGSize(width: collectionContext!.containerSize.width, height: CGFloat.greatestFiniteMagnitude)
         configure(cell: template, index: index)
@@ -44,20 +53,18 @@ class NewPacksSection: ListSectionController {
     override func cellForItem(at index: Int) -> UICollectionViewCell {
         let cell = collectionContext!.dequeue(of: NewPackCell.self, for: self, at: index)
         
+        adapter.collectionView = cell.collectionView
+        adapter.dataSource = self
+        
+        let gesture = UITapGestureRecognizer(target: self, action: #selector(getPackTapped))
+        cell.getContainer.addGestureRecognizer(gesture)
+        cell.getContainer.tag = index
+        
         return configure(cell: cell, index: index)
     }
     
     override func didSelectItem(at index: Int) {
         delegate?.newPacks(didSelect: section - 2)
-    }
-    
-    override func didUpdate(to object: Any) {
-        precondition(object is NewPacksModel)
-        model = object as? NewPacksModel
-        
-        if section < 3 {
-            supplementaryViewSource = self
-        }
     }
     
     // MARK: - Private actions
@@ -71,14 +78,7 @@ class NewPacksSection: ListSectionController {
     
     @discardableResult
     private func configure(cell: NewPackCell, index: Int) -> NewPackCell {
-        adapter.collectionView = cell.collectionView
-        adapter.dataSource = self
-        
-        cell.getContainer.tag = index
         cell.titleLabel.text = model.pack.name
-        
-        let gesture = UITapGestureRecognizer(target: self, action: #selector(getPackTapped))
-        cell.getContainer.addGestureRecognizer(gesture)
         
         return cell
     }
@@ -97,6 +97,7 @@ extension NewPacksSection: ListSupplementaryViewSource {
         case .title:
             let view = collectionContext!.dequeue(ofKind: UICollectionView.elementKindSectionHeader, for: self, of: MainHeaderView.self, at: index)
             view.titleLabel.text = R.string.localizable.mainHeaderExplore()
+            view.rightButton.isHidden = true
             
             return view
             

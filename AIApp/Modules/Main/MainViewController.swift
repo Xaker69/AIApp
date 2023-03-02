@@ -49,10 +49,7 @@ class MainViewController: UIViewController {
 
 extension MainViewController: ListAdapterDataSource {
     func objects(for listAdapter: ListAdapter) -> [ListDiffable] {
-        return [
-            profileModel,
-            MyPacksModel(name: "myPacks"),
-        ] + newPacksModel
+        return [profileModel, MyPacksModel(name: "myPacks")] + newPacksModel
     }
     
     func listAdapter(_ listAdapter: ListAdapter, sectionControllerFor object: Any) -> ListSectionController {

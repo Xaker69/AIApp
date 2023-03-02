@@ -50,7 +50,7 @@ class SingleProfileSection: ListSectionController {
         if let user = model.user, let data = user.photos.last {
             cell.profileView.addImageView.isHidden = true
             cell.profileView.titleLabel.text = user.name
-            cell.profileView.titleStack.addArrangedSubview(cell.profileView.subtitleLabel)
+            cell.profileView.subtitleLabel.isHidden = false
             cell.profileView.layer.borderWidth = user.isSelected ? 0 : 1
             cell.profileView.backgroundColor = user.isSelected ? UIColor(white: 1, alpha: 0.1) : .clear
             

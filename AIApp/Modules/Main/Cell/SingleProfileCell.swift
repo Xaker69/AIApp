@@ -23,8 +23,11 @@ class SingleProfileCell: UICollectionViewCell {
     override func prepareForReuse() {
         super.prepareForReuse()
         
+        profileView.layer.borderWidth = 1
+        profileView.backgroundColor = .clear
         profileView.imageView.image = nil
         profileView.addImageView.isHidden = false
+        profileView.subtitleLabel.isHidden = true
         profileView.titleLabel.text = R.string.localizable.mainAddProfile()
     }
     

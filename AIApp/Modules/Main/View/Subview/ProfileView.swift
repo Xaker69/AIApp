@@ -44,13 +44,15 @@ class ProfileView: RootView {
         label.font = .interFont(ofSize: 12, weight: .regular)
         label.textColor = .init(white: 1, alpha: 0.6)
         label.textAlignment = .left
+        label.isHidden = true
         
         return label
     }()
     
     lazy var titleStack: UIStackView = {
         let view = UIStackView(arrangedSubviews: [
-            titleLabel
+            titleLabel,
+            subtitleLabel
         ])
         view.axis = .vertical
         view.spacing = 4
