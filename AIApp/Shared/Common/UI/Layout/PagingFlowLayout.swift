@@ -19,15 +19,7 @@ class PagingFlowLayout: UICollectionViewFlowLayout {
         minimumLineSpacing = 12
     }
 
-    override func prepare() {
-        guard let collectionView = collectionView else { fatalError() }
-
-        let verticalInsets = (collectionView.frame.height - collectionView.adjustedContentInset.top - collectionView.adjustedContentInset.bottom - itemSize.height) / 2
-        
-        let horizontalInsets = (collectionView.frame.width - collectionView.adjustedContentInset.right - collectionView.adjustedContentInset.left - itemSize.width) / 2
-        
-        sectionInset = UIEdgeInsets(top: verticalInsets, left: horizontalInsets, bottom: verticalInsets, right: horizontalInsets)
-            
+    override func prepare() {            
         super.prepare()
     }
 

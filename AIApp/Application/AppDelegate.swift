@@ -23,7 +23,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
         }
               
         let navVC = RootNavigationController.shared
-        navVC.setViewControllers([rootVC], animated: false)
+        navVC.setViewControllers([ChoosePackViewController()], animated: false)
         
         window = UIWindow(frame: UIScreen.main.bounds)
         window?.rootViewController = navVC

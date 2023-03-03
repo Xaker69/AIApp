@@ -3,6 +3,8 @@ import Atributika
 
 class ChoosePackCell: UICollectionViewCell {
     
+    let gradientView: GradientBlur = GradientBlur()
+    
     let priceContainer: UIView = {
         let view = UIView()
         view.backgroundColor = .white
@@ -25,15 +27,6 @@ class ChoosePackCell: UICollectionViewCell {
         view.contentMode = .scaleAspectFill
         view.image = R.image.choosePackCellTmp()
         view.clipsToBounds = true
-        
-        return view
-    }()
-    
-    let blurImageView: UIImageView = {
-        let view = UIImageView()
-        view.contentMode = .scaleAspectFill
-        view.image = R.image.choosePackCellBlur()
-        view.backgroundColor = .clear
         
         return view
     }()
@@ -85,6 +78,16 @@ class ChoosePackCell: UICollectionViewCell {
         return label
     }()
     
+    let grainImageView: UIImageView = {
+        let view = UIImageView()
+        view.contentMode = .scaleAspectFill
+        view.image = R.image.choosePackCellGradient()
+        view.backgroundColor = .clear
+        view.alpha = 0.5
+        
+        return view
+    }()
+    
     override init(frame: CGRect) {
         super.init(frame: frame)
         clipsToBounds = true
@@ -92,7 +95,8 @@ class ChoosePackCell: UICollectionViewCell {
         
         addSubview(imageView)
         
-        imageView.addSubview(blurImageView)
+        imageView.addSubview(grainImageView)
+        imageView.addSubview(gradientView)
         imageView.addSubview(priceContainer)
         imageView.addSubview(subtitleLable)
         imageView.addSubview(titleLabel)
@@ -126,8 +130,12 @@ class ChoosePackCell: UICollectionViewCell {
             make.right.equalToSuperview().offset(-4.0)
         }
         
-        blurImageView.snp.makeConstraints { make in
-            make.left.right.bottom.equalToSuperview()
+        grainImageView.snp.makeConstraints { make in
+            make.edges.equalToSuperview()
+        }
+        
+        gradientView.snp.makeConstraints { make in
+            make.edges.equalToSuperview()
         }
         
         subtitleLable.snp.makeConstraints { make in
@@ -155,58 +163,5 @@ class ChoosePackCell: UICollectionViewCell {
             make.top.left.bottom.equalToSuperview()
             make.size.equalTo(16.0)
         }
-    }
-}
-
-class BlurGradientView: UIView {
-        
-    override init(frame: CGRect) {
-        super.init(frame: frame)
-        
-//        let darkBlurEffect = UIBlurEffect(style: .dark)
-//        let darkBlurView = UIVisualEffectView(effect: darkBlurEffect)
-//
-//        addSubview(darkBlurView)
-//
-//        darkBlurView.snp.makeConstraints { make in
-//            make.edges.equalToSuperview()
-//        }
-    }
-    
-    required init?(coder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
-    }
-    
-    override func draw(_ rect: CGRect) {
-        super.draw(rect)
-        
-        // Create a dark blur effect
-//        let darkBlurEffect = UIBlurEffect(style: .dark)
-//        // Create a clear blur effect
-//        let clearBlurEffect = UIBlurEffect(style: .extraLight)
-//
-//        // Create the blur view and set its effect
-//        let darkBlurView = UIVisualEffectView(effect: darkBlurEffect)
-//        let clearBlurView = UIVisualEffectView(effect: clearBlurEffect)
-//
-//        // Add the blur view as a subview of your view
-//        addSubview(darkBlurView)
-//        addSubview(clearBlurView)
-//
-//         Create the gradient layer
-        let gradientLayer = CAGradientLayer()
-        
-//         Set the colors for the gradient
-        gradientLayer.colors = [UIColor.black.cgColor, UIColor.clear.cgColor]
-        
-//         Set the start and end points for the gradient
-        gradientLayer.startPoint = CGPoint(x: 0.5, y: 1)
-        gradientLayer.endPoint = CGPoint(x: 0.5, y: 0)
-        
-//         Add the gradient layer as a sublayer of your view
-        layer.insertSublayer(gradientLayer, at: 0)
-        
-//         Set the frame for the gradient layer to be the same as the view
-        gradientLayer.frame = bounds
     }
 }

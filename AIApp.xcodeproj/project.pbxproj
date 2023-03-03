@@ -57,6 +57,7 @@
 		2C5C2D8129882FD8009027F1 /* SettingsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C5C2D8029882FD8009027F1 /* SettingsCell.swift */; };
 		2C5C2D84298831F6009027F1 /* SettingsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C5C2D83298831F6009027F1 /* SettingsModel.swift */; };
 		2C8D625829B22C85004DEE6D /* PagingFlowLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C8D625729B22C85004DEE6D /* PagingFlowLayout.swift */; };
+		2C8D625B29B2634C004DEE6D /* GradientBlur.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C8D625A29B2634C004DEE6D /* GradientBlur.swift */; };
 		2C954FCD2971A9C200D8881B /* UploadPhotosView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C954FCC2971A9C200D8881B /* UploadPhotosView.swift */; };
 		2C954FCF2971AA3F00D8881B /* UploadPhotosViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C954FCE2971AA3F00D8881B /* UploadPhotosViewController.swift */; };
 		2C954FD22975DD5F00D8881B /* SelectGenderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C954FD12975DD5F00D8881B /* SelectGenderViewController.swift */; };
@@ -169,6 +170,7 @@
 		2C5C2D8029882FD8009027F1 /* SettingsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsCell.swift; sourceTree = "<group>"; };
 		2C5C2D83298831F6009027F1 /* SettingsModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsModel.swift; sourceTree = "<group>"; };
 		2C8D625729B22C85004DEE6D /* PagingFlowLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PagingFlowLayout.swift; sourceTree = "<group>"; };
+		2C8D625A29B2634C004DEE6D /* GradientBlur.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GradientBlur.swift; sourceTree = "<group>"; };
 		2C954FCC2971A9C200D8881B /* UploadPhotosView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UploadPhotosView.swift; sourceTree = "<group>"; };
 		2C954FCE2971AA3F00D8881B /* UploadPhotosViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UploadPhotosViewController.swift; sourceTree = "<group>"; };
 		2C954FD12975DD5F00D8881B /* SelectGenderViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectGenderViewController.swift; sourceTree = "<group>"; };
@@ -608,6 +610,14 @@
 			path = Layout;
 			sourceTree = "<group>";
 		};
+		2C8D625929B2633F004DEE6D /* Subview */ = {
+			isa = PBXGroup;
+			children = (
+				2C8D625A29B2634C004DEE6D /* GradientBlur.swift */,
+			);
+			path = Subview;
+			sourceTree = "<group>";
+		};
 		2C954FCB2971A9B000D8881B /* View */ = {
 			isa = PBXGroup;
 			children = (
@@ -659,6 +669,7 @@
 		2C9BEB37297837F200202D54 /* Cell */ = {
 			isa = PBXGroup;
 			children = (
+				2C8D625929B2633F004DEE6D /* Subview */,
 				2C9BEB382978380F00202D54 /* ChoosePackCell.swift */,
 			);
 			path = Cell;
@@ -1227,6 +1238,7 @@
 				2C9BEB57297E66DE00202D54 /* PackPaymentView.swift in Sources */,
 				2C9BEB762980110A00202D54 /* ProfileView.swift in Sources */,
 				2C5C2D84298831F6009027F1 /* SettingsModel.swift in Sources */,
+				2C8D625B29B2634C004DEE6D /* GradientBlur.swift in Sources */,
 				2C06FE11297183600013DD5C /* TrialEnableView.swift in Sources */,
 				2CB8A694295D8AA7009A954E /* AppDelegate.swift in Sources */,
 				2C9BEB46297AB13F00202D54 /* PackImageExampleModel.swift in Sources */,

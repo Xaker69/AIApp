@@ -55,15 +55,6 @@ class ChoosePackView: RootView {
         return view
     }()
     
-    let pageControl: UIPageControl = {
-        let page = UIPageControl()
-        page.currentPageIndicatorTintColor = .init(hex6: 0xA851FF)
-        page.pageIndicatorTintColor = .white.withAlphaComponent(0.1)
-        page.isUserInteractionEnabled = false
-        
-        return page
-    }()
-    
     override func setup() {
         backgroundColor = .init(hex6: 0x0F0F0F)
         
@@ -71,7 +62,6 @@ class ChoosePackView: RootView {
         addSubview(stepLabel)
         addSubview(titleLabel)
         addSubview(collectionView)
-        addSubview(pageControl)
         addSubview(continueButton)
         
         setupConstraints()
@@ -103,12 +93,7 @@ class ChoosePackView: RootView {
         collectionView.snp.makeConstraints { make in
             make.top.equalTo(titleLabel.snp.bottom).offset(32.0)
             make.left.right.equalToSuperview()
-            make.bottom.equalTo(pageControl.snp.top).offset(-24.0)
-        }
-        
-        pageControl.snp.makeConstraints { make in
-            make.bottom.equalTo(continueButton.snp.top).offset(-32.0)
-            make.centerX.equalToSuperview()
+            make.bottom.equalTo(continueButton.snp.top).offset(-62.0)
         }
     }
 

@@ -6,7 +6,7 @@ class ChoosePackViewController: UIViewController {
         return view as! ChoosePackView
     }
         
-    let dataSource = CloudManager.shared.packs
+    var dataSource = CloudManager.shared.packs
     
     override func loadView() {
         view = ChoosePackView()
@@ -20,9 +20,7 @@ class ChoosePackViewController: UIViewController {
         
         mainView.collectionView.delegate = self
         mainView.collectionView.dataSource = self
-        
-        mainView.pageControl.numberOfPages = dataSource.count
-        
+                
         NotificationCenter.default.addObserver(self, selector: #selector(packsDidLoaded), name: .packsDidLoaded, object: nil)
     }
         
@@ -37,7 +35,7 @@ class ChoosePackViewController: UIViewController {
     }
     
     @objc private func packsDidLoaded() {
-        mainView.pageControl.numberOfPages = dataSource.count
+        dataSource = CloudManager.shared.packs
         mainView.collectionView.reloadData()
     }
 }
@@ -50,13 +48,17 @@ extension ChoosePackViewController: UICollectionViewDataSource, UICollectionView
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: ChoosePackCell.description(), for: indexPath) as! ChoosePackCell
         
+        cell.imageView.kf.setImage(with: dataSource[indexPath.item].previewImage)
+        cell.titleLabel.text = dataSource[indexPath.item].name
+        cell.layoutIfNeeded()
+        
         return cell
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-//        let vc = PackDescriptionViewController()
-//        
-//        navigationController?.pushViewController(vc, animated: true)
+        let vc = PackDescriptionViewController(pack: dataSource[indexPath.item])
+        
+        navigationController?.pushViewController(vc, animated: true)
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
