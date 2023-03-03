@@ -56,6 +56,7 @@
 		2C5C2D7E29882D60009027F1 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C5C2D7D29882D60009027F1 /* SettingsView.swift */; };
 		2C5C2D8129882FD8009027F1 /* SettingsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C5C2D8029882FD8009027F1 /* SettingsCell.swift */; };
 		2C5C2D84298831F6009027F1 /* SettingsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C5C2D83298831F6009027F1 /* SettingsModel.swift */; };
+		2C8D625829B22C85004DEE6D /* PagingFlowLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C8D625729B22C85004DEE6D /* PagingFlowLayout.swift */; };
 		2C954FCD2971A9C200D8881B /* UploadPhotosView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C954FCC2971A9C200D8881B /* UploadPhotosView.swift */; };
 		2C954FCF2971AA3F00D8881B /* UploadPhotosViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C954FCE2971AA3F00D8881B /* UploadPhotosViewController.swift */; };
 		2C954FD22975DD5F00D8881B /* SelectGenderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C954FD12975DD5F00D8881B /* SelectGenderViewController.swift */; };
@@ -167,6 +168,7 @@
 		2C5C2D7D29882D60009027F1 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
 		2C5C2D8029882FD8009027F1 /* SettingsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsCell.swift; sourceTree = "<group>"; };
 		2C5C2D83298831F6009027F1 /* SettingsModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsModel.swift; sourceTree = "<group>"; };
+		2C8D625729B22C85004DEE6D /* PagingFlowLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PagingFlowLayout.swift; sourceTree = "<group>"; };
 		2C954FCC2971A9C200D8881B /* UploadPhotosView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UploadPhotosView.swift; sourceTree = "<group>"; };
 		2C954FCE2971AA3F00D8881B /* UploadPhotosViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UploadPhotosViewController.swift; sourceTree = "<group>"; };
 		2C954FD12975DD5F00D8881B /* SelectGenderViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectGenderViewController.swift; sourceTree = "<group>"; };
@@ -252,7 +254,7 @@
 			path = Pods;
 			sourceTree = "<group>";
 		};
-		2C06FE122971A15F0013DD5C /* CreateAvatar */ = {
+		2C06FE122971A15F0013DD5C /* Create */ = {
 			isa = PBXGroup;
 			children = (
 				2C06FE172971A2330013DD5C /* AddAvatar */,
@@ -261,7 +263,7 @@
 				2C06FE152971A2090013DD5C /* Name */,
 				2C06FE162971A2190013DD5C /* ChoosePack */,
 			);
-			path = CreateAvatar;
+			path = Create;
 			sourceTree = "<group>";
 		};
 		2C06FE132971A1720013DD5C /* UploadPhotos */ = {
@@ -598,6 +600,14 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		2C8D625629B22C78004DEE6D /* Layout */ = {
+			isa = PBXGroup;
+			children = (
+				2C8D625729B22C85004DEE6D /* PagingFlowLayout.swift */,
+			);
+			path = Layout;
+			sourceTree = "<group>";
+		};
 		2C954FCB2971A9B000D8881B /* View */ = {
 			isa = PBXGroup;
 			children = (
@@ -848,7 +858,7 @@
 				2C9BEB85298163A300202D54 /* Attantion */,
 				2C9BEB58297FFAAF00202D54 /* Main */,
 				2C9BEB3A297A9F9600202D54 /* PackDescription */,
-				2C06FE122971A15F0013DD5C /* CreateAvatar */,
+				2C06FE122971A15F0013DD5C /* Create */,
 				2C1E43F5296C079D0000D015 /* Subscription */,
 				2CB8A6B9295D8FF4009A954E /* Onboarding */,
 			);
@@ -888,6 +898,7 @@
 		2CB8A6AC295D8B26009A954E /* UI */ = {
 			isa = PBXGroup;
 			children = (
+				2C8D625629B22C78004DEE6D /* Layout */,
 				2C9BEB2A2976C3DD00202D54 /* Controllers */,
 				2CB8A6AD295D8B26009A954E /* Views */,
 			);
@@ -1205,6 +1216,7 @@
 				2C06FE1C2971A4CF0013DD5C /* AddAvatarViewController.swift in Sources */,
 				2CB8A6B6295D8B26009A954E /* UIIColor+hex.swift in Sources */,
 				2C19F7272996954B00126536 /* SingleProfileCell.swift in Sources */,
+				2C8D625829B22C85004DEE6D /* PagingFlowLayout.swift in Sources */,
 				2C4E7189299F5B9700E44957 /* UserDefaults+JsonModel.swift in Sources */,
 				2C9BEB6D29800D6700202D54 /* NewPacksSection.swift in Sources */,
 				2C9BEB332976CD8400202D54 /* ChoosePackViewController.swift in Sources */,

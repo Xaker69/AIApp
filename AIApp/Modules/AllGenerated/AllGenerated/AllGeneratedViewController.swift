@@ -2,7 +2,7 @@ import UIKit
 import IGListKit
 
 class AllGeneratedViewController: UIViewController {
-
+    
     var mainView: AllGeneratedView {
         return view as! AllGeneratedView
     }
@@ -32,7 +32,7 @@ class AllGeneratedViewController: UIViewController {
 
 extension AllGeneratedViewController: ListAdapterDataSource {
     func objects(for listAdapter: ListAdapter) -> [ListDiffable] {
-        return [MySinglePackModel(name: "mySinglePack")]
+        return UserManager.shared.selectedUser.packs.map { MySinglePackModel(pack: $0) }
     }
     
     func listAdapter(_ listAdapter: ListAdapter, sectionControllerFor object: Any) -> ListSectionController {
@@ -50,7 +50,7 @@ extension AllGeneratedViewController: ListAdapterDataSource {
 // MARK: - MySinglePackDelegate
 
 extension AllGeneratedViewController: MySinglePackDelegate {
-    func mySinglePack(_ section: MySinglePackSection, didSelect packIndex: Int) {
+    func mySinglePack(_ section: MySinglePackSection, didSelect pack: Pack) {
         let vc = AllGeneratedPhotosViewController()
         navigationController?.pushViewController(vc, animated: true)
     }

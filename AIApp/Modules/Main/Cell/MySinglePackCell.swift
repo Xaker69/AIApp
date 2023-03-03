@@ -45,7 +45,7 @@ class MySinglePackCell: UICollectionViewCell {
             .font(.satoshiFont(ofSize: 15, weight: .bold))
             .foregroundColor(.white)
             
-        label.attributedText = "Oil\nPainting".styleAll(style)
+        label.attributedText = "Oil Painting".styleAll(style)
         
         return label
     }()
@@ -65,6 +65,19 @@ class MySinglePackCell: UICollectionViewCell {
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
+    }
+    
+    func setTitle(_ text: String) {
+        let paragraphStyle = NSMutableParagraphStyle()
+        paragraphStyle.lineHeightMultiple = 1.19
+        paragraphStyle.alignment = .center
+        
+        let style = Style()
+            .paragraphStyle(paragraphStyle)
+            .font(.satoshiFont(ofSize: 15, weight: .bold))
+            .foregroundColor(.white)
+            
+        titleLabel.attributedText = text.styleAll(style)
     }
     
     private func setupConstraints() {
@@ -87,7 +100,7 @@ class MySinglePackCell: UICollectionViewCell {
         
         titleLabel.snp.makeConstraints { make in
             make.bottom.equalToSuperview().offset(-16.0)
-            make.left.right.equalToSuperview()
+            make.left.right.equalToSuperview().inset(12.0)
         }
         
         gradientImageView.snp.makeConstraints { make in

@@ -1,16 +1,16 @@
 import IGListDiffKit
 
 class MySinglePackModel {
-    let name: String
+    let pack: Pack
     
-    init(name: String) {
-        self.name = name
+    init(pack: Pack) {
+        self.pack = pack
     }
 }
 
 extension MySinglePackModel: ListDiffable {
     func diffIdentifier() -> NSObjectProtocol {
-        return name as NSObjectProtocol
+        return pack.name as NSObjectProtocol
     }
     
     func isEqual(toDiffableObject object: ListDiffable?) -> Bool {
@@ -18,6 +18,6 @@ extension MySinglePackModel: ListDiffable {
             return false
         }
         
-        return object.name == name
+        return object.pack == pack
     }
 }

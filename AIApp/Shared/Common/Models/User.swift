@@ -6,6 +6,7 @@ class User: Codable {
     let gender: String
     let photos: [Data]
     var isSelected: Bool
+    var packs: [Pack]
     
     init(id: String, name: String, gender: String, photos: [Data]) {
         self.id = id
@@ -14,6 +15,7 @@ class User: Codable {
         self.photos = photos
         
         isSelected = false
+        packs = []
     }
 }
 

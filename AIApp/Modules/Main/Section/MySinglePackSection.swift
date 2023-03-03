@@ -1,12 +1,13 @@
 import IGListKit
 
 protocol MySinglePackDelegate: AnyObject {
-    func mySinglePack(_ section: MySinglePackSection, didSelect packIndex: Int)
+    func mySinglePack(_ section: MySinglePackSection, didSelect pack: Pack)
 }
 
 class MySinglePackSection: ListSectionController {
     
     weak var delegate: MySinglePackDelegate?
+    var model: MySinglePackModel!
     
     init(direction: UICollectionView.ScrollDirection) {
         super.init()
@@ -27,12 +28,17 @@ class MySinglePackSection: ListSectionController {
         }
     }
     
+    override func didUpdate(to object: Any) {
+        precondition(object is MySinglePackModel)
+        model = object as? MySinglePackModel
+    }
+    
     override func numberOfItems() -> Int {
-        return 5
+        return 1
     }
     
     override func didSelectItem(at index: Int) {
-        delegate?.mySinglePack(self, didSelect: index)
+        delegate?.mySinglePack(self, didSelect: model.pack)
     }
     
     override func sizeForItem(at index: Int) -> CGSize {
@@ -45,6 +51,9 @@ class MySinglePackSection: ListSectionController {
     
     override func cellForItem(at index: Int) -> UICollectionViewCell {
         let cell = collectionContext!.dequeue(of: MySinglePackCell.self, for: self, at: index)
+        
+        cell.setTitle(model.pack.name)
+        cell.imageView.kf.setImage(with: model.pack.previewImage)
         
         return cell
     }

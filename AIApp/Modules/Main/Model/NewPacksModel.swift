@@ -2,9 +2,11 @@ import IGListDiffKit
 
 class NewPacksModel {
     let pack: Pack
+    let needHeader: Bool
     
-    init(pack: Pack) {
+    init(pack: Pack, needHeader: Bool) {
         self.pack = pack
+        self.needHeader = needHeader
     }
 }
 

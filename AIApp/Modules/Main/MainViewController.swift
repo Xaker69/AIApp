@@ -3,8 +3,9 @@ import IGListKit
 
 class MainViewController: UIViewController {
 
-    var profileModel: ProfilesModel!
-    var newPacksModel: [NewPacksModel] = []
+    var profileModel = ProfilesModel(users: UserManager.shared.users)
+    var myPacksModel = MyPacksModel(user: UserManager.shared.selectedUser)
+    var newPacksModel = CloudManager.shared.packs.enumerated().map { NewPacksModel(pack: $1, needHeader: $0 == 0) }
     
     var mainView: MainView {
         return view as! MainView
@@ -20,9 +21,6 @@ class MainViewController: UIViewController {
         super.viewDidLoad()
         
         mainView.settingsButton.addTarget(self, action: #selector(settingsButtonTapped), for: .touchUpInside)
-        
-        profileModel = ProfilesModel(users: UserManager.shared.users)
-        newPacksModel = CloudManager.shared.packs.map { NewPacksModel(pack: $0) }
         
         adapter.collectionView = mainView.collectionView
         adapter.dataSource = self
@@ -40,7 +38,7 @@ class MainViewController: UIViewController {
     //TODO: Нужно сделать метод который обновляет модели новых паков и своих паков и уже обновлять с анимацией мб
     
     @objc private func packsDidLoaded() {
-        newPacksModel = CloudManager.shared.packs.map { NewPacksModel(pack: $0) }
+        newPacksModel = CloudManager.shared.packs.enumerated().map { NewPacksModel(pack: $1, needHeader: $0 == 0) }
         adapter.reloadData()
     }
 }
@@ -49,8 +47,16 @@ class MainViewController: UIViewController {
 
 extension MainViewController: ListAdapterDataSource {
     func objects(for listAdapter: ListAdapter) -> [ListDiffable] {
-        return [profileModel, MyPacksModel(name: "myPacks")] + newPacksModel
-    }
+        var objects: [ListDiffable] = [profileModel]
+        
+        if !UserManager.shared.selectedUser.packs.isEmpty {
+            objects.append(myPacksModel)
+        }
+        
+        objects.append(contentsOf: newPacksModel)
+        
+        return objects
+    } 
     
     func listAdapter(_ listAdapter: ListAdapter, sectionControllerFor object: Any) -> ListSectionController {
         switch object {
@@ -89,11 +95,8 @@ extension MainViewController: NewPacksDelegate {
         navigationController?.pushViewController(UploadingViewController(), animated: true)
     }
     
-    func newPacks(didSelect index: Int) {
-        let pack = CloudManager.shared.packs[index]
-        let vc = PackDescriptionViewController(pack: pack)
-        vc.mainView.layoutIfNeeded()
-        
+    func newPacks(didSelect pack: Pack) {
+        let vc = PackDescriptionViewController(pack: pack)        
         navigationController?.pushViewController(vc, animated: true)
     }
 }
@@ -101,7 +104,7 @@ extension MainViewController: NewPacksDelegate {
 // MARK: - MyPacksDelegate
 
 extension MainViewController: MyPacksDelegate {
-    func myPacks(_ section: MyPacksSection, didSelect packIndex: Int) {
+    func myPacks(_ section: MyPacksSection, didSelect pack: Pack) {
         let vc = AllGeneratedPhotosViewController()
         vc.modalPresentationStyle = .fullScreen
         

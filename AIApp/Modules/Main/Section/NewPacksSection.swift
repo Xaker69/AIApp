@@ -3,7 +3,7 @@ import IGListKit
 
 protocol NewPacksDelegate: AnyObject {
     func newPacks(getPack index: Int)
-    func newPacks(didSelect index: Int)
+    func newPacks(didSelect pack: Pack)
 }
 
 class NewPacksSection: ListSectionController {
@@ -32,7 +32,7 @@ class NewPacksSection: ListSectionController {
         precondition(object is NewPacksModel)
         model = object as? NewPacksModel
         
-        if section < 3 {
+        if model.needHeader {
             supplementaryViewSource = self
         }
     }
@@ -64,7 +64,7 @@ class NewPacksSection: ListSectionController {
     }
     
     override func didSelectItem(at index: Int) {
-        delegate?.newPacks(didSelect: section - 2)
+        delegate?.newPacks(didSelect: model.pack)
     }
     
     // MARK: - Private actions
@@ -151,6 +151,6 @@ extension NewPacksSection: ListAdapterDataSource {
 
 extension NewPacksSection: NewPackExampleDelegate {
     func newPackExample(didSelect index: Int) {
-        delegate?.newPacks(didSelect: section - 2)
+        delegate?.newPacks(didSelect: model.pack)
     }
 }

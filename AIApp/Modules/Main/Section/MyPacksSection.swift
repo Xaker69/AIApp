@@ -2,13 +2,14 @@ import UIKit
 import IGListKit
 
 protocol MyPacksDelegate: AnyObject {
-    func myPacks(_ section: MyPacksSection, didSelect packIndex: Int)
+    func myPacks(_ section: MyPacksSection, didSelect pack: Pack)
     func myPacks(needShowAllPacks section: MyPacksSection)
 }
 
 class MyPacksSection: ListSectionController {
 
     weak var delegate: MyPacksDelegate?
+    var model: MyPacksModel!
     
     let template = MyPacksCell()
     lazy var adapter = ListAdapter(updater: ListAdapterUpdater(), viewController: viewController)
@@ -17,6 +18,11 @@ class MyPacksSection: ListSectionController {
         super.init()
         
         supplementaryViewSource = self
+    }
+    
+    override func didUpdate(to object: Any) {
+        precondition(object is MyPacksModel)
+        model = object as? MyPacksModel
     }
     
     override func numberOfItems() -> Int {
@@ -35,6 +41,9 @@ class MyPacksSection: ListSectionController {
     override func cellForItem(at index: Int) -> UICollectionViewCell {
         let cell = collectionContext!.dequeue(of: MyPacksCell.self, for: self, at: index)
         
+        adapter.collectionView = cell.collectionView
+        adapter.dataSource = self
+        
         return configure(cell: cell)
     }
     
@@ -44,9 +53,6 @@ class MyPacksSection: ListSectionController {
     
     @discardableResult
     private func configure(cell: MyPacksCell) -> MyPacksCell {
-        adapter.collectionView = cell.collectionView
-        adapter.dataSource = self
-        
         return cell
     }
 }
@@ -76,7 +82,7 @@ extension MyPacksSection: ListSupplementaryViewSource {
 
 extension MyPacksSection: ListAdapterDataSource {
     func objects(for listAdapter: ListAdapter) -> [ListDiffable] {
-        return [MySinglePackModel(name: "mySinglePack")]
+        return model.user.packs.map { MySinglePackModel(pack: $0) }
     }
     
     func listAdapter(_ listAdapter: ListAdapter, sectionControllerFor object: Any) -> ListSectionController {
@@ -94,7 +100,7 @@ extension MyPacksSection: ListAdapterDataSource {
 // MARK: - MySinglePackDelegate
 
 extension MyPacksSection: MySinglePackDelegate {
-    func mySinglePack(_ section: MySinglePackSection, didSelect packIndex: Int) {
-        delegate?.myPacks(self, didSelect: packIndex)
+    func mySinglePack(_ section: MySinglePackSection, didSelect pack: Pack) {
+        delegate?.myPacks(self, didSelect: pack)
     }
 }

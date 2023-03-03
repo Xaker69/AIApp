@@ -131,7 +131,7 @@ extension UploadingViewController: NewPacksDelegate {
         
     }
     
-    func newPacks(didSelect index: Int) {
+    func newPacks(didSelect pack: Pack) {
         
     }
 }

@@ -42,10 +42,9 @@ class ChoosePackView: RootView {
     }()
     
     let collectionView: UICollectionView =  {
-        let layout = UICollectionViewFlowLayout()
+        let layout = PagingFlowLayout()
         layout.minimumLineSpacing = 0
         layout.minimumInteritemSpacing = 0
-        layout.scrollDirection = .horizontal
         layout.sectionInset = UIEdgeInsets(top: 0.0, left: 20.0, bottom: 0.0, right: 20.0)
         
         let view = UICollectionView(frame: .zero, collectionViewLayout: layout)
