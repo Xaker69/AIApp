@@ -13,7 +13,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
         UIApplication.shared.registerForRemoteNotifications()
         FirebaseApp.configure()
         
-        CloudManager.shared.loadPacks()
+        PackManager.shared.loadPacks()
         
         let rootVC: UIViewController
         if UserManager.shared.users.count > 0 {
@@ -39,15 +39,25 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
         print("💙 Device token:", apnsDeviceToken)
     }
     
-    func application(_ application: UIApplication, didFailToRegisterForRemoteNotificationsWithError error: Error) {
-        print("❤️ fail to register remote notification error: \(error.localizedDescription)")
+    func applicationDidBecomeActive(_ application: UIApplication) {
+        DeepLinkManager.shared.checkDeepLink()
+        UNUserNotificationCenter.current().removeAllDeliveredNotifications()
     }
     
     func application(_ application: UIApplication, didReceiveRemoteNotification userInfo: [AnyHashable : Any]) async -> UIBackgroundFetchResult {
-        
         print("💙 didReceiveRemoteNotification userInfo \(userInfo)")
         
+        DeepLinkManager.shared.handleRemoteNotification(userInfo)
+        
+        if application.applicationState == .active {
+            DeepLinkManager.shared.checkDeepLink()
+        }
+        
         return .noData
+    }
+    
+    func application(_ application: UIApplication, didFailToRegisterForRemoteNotificationsWithError error: Error) {
+        print("❤️ fail to register remote notification error: \(error.localizedDescription)")
     }
 
 }

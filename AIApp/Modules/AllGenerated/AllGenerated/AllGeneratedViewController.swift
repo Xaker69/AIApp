@@ -54,7 +54,7 @@ extension AllGeneratedViewController: MySinglePackDelegate {
         if pack.isGenerating {
             present(AttentionViewController(), animated: true)
         } else {
-            let vc = AllGeneratedPhotosViewController()
+            let vc = AllGeneratedPhotosViewController(pack: pack)
             navigationController?.pushViewController(vc, animated: true)
         }
     }

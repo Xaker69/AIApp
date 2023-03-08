@@ -38,7 +38,7 @@ class OnboardingViewController: UIViewController {
     // MARK: Private methods
     
     private func loadImage() {
-        CloudManager.shared.getImageUrl(for: .onboardingImage) { [weak self] url in
+        PackManager.shared.getImageUrl(for: .onboardingImage) { [weak self] url in
             self?.mainView.imageView.kf.setImage(with: url, placeholder: R.image.onboardingTest())
         }
     }

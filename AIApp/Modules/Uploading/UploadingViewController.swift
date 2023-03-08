@@ -9,7 +9,7 @@ class UploadingViewController: UIViewController {
     }
     
     private lazy var adapter: ListAdapter = ListAdapter(updater: ListAdapterUpdater(), viewController: self)
-    private let newPacksModel = CloudManager.shared.classPacks.enumerated().map { NewPacksModel(pack: $1, needHeader: $0 == 0) }
+    private let newPacksModel = PackManager.shared.classPacks.enumerated().map { NewPacksModel(pack: $1, needHeader: $0 == 0) }
     private let pack: Pack
     
     init(pack: Pack) {
@@ -57,7 +57,7 @@ class UploadingViewController: UIViewController {
     private func uploadPhotos() {
         let images = Array(UserManager.shared.selectedUser.photos)
         
-        CloudManager.shared.uploadImage(images: images, for: pack, progress: handleProgress) { [weak self] result in
+        PackManager.shared.uploadImage(images: images, for: pack, progress: handleProgress) { [weak self] result in
             guard let self = self else { return }
             
             switch result {

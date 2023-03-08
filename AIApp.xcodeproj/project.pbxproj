@@ -67,6 +67,10 @@
 		2C954FD72975E7C500D8881B /* CreateNameView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C954FD62975E7C500D8881B /* CreateNameView.swift */; };
 		2C954FD92975E85600D8881B /* CreateNameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C954FD82975E85600D8881B /* CreateNameViewController.swift */; };
 		2C954FDB2975EA8900D8881B /* Satoshi-Black.otf in Resources */ = {isa = PBXBuildFile; fileRef = 2C954FDA2975EA6500D8881B /* Satoshi-Black.otf */; };
+		2C967F5D29B8BCA600F11F9D /* DeeplinkNavigator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C967F5929B8BCA600F11F9D /* DeeplinkNavigator.swift */; };
+		2C967F5E29B8BCA600F11F9D /* DeeplinkParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C967F5A29B8BCA600F11F9D /* DeeplinkParser.swift */; };
+		2C967F5F29B8BCA600F11F9D /* DeeplinkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C967F5B29B8BCA600F11F9D /* DeeplinkManager.swift */; };
+		2C967F6029B8BCA600F11F9D /* NotificationParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C967F5C29B8BCA600F11F9D /* NotificationParser.swift */; };
 		2C9BEB2E2976C41A00202D54 /* RootNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C9BEB2D2976C41A00202D54 /* RootNavigationController.swift */; };
 		2C9BEB312976CD5900202D54 /* ChoosePackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C9BEB302976CD5900202D54 /* ChoosePackView.swift */; };
 		2C9BEB332976CD8400202D54 /* ChoosePackViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C9BEB322976CD8400202D54 /* ChoosePackViewController.swift */; };
@@ -115,7 +119,7 @@
 		2CB8A6BE295D9063009A954E /* OnboardingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CB8A6BD295D9063009A954E /* OnboardingView.swift */; };
 		2CB8A6C1295D9193009A954E /* R.generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CB8A6C0295D9193009A954E /* R.generated.swift */; };
 		2CB8A6C5295D965E009A954E /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 2CB8A6C7295D965E009A954E /* Localizable.strings */; };
-		2CB8A7192969A755009A954E /* CloudManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CB8A7182969A755009A954E /* CloudManager.swift */; };
+		2CB8A7192969A755009A954E /* PackManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CB8A7182969A755009A954E /* PackManager.swift */; };
 		2CB8A7572969BE68009A954E /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2CB8A7562969BE68009A954E /* GoogleService-Info.plist */; };
 		2CC8C05E29915C4B007F85F8 /* OfferHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CC8C05D29915C4B007F85F8 /* OfferHeaderView.swift */; };
 /* End PBXBuildFile section */
@@ -182,6 +186,10 @@
 		2C954FD62975E7C500D8881B /* CreateNameView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateNameView.swift; sourceTree = "<group>"; };
 		2C954FD82975E85600D8881B /* CreateNameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateNameViewController.swift; sourceTree = "<group>"; };
 		2C954FDA2975EA6500D8881B /* Satoshi-Black.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Satoshi-Black.otf"; sourceTree = "<group>"; };
+		2C967F5929B8BCA600F11F9D /* DeeplinkNavigator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DeeplinkNavigator.swift; sourceTree = "<group>"; };
+		2C967F5A29B8BCA600F11F9D /* DeeplinkParser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DeeplinkParser.swift; sourceTree = "<group>"; };
+		2C967F5B29B8BCA600F11F9D /* DeeplinkManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DeeplinkManager.swift; sourceTree = "<group>"; };
+		2C967F5C29B8BCA600F11F9D /* NotificationParser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NotificationParser.swift; sourceTree = "<group>"; };
 		2C9BEB2D2976C41A00202D54 /* RootNavigationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RootNavigationController.swift; sourceTree = "<group>"; };
 		2C9BEB302976CD5900202D54 /* ChoosePackView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChoosePackView.swift; sourceTree = "<group>"; };
 		2C9BEB322976CD8400202D54 /* ChoosePackViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChoosePackViewController.swift; sourceTree = "<group>"; };
@@ -232,7 +240,7 @@
 		2CB8A6BD295D9063009A954E /* OnboardingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingView.swift; sourceTree = "<group>"; };
 		2CB8A6C0295D9193009A954E /* R.generated.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = R.generated.swift; sourceTree = "<group>"; };
 		2CB8A6C6295D965E009A954E /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
-		2CB8A7182969A755009A954E /* CloudManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CloudManager.swift; sourceTree = "<group>"; };
+		2CB8A7182969A755009A954E /* PackManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PackManager.swift; sourceTree = "<group>"; };
 		2CB8A7562969BE68009A954E /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		2CC8C05D29915C4B007F85F8 /* OfferHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OfferHeaderView.swift; sourceTree = "<group>"; };
 		64AAA940E3536886A6CAF388 /* Pods-AIApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AIApp.release.xcconfig"; path = "Target Support Files/Pods-AIApp/Pods-AIApp.release.xcconfig"; sourceTree = "<group>"; };
@@ -648,6 +656,17 @@
 			path = View;
 			sourceTree = "<group>";
 		};
+		2C967F5829B8BCA600F11F9D /* Deeplink */ = {
+			isa = PBXGroup;
+			children = (
+				2C967F5929B8BCA600F11F9D /* DeeplinkNavigator.swift */,
+				2C967F5A29B8BCA600F11F9D /* DeeplinkParser.swift */,
+				2C967F5B29B8BCA600F11F9D /* DeeplinkManager.swift */,
+				2C967F5C29B8BCA600F11F9D /* NotificationParser.swift */,
+			);
+			path = Deeplink;
+			sourceTree = "<group>";
+		};
 		2C9BEB2A2976C3DD00202D54 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
@@ -1006,19 +1025,20 @@
 		2CB8A7162969A740009A954E /* Service */ = {
 			isa = PBXGroup;
 			children = (
+				2C967F5829B8BCA600F11F9D /* Deeplink */,
 				2C4E718F299F736B00E44957 /* Image */,
 				2C4E718A299F5C9D00E44957 /* User */,
-				2CB8A7172969A746009A954E /* Cloud */,
+				2CB8A7172969A746009A954E /* Pack */,
 			);
 			path = Service;
 			sourceTree = "<group>";
 		};
-		2CB8A7172969A746009A954E /* Cloud */ = {
+		2CB8A7172969A746009A954E /* Pack */ = {
 			isa = PBXGroup;
 			children = (
-				2CB8A7182969A755009A954E /* CloudManager.swift */,
+				2CB8A7182969A755009A954E /* PackManager.swift */,
 			);
-			path = Cloud;
+			path = Pack;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -1180,11 +1200,13 @@
 				2C5C2D5E29875726009027F1 /* GeneratedPhotosSection.swift in Sources */,
 				2C5C2D6529875BC0009027F1 /* UnlockMoreSection.swift in Sources */,
 				2C5C2D7529880DE2009027F1 /* SingleGeneratedPhotoSection.swift in Sources */,
+				2C967F5E29B8BCA600F11F9D /* DeeplinkParser.swift in Sources */,
 				2C9BEB48297AB23300202D54 /* PackImageExampleSection.swift in Sources */,
 				2C4E719329A166F500E44957 /* ManageViewController.swift in Sources */,
 				2C9BEB51297ACC0200202D54 /* PackDescriptionSection.swift in Sources */,
 				2C5C2D6229875B1D009027F1 /* UnlockMoreModel.swift in Sources */,
 				2C9BEB4B297AB46500202D54 /* PackImageExampleCell.swift in Sources */,
+				2C967F5D29B8BCA600F11F9D /* DeeplinkNavigator.swift in Sources */,
 				2CAC42C029AD8612003E4318 /* Pack.swift in Sources */,
 				2C9BEB6529800CD200202D54 /* MyPacksModel.swift in Sources */,
 				2C4E719529A1670800E44957 /* ManageView.swift in Sources */,
@@ -1235,6 +1257,7 @@
 				2C06FE1C2971A4CF0013DD5C /* AddAvatarViewController.swift in Sources */,
 				2CB8A6B6295D8B26009A954E /* UIIColor+hex.swift in Sources */,
 				2C19F7272996954B00126536 /* SingleProfileCell.swift in Sources */,
+				2C967F6029B8BCA600F11F9D /* NotificationParser.swift in Sources */,
 				2C8D625829B22C85004DEE6D /* PagingFlowLayout.swift in Sources */,
 				2C4E7189299F5B9700E44957 /* UserDefaults+JsonModel.swift in Sources */,
 				2C9BEB6D29800D6700202D54 /* NewPacksSection.swift in Sources */,
@@ -1247,6 +1270,7 @@
 				2C9BEB762980110A00202D54 /* ProfileView.swift in Sources */,
 				2C5C2D84298831F6009027F1 /* SettingsModel.swift in Sources */,
 				2C8D625B29B2634C004DEE6D /* GradientBlur.swift in Sources */,
+				2C967F5F29B8BCA600F11F9D /* DeeplinkManager.swift in Sources */,
 				2C06FE11297183600013DD5C /* TrialEnableView.swift in Sources */,
 				2CB8A694295D8AA7009A954E /* AppDelegate.swift in Sources */,
 				2C9BEB46297AB13F00202D54 /* PackImageExampleModel.swift in Sources */,
@@ -1258,7 +1282,7 @@
 				2C5C2D5529874EC0009027F1 /* AllGeneratedPhotosView.swift in Sources */,
 				2C19F71F29950EB100126536 /* ImageDownloader.swift in Sources */,
 				2C5C2D7E29882D60009027F1 /* SettingsView.swift in Sources */,
-				2CB8A7192969A755009A954E /* CloudManager.swift in Sources */,
+				2CB8A7192969A755009A954E /* PackManager.swift in Sources */,
 				2C9BEB88298163BB00202D54 /* AttentionViewController.swift in Sources */,
 				2C954FD72975E7C500D8881B /* CreateNameView.swift in Sources */,
 				2C9BEB4F297ACA6E00202D54 /* PackDescriptionModel.swift in Sources */,

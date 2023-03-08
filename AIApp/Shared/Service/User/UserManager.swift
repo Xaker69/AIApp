@@ -79,6 +79,17 @@ class UserManager {
         user.tune = tune
         saveUsers()
     }
+    
+    func saveUsers() {
+        userQueue.async {
+            do {
+                let data = try JSONEncoder().encode(self.users)
+                UserSettings.users = data
+            } catch {
+                print("❤️ Faild encode users in saveUsers(), error:",  error)
+            }
+        }
+    }
      
     // MARK: - Private methods
     
@@ -89,16 +100,5 @@ class UserManager {
         }
         
         return id
-    }
-    
-    private func saveUsers() {
-        userQueue.async {
-            do {
-                let data = try JSONEncoder().encode(self.users)
-                UserSettings.users = data
-            } catch {
-                print("❤️ Faild encode users in saveUsers(), error:",  error)
-            }
-        }
     }
 }

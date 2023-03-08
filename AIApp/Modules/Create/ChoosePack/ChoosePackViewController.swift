@@ -6,7 +6,7 @@ class ChoosePackViewController: UIViewController {
         return view as! ChoosePackView
     }
         
-    var dataSource = CloudManager.shared.classPacks
+    var dataSource = PackManager.shared.classPacks
     
     override func loadView() {
         view = ChoosePackView()
@@ -35,7 +35,7 @@ class ChoosePackViewController: UIViewController {
     }
     
     @objc private func packsDidLoaded() {
-        dataSource = CloudManager.shared.classPacks
+        dataSource = PackManager.shared.classPacks
         mainView.collectionView.reloadData()
     }
 }

@@ -5,7 +5,7 @@ class MainViewController: UIViewController {
 
     var profileModel = ProfilesModel(users: UserManager.shared.users)
     var myPacksModel = MyPacksModel(user: UserManager.shared.selectedUser)
-    var newPacksModel = CloudManager.shared.classPacks.enumerated().map { NewPacksModel(pack: $1, needHeader: $0 == 0) }
+    var newPacksModel = PackManager.shared.classPacks.enumerated().map { NewPacksModel(pack: $1, needHeader: $0 == 0) }
     
     var mainView: MainView {
         return view as! MainView
@@ -26,6 +26,7 @@ class MainViewController: UIViewController {
         adapter.dataSource = self
         
         NotificationCenter.default.addObserver(self, selector: #selector(packsDidLoaded), name: .packsDidLoaded, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(packsDidUpdated), name: .packsDidUpdated, object: nil)
     }
     
     @objc private func settingsButtonTapped() {
@@ -38,7 +39,12 @@ class MainViewController: UIViewController {
     //TODO: Нужно сделать метод который обновляет модели новых паков и своих паков и уже обновлять с анимацией мб
     
     @objc private func packsDidLoaded() {
-        newPacksModel = CloudManager.shared.classPacks.enumerated().map { NewPacksModel(pack: $1, needHeader: $0 == 0) }
+        newPacksModel = PackManager.shared.classPacks.enumerated().map { NewPacksModel(pack: $1, needHeader: $0 == 0) }
+        adapter.reloadData()
+    }
+    
+    @objc private func packsDidUpdated() {
+        print("💙 packsDidUpdated()")
         adapter.reloadData()
     }
 }
@@ -108,7 +114,7 @@ extension MainViewController: MyPacksDelegate {
         if pack.isGenerating {
             present(AttentionViewController(), animated: true)
         } else {
-            let vc = AllGeneratedPhotosViewController()
+            let vc = AllGeneratedPhotosViewController(pack: pack)
             vc.modalPresentationStyle = .fullScreen
             
             present(vc, animated: true)
@@ -129,6 +135,8 @@ extension MainViewController: ProfileSectionDelegate {
     func profileSection(_ controller: ProfilesSection, didSelect user: User?) {
         if let user = user {
             UserManager.shared.selectUser(user: user)
+            myPacksModel = MyPacksModel(user: UserManager.shared.selectedUser)
+            newPacksModel = PackManager.shared.classPacks.enumerated().map { NewPacksModel(pack: $1, needHeader: $0 == 0) }
             adapter.reloadData()
         } else {
             navigationController?.pushViewController(AddAvatarViewController(), animated: true)

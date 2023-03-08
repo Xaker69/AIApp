@@ -8,9 +8,19 @@ class AllGeneratedPhotosViewController: UIViewController {
     }
     
     private lazy var adapter: ListAdapter = ListAdapter(updater: ListAdapterUpdater(), viewController: self)
+    private let pack: Pack
     
     override var preferredStatusBarStyle: UIStatusBarStyle {
         return .lightContent
+    }
+    
+    init(pack: Pack) {
+        self.pack = pack
+        super.init(nibName: nil, bundle: nil)
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
     }
     
     override func loadView() {
@@ -46,7 +56,7 @@ class AllGeneratedPhotosViewController: UIViewController {
 extension AllGeneratedPhotosViewController: ListAdapterDataSource {
     func objects(for listAdapter: ListAdapter) -> [ListDiffable] {
         return [
-            GeneratedPhotosModel(photos: [UIImage()]),
+            GeneratedPhotosModel(photos: pack.prompt?.images ?? []),
             UnlockMoreModel(desctioption: "UnlockMoreModel")
         ]
     }
@@ -74,7 +84,10 @@ extension AllGeneratedPhotosViewController: ListAdapterDataSource {
 
 extension AllGeneratedPhotosViewController: GeneratedPhotosDelegate {
     func generatedPhotos(_ controller: GeneratedPhotosSection, didSelect index: Int) {
-        let vc = SingleGeneratedPhotoViewController(startIndex: index, count: 100)
+        let count = pack.prompt?.images?.count ?? 0
+        let photos = pack.prompt?.images ?? []
+        
+        let vc = SingleGeneratedPhotoViewController(startIndex: index, count: count, photos: photos)
         vc.modalPresentationStyle = .fullScreen
         
         present(vc, animated: true)

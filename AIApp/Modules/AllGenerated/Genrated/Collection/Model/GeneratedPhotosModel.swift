@@ -1,9 +1,9 @@
 import IGListDiffKit
 
 class GeneratedPhotosModel {
-    let photos: [UIImage]
+    let photos: [String]
     
-    init(photos: [UIImage]) {
+    init(photos: [String]) {
         self.photos = photos
     }
 }

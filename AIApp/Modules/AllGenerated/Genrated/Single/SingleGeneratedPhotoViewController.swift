@@ -4,6 +4,7 @@ import IGListKit
 class SingleGeneratedPhotoViewController: UIViewController {
 
     let startIndex: Int
+    let photos: [String]
     var didSetStartIndex: Bool = false
     
     var mainView: SingleGeneratedPhotoView {
@@ -12,7 +13,8 @@ class SingleGeneratedPhotoViewController: UIViewController {
     
     lazy var adapter: ListAdapter = ListAdapter(updater: ListAdapterUpdater(), viewController: self)
     
-    init(startIndex: Int, count: Int) {
+    init(startIndex: Int, count: Int, photos: [String]) {
+        self.photos = photos
         self.startIndex = startIndex
         super.init(nibName: nil, bundle: nil)
         
@@ -76,7 +78,7 @@ class SingleGeneratedPhotoViewController: UIViewController {
 
 extension SingleGeneratedPhotoViewController: ListAdapterDataSource {
     func objects(for listAdapter: ListAdapter) -> [ListDiffable] {
-        return [GeneratedPhotosModel(photos: [UIImage()])]
+        return [GeneratedPhotosModel(photos: photos)]
     }
     
     func listAdapter(_ listAdapter: ListAdapter, sectionControllerFor object: Any) -> ListSectionController {

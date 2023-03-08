@@ -2,7 +2,7 @@ import FirebaseStorage
 import FirebaseFirestore
 import Alamofire
 
-class CloudManager {
+class PackManager {
     
     enum ImageName: String {
         case onboardingImage = "/OnboardingImage"
@@ -13,7 +13,7 @@ class CloudManager {
         case fourthExample = "/Example-4.png"
     }
     
-    static var shared = CloudManager()
+    static var shared = PackManager()
     
     private let storage = Storage.storage(url: "gs://lensa-ai-app.appspot.com")
     private let db = Firestore.firestore()
@@ -98,7 +98,7 @@ class CloudManager {
                     packExamples.append(fourthURL)
                 }
                 
-                documentGroup.notify(queue: .global(qos: .userInteractive)) {
+                documentGroup.notify(queue: .global(qos: .background)) {
                     var tmpData = document.data()
                     tmpData["examples"] = packExamples.compactMap { $0.description }
                     

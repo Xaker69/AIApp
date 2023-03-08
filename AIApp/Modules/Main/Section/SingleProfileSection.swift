@@ -36,7 +36,7 @@ class SingleProfileSection: ListSectionController {
     override func cellForItem(at index: Int) -> UICollectionViewCell {
         let cell = collectionContext!.dequeue(of: SingleProfileCell.self, for: self, at: index)
         
-        return configure(cell: cell, index: index)
+        return configure(cell: cell)
     }
     
     override func didUpdate(to object: Any) {
@@ -45,9 +45,9 @@ class SingleProfileSection: ListSectionController {
     }
     
     @discardableResult
-    private func configure(cell: SingleProfileCell, index: Int) -> SingleProfileCell {
+    private func configure(cell: SingleProfileCell) -> SingleProfileCell {
         if let user = model.user, let data = user.photos.last {
-            let packCount = UserManager.shared.users[index].packs.count.description
+            let packCount = user.packs.count.description
             
             cell.profileView.addImageView.isHidden = true
             cell.profileView.titleLabel.text = user.name
