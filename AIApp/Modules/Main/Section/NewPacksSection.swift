@@ -2,7 +2,7 @@ import UIKit
 import IGListKit
 
 protocol NewPacksDelegate: AnyObject {
-    func newPacks(getPack index: Int)
+    func newPacks(get pack: Pack)
     func newPacks(didSelect pack: Pack)
 }
 
@@ -70,8 +70,7 @@ class NewPacksSection: ListSectionController {
     // MARK: - Private actions
     
     @objc private func getPackTapped(_ sender: UITapGestureRecognizer) {
-        guard let index = sender.view?.tag else { return }
-        delegate?.newPacks(getPack: index)
+        delegate?.newPacks(get: model.pack)
     }
     
     // MARK: - Private methods

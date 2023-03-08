@@ -23,7 +23,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
         }
               
         let navVC = RootNavigationController.shared
-        navVC.setViewControllers([ChoosePackViewController()], animated: false)
+        navVC.setViewControllers([rootVC], animated: false)
         
         window = UIWindow(frame: UIScreen.main.bounds)
         window?.rootViewController = navVC
@@ -39,16 +39,15 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
         print("💙 Device token:", apnsDeviceToken)
     }
     
+    func application(_ application: UIApplication, didFailToRegisterForRemoteNotificationsWithError error: Error) {
+        print("❤️ fail to register remote notification error: \(error.localizedDescription)")
+    }
+    
     func application(_ application: UIApplication, didReceiveRemoteNotification userInfo: [AnyHashable : Any]) async -> UIBackgroundFetchResult {
+        
+        print("💙 didReceiveRemoteNotification userInfo \(userInfo)")
         
         return .noData
     }
 
-}
-
-func randomColor() -> UIColor {
-  let red = CGFloat.random(in: 0...1)
-  let green = CGFloat.random(in: 0...1)
-  let blue = CGFloat.random(in: 0...1)
-  return UIColor(red: red, green: green, blue: blue, alpha: 1.0)
 }

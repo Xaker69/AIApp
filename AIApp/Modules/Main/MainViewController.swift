@@ -5,7 +5,7 @@ class MainViewController: UIViewController {
 
     var profileModel = ProfilesModel(users: UserManager.shared.users)
     var myPacksModel = MyPacksModel(user: UserManager.shared.selectedUser)
-    var newPacksModel = CloudManager.shared.packs.enumerated().map { NewPacksModel(pack: $1, needHeader: $0 == 0) }
+    var newPacksModel = CloudManager.shared.classPacks.enumerated().map { NewPacksModel(pack: $1, needHeader: $0 == 0) }
     
     var mainView: MainView {
         return view as! MainView
@@ -38,7 +38,7 @@ class MainViewController: UIViewController {
     //TODO: Нужно сделать метод который обновляет модели новых паков и своих паков и уже обновлять с анимацией мб
     
     @objc private func packsDidLoaded() {
-        newPacksModel = CloudManager.shared.packs.enumerated().map { NewPacksModel(pack: $1, needHeader: $0 == 0) }
+        newPacksModel = CloudManager.shared.classPacks.enumerated().map { NewPacksModel(pack: $1, needHeader: $0 == 0) }
         adapter.reloadData()
     }
 }
@@ -91,8 +91,8 @@ extension MainViewController: ListAdapterDataSource {
 // MARK: - NewPacksDelegate
 
 extension MainViewController: NewPacksDelegate {
-    func newPacks(getPack index: Int) {
-        navigationController?.pushViewController(UploadingViewController(), animated: true)
+    func newPacks(get pack: Pack) {
+        navigationController?.pushViewController(UploadingViewController(pack: pack), animated: true)
     }
     
     func newPacks(didSelect pack: Pack) {

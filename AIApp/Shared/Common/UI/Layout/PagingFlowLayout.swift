@@ -19,10 +19,6 @@ class PagingFlowLayout: UICollectionViewFlowLayout {
         minimumLineSpacing = 12
     }
 
-    override func prepare() {            
-        super.prepare()
-    }
-
     override func layoutAttributesForElements(in rect: CGRect) -> [UICollectionViewLayoutAttributes]? {
         let rectAttributes = super.layoutAttributesForElements(in: rect)!.map { $0.copy() as! UICollectionViewLayoutAttributes }
         
@@ -45,7 +41,6 @@ class PagingFlowLayout: UICollectionViewFlowLayout {
         for attribute in layoutAttributes {
             let itemOffset = attribute.center.x
             if abs(itemOffset - horizontalOffset) < abs(offset) {
-                print(Int(itemOffset), Int(horizontalOffset), Float(offset))
                 offset = itemOffset - horizontalOffset
             }
         }

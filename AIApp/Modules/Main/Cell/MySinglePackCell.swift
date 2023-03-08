@@ -20,7 +20,7 @@ class MySinglePackCell: UICollectionViewCell {
     let imageView: UIImageView = {
         let view = UIImageView()
         view.contentMode = .scaleAspectFill
-        view.backgroundColor = randomColor()
+        view.backgroundColor = .init(hex6: 0x272727)
         
         return view
     }()

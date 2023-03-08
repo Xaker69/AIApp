@@ -2,6 +2,11 @@ import Foundation
 
 class UserManager {
     
+    enum UserGender: String {
+        case man
+        case woman
+    }
+    
     static let shared = UserManager()
     
     var selectedUser: User {
@@ -23,7 +28,7 @@ class UserManager {
     // MARK: - Public methods
     
     @discardableResult
-    func createUser(name: String, gender: String, photos: [Data]) -> User {
+    func createUser(name: String = "", gender: String = "", photos: [Data]) -> User {
         let newUser = User(id: generateUniqueID(), name: name, gender: gender, photos: photos)
         users.insert(newUser, at: 0)
         selectUser(user: newUser)
@@ -43,6 +48,38 @@ class UserManager {
         saveUsers()
     }
     
+    func setName(_ name: String, for user: User? = nil) {
+        let user = user ?? selectedUser
+        guard let user = users.first(where: { $0 == user }) else { return }
+        
+        user.name = name
+        saveUsers()
+    }
+    
+    func setGender(_ gender: UserGender, for user: User? = nil) {
+        let user = user ?? selectedUser
+        guard let user = users.first(where: { $0 == user }) else { return }
+        
+        user.gender = gender.rawValue
+        saveUsers()
+    }
+    
+    func addPack(_ pack: Pack, for user: User? = nil) {
+        let user = user ?? selectedUser
+        guard let user = users.first(where: { $0 == user }) else { return }
+        
+        user.packs.append(pack)
+        saveUsers()
+    }
+    
+    func setTuneId(_ id: String, for user: User? = nil) {
+        let user = user ?? selectedUser
+        guard let user = users.first(where: { $0 == user }) else { return }
+        
+        user.tuneId = id
+        saveUsers()
+    }
+     
     // MARK: - Private methods
     
     private func generateUniqueID() -> String {

@@ -6,7 +6,7 @@ class ChoosePackViewController: UIViewController {
         return view as! ChoosePackView
     }
         
-    var dataSource = CloudManager.shared.packs
+    var dataSource = CloudManager.shared.classPacks
     
     override func loadView() {
         view = ChoosePackView()
@@ -35,7 +35,7 @@ class ChoosePackViewController: UIViewController {
     }
     
     @objc private func packsDidLoaded() {
-        dataSource = CloudManager.shared.packs
+        dataSource = CloudManager.shared.classPacks
         mainView.collectionView.reloadData()
     }
 }
@@ -48,8 +48,11 @@ extension ChoosePackViewController: UICollectionViewDataSource, UICollectionView
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: ChoosePackCell.description(), for: indexPath) as! ChoosePackCell
         
-        cell.imageView.kf.setImage(with: dataSource[indexPath.item].previewImage)
+        let imageURL = URL(string: dataSource[indexPath.item].previewImage)
+        
+        cell.imageView.kf.setImage(with: imageURL)
         cell.titleLabel.text = dataSource[indexPath.item].name
+        cell.subtitleLabel.text = dataSource[indexPath.item].previewDescription
         cell.layoutIfNeeded()
         
         return cell

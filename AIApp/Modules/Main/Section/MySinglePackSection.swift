@@ -52,8 +52,10 @@ class MySinglePackSection: ListSectionController {
     override func cellForItem(at index: Int) -> UICollectionViewCell {
         let cell = collectionContext!.dequeue(of: MySinglePackCell.self, for: self, at: index)
         
+        let imageURL = URL(string: model.pack.previewImage)
+        
         cell.setTitle(model.pack.name)
-        cell.imageView.kf.setImage(with: model.pack.previewImage)
+        cell.imageView.kf.setImage(with: imageURL)
         
         return cell
     }

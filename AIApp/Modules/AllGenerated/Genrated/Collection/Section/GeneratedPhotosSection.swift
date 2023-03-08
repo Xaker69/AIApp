@@ -8,7 +8,7 @@ protocol GeneratedPhotosDelegate: AnyObject {
 class GeneratedPhotosSection: ListSectionController {
     
     weak var delegate: GeneratedPhotosDelegate?
-    let user = UserManager.shared.users[0]
+    let user = UserManager.shared.selectedUser
     
     override init() {
         super.init()

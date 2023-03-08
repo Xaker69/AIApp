@@ -27,7 +27,6 @@ class SingleProfileSection: ListSectionController {
     
     override func sizeForItem(at index: Int) -> CGSize {
         let size = CGSize(width: collectionContext!.containerSize.width, height: CGFloat.greatestFiniteMagnitude)
-        configure(cell: template)
         template.frame.size = size
         template.layoutIfNeeded()
         
@@ -37,7 +36,7 @@ class SingleProfileSection: ListSectionController {
     override func cellForItem(at index: Int) -> UICollectionViewCell {
         let cell = collectionContext!.dequeue(of: SingleProfileCell.self, for: self, at: index)
         
-        return configure(cell: cell)
+        return configure(cell: cell, index: index)
     }
     
     override func didUpdate(to object: Any) {
@@ -46,10 +45,13 @@ class SingleProfileSection: ListSectionController {
     }
     
     @discardableResult
-    private func configure(cell: SingleProfileCell) -> SingleProfileCell {
+    private func configure(cell: SingleProfileCell, index: Int) -> SingleProfileCell {
         if let user = model.user, let data = user.photos.last {
+            let packCount = UserManager.shared.users[index].packs.count.description
+            
             cell.profileView.addImageView.isHidden = true
             cell.profileView.titleLabel.text = user.name
+            cell.profileView.subtitleLabel.text = R.string.localizable.mainManyPacks(packCount)
             cell.profileView.subtitleLabel.isHidden = false
             cell.profileView.layer.borderWidth = user.isSelected ? 0 : 1
             cell.profileView.backgroundColor = user.isSelected ? UIColor(white: 1, alpha: 0.1) : .clear

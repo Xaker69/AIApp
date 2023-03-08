@@ -3,7 +3,7 @@ import UIKit
 class GradientBlur: RootView {
         
     let blurView: UIVisualEffectView = {
-        let view = UIVisualEffectView(effect: UIBlurEffect(style: .regular))
+        let view = UIVisualEffectView(effect: UIBlurEffect(style: .systemUltraThinMaterialDark))
         view.autoresizingMask = [.flexibleWidth, .flexibleHeight]
         
         return view

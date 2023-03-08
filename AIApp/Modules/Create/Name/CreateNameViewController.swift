@@ -1,22 +1,9 @@
 import UIKit
 
 class CreateNameViewController: UIViewController {
-
-    let selectedImages: [Data]
-    let gender: String
     
     var mainView: CreateNameView {
         return view as! CreateNameView
-    }
-    
-    init(selectedImages: [Data], gender: String) {
-        self.selectedImages = selectedImages
-        self.gender = gender
-        super.init(nibName: nil, bundle: nil)
-    }
-    
-    required init?(coder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
     }
     
     override func loadView() {
@@ -81,7 +68,8 @@ class CreateNameViewController: UIViewController {
     
     @objc private func continueButtonTapped() {
         let name = mainView.textField.text ?? ""
-        UserManager.shared.createUser(name: name, gender: gender, photos: selectedImages)
+        let user = UserManager.shared.selectedUser
+        UserManager.shared.setName(name, for: user)
         
         let vc = ChoosePackViewController()
         navigationController?.pushViewController(vc, animated: true)

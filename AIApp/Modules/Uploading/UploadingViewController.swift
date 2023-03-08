@@ -8,7 +8,18 @@ class UploadingViewController: UIViewController {
         return view as! UploadingView
     }
     
-    lazy var adapter: ListAdapter = ListAdapter(updater: ListAdapterUpdater(), viewController: self)
+    private lazy var adapter: ListAdapter = ListAdapter(updater: ListAdapterUpdater(), viewController: self)
+    private let newPacksModel = CloudManager.shared.classPacks.enumerated().map { NewPacksModel(pack: $1, needHeader: $0 == 0) }
+    private let pack: Pack
+    
+    init(pack: Pack) {
+        self.pack = pack
+        super.init(nibName: nil, bundle: nil)
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
     
     override func loadView() {
         view = UploadingView()
@@ -21,7 +32,7 @@ class UploadingViewController: UIViewController {
         
         adapter.collectionView = mainView.collectionView
         adapter.dataSource = self
-              
+        
         navigationController?.interactivePopGestureRecognizer?.isEnabled = false
         
         uploadPhotos()
@@ -44,59 +55,33 @@ class UploadingViewController: UIViewController {
     }
     
     private func uploadPhotos() {
-        let images = Array(UserManager.shared.users[0].photos)
-        let apiKey = "sd_eda1h1G19zmkSwsb9gqRYkc3tHiKix"
+        let images = Array(UserManager.shared.selectedUser.photos)
         
-        uploadImage(images: images, apiKey: apiKey) { result in
+        CloudManager.shared.uploadImage(images: images, for: pack, progress: handleProgress) { [weak self] result in
+            guard let self = self else { return }
+            
             switch result {
             case .success(let data):
                 self.mainView.bottomView.animateCompleteLoad()
-                print("💙 success complition with json:", data)
-
+                
+                if UserManager.shared.selectedUser.tuneId == nil {
+                    let json = try! JSONSerialization.jsonObject(with: data) as! [String: Any]
+                    
+                    UserManager.shared.setTuneId(json["id"] as! String, for: UserManager.shared.selectedUser)
+                    print("💙 success complition with json:", json)
+                } else {
+                    let json = try! JSONSerialization.jsonObject(with: data) as! [String: Any]
+                    
+                    
+                    print("💙 success complition with json:", json)
+                }
+                
+                UserManager.shared.addPack(self.pack, for: UserManager.shared.selectedUser)
+                
             case .failure(let error):
                 print("❤️ failure complition uploadImage with error:", error)
             }
         }
-    }
-    
-    private func uploadImage(images: [Data], apiKey: String, completion: @escaping (Result<String, Error>) -> Void) {
-        print("💛 photos count", images.count)
-        let DOMAIN = "https://api.astria.ai"
-        let url = URL(string: DOMAIN + "/tunes")!
-
-        let headers: HTTPHeaders = [
-            "Authorization": "Bearer " + apiKey
-        ]
-
-        let boundary = "Boundary-\(UUID().uuidString)"
-        let formData = MultipartFormData()
-        formData.append("TEST".data(using: .utf8)!, withName: "tune[title]")
-        formData.append("fast".data(using: .utf8)!, withName: "tune[branch]")
-        formData.append("zwx".data(using: .utf8)!, withName: "tune[token]")
-        formData.append("man".data(using: .utf8)!, withName: "tune[name]")
-
-        for image in images {
-            let filename = image.hashValue.description
-            let mimetype = "image/jpeg"
-            
-            formData.append(image, withName: "tune[images][]", fileName: filename, mimeType: mimetype)
-        }
-
-        if let deviceToken = UserSettings.deviceToken {
-            let callback = "https://us-central1-lensa-ai-app.cloudfunctions.net/apn?deviceToken=\(deviceToken)"
-            formData.append(callback.data(using: .utf8)!, withName: "tune[callback]")
-        }
-
-        AF.upload(multipartFormData: formData, to: url, method: .post, headers: headers)
-            .uploadProgress(closure: handleProgress)
-            .responseString { response in
-                switch response.result {
-                case .success(let value):
-                    completion(.success(value))
-                case .failure(let error):
-                    completion(.failure(error))
-                }
-            }
     }
     
     private func handleProgress(_ progress: Progress) {
@@ -108,8 +93,7 @@ class UploadingViewController: UIViewController {
 
 extension UploadingViewController: ListAdapterDataSource {
     func objects(for listAdapter: ListAdapter) -> [ListDiffable] {
-//        return [NewPacksModel(pack: [])]
-        return []
+        return newPacksModel
     }
     
     func listAdapter(_ listAdapter: ListAdapter, sectionControllerFor object: Any) -> ListSectionController {
@@ -127,7 +111,7 @@ extension UploadingViewController: ListAdapterDataSource {
 // MARK: - NewPacksDelegate
 
 extension UploadingViewController: NewPacksDelegate {
-    func newPacks(getPack index: Int) {
+    func newPacks(get pack: Pack) {
         
     }
     

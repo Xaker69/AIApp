@@ -31,7 +31,7 @@ class ChoosePackCell: UICollectionViewCell {
         return view
     }()
     
-    let subtitleLable: UILabel = {
+    let subtitleLabel: UILabel = {
         let label = UILabel()
         label.textAlignment = .center
         label.textColor = .white.withAlphaComponent(0.6)
@@ -83,7 +83,7 @@ class ChoosePackCell: UICollectionViewCell {
         view.contentMode = .scaleAspectFill
         view.image = R.image.choosePackCellGradient()
         view.backgroundColor = .clear
-        view.alpha = 0.5
+        view.alpha = 0.5 
         
         return view
     }()
@@ -98,7 +98,7 @@ class ChoosePackCell: UICollectionViewCell {
         imageView.addSubview(grainImageView)
         imageView.addSubview(gradientView)
         imageView.addSubview(priceContainer)
-        imageView.addSubview(subtitleLable)
+        imageView.addSubview(subtitleLabel)
         imageView.addSubview(titleLabel)
         imageView.addSubview(picsCountContainer)
         
@@ -138,13 +138,13 @@ class ChoosePackCell: UICollectionViewCell {
             make.edges.equalToSuperview()
         }
         
-        subtitleLable.snp.makeConstraints { make in
+        subtitleLabel.snp.makeConstraints { make in
             make.bottom.equalToSuperview().offset(-40.0)
             make.left.right.equalToSuperview()
         }
         
         titleLabel.snp.makeConstraints { make in
-            make.bottom.equalTo(subtitleLable.snp.top).offset(-4.0)
+            make.bottom.equalTo(subtitleLabel.snp.top).offset(-4.0)
             make.left.right.equalToSuperview()
         }
         

@@ -56,6 +56,8 @@
 		2C5C2D7E29882D60009027F1 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C5C2D7D29882D60009027F1 /* SettingsView.swift */; };
 		2C5C2D8129882FD8009027F1 /* SettingsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C5C2D8029882FD8009027F1 /* SettingsCell.swift */; };
 		2C5C2D84298831F6009027F1 /* SettingsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C5C2D83298831F6009027F1 /* SettingsModel.swift */; };
+		2C6C16BC29B7929B00D2F11F /* Tune.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C6C16BB29B7929B00D2F11F /* Tune.swift */; };
+		2C6C16BE29B7934B00D2F11F /* Prompt.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C6C16BD29B7934B00D2F11F /* Prompt.swift */; };
 		2C8D625829B22C85004DEE6D /* PagingFlowLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C8D625729B22C85004DEE6D /* PagingFlowLayout.swift */; };
 		2C8D625B29B2634C004DEE6D /* GradientBlur.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C8D625A29B2634C004DEE6D /* GradientBlur.swift */; };
 		2C954FCD2971A9C200D8881B /* UploadPhotosView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C954FCC2971A9C200D8881B /* UploadPhotosView.swift */; };
@@ -169,6 +171,8 @@
 		2C5C2D7D29882D60009027F1 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
 		2C5C2D8029882FD8009027F1 /* SettingsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsCell.swift; sourceTree = "<group>"; };
 		2C5C2D83298831F6009027F1 /* SettingsModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsModel.swift; sourceTree = "<group>"; };
+		2C6C16BB29B7929B00D2F11F /* Tune.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tune.swift; sourceTree = "<group>"; };
+		2C6C16BD29B7934B00D2F11F /* Prompt.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Prompt.swift; sourceTree = "<group>"; };
 		2C8D625729B22C85004DEE6D /* PagingFlowLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PagingFlowLayout.swift; sourceTree = "<group>"; };
 		2C8D625A29B2634C004DEE6D /* GradientBlur.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GradientBlur.swift; sourceTree = "<group>"; };
 		2C954FCC2971A9C200D8881B /* UploadPhotosView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UploadPhotosView.swift; sourceTree = "<group>"; };
@@ -327,6 +331,8 @@
 			children = (
 				2C19F72429950F3F00126536 /* User.swift */,
 				2CAC42BF29AD8612003E4318 /* Pack.swift */,
+				2C6C16BB29B7929B00D2F11F /* Tune.swift */,
+				2C6C16BD29B7934B00D2F11F /* Prompt.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -1161,6 +1167,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				2C19F72B299696B800126536 /* SingleProfileModel.swift in Sources */,
+				2C6C16BC29B7929B00D2F11F /* Tune.swift in Sources */,
 				2C9BEB6329800C9600202D54 /* ProfilesModel.swift in Sources */,
 				2C9BEB3D297A9FC100202D54 /* PackDescriptionView.swift in Sources */,
 				2C5C2D6C2987F654009027F1 /* SingleGeneratedPhotoViewController.swift in Sources */,
@@ -1188,6 +1195,7 @@
 				2C5C2D7829882277009027F1 /* ActionsView.swift in Sources */,
 				2C5816B2296EF6480054270D /* SubAdvantageView.swift in Sources */,
 				2C9BEB80298158DE00202D54 /* MySinglePackCell.swift in Sources */,
+				2C6C16BE29B7934B00D2F11F /* Prompt.swift in Sources */,
 				2C9BEB7329800DC600202D54 /* NewPackCell.swift in Sources */,
 				2C9BEB7129800DBA00202D54 /* MyPacksCell.swift in Sources */,
 				2C9BEB53297ACCD200202D54 /* PackDescriptionCell.swift in Sources */,
@@ -1402,7 +1410,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = AIApp/AIApp.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 13;
+				CURRENT_PROJECT_VERSION = 15;
 				DEVELOPMENT_TEAM = N422RJM586;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "AIApp/Supporting files/Info.plist";
@@ -1441,7 +1449,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = AIApp/AIApp.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 13;
+				CURRENT_PROJECT_VERSION = 15;
 				DEVELOPMENT_TEAM = N422RJM586;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "AIApp/Supporting files/Info.plist";

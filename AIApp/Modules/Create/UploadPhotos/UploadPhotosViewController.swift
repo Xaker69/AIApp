@@ -167,7 +167,8 @@ class UploadPhotosViewController: UIViewController {
     
     private func photosDowloaded(_ photos: [UIImage]) {
         let photosData = photos.compactMap { $0.jpegData(compressionQuality: 0.5) }
-        let vc = SelectGenderViewController(selectedImages: photosData)
+        UserManager.shared.createUser(photos: photosData)
+        let vc = SelectGenderViewController()
         
         navigationController?.pushViewController(vc, animated: true)
     }

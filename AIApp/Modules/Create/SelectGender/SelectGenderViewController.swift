@@ -1,20 +1,9 @@
 import UIKit
 
 class SelectGenderViewController: UIViewController {
-
-    var selectedImages: [Data]
-    
+ 
     var mainView: SelectGenderView {
         return view as! SelectGenderView
-    }
-    
-    init(selectedImages: [Data]) {
-        self.selectedImages  = selectedImages
-        super.init(nibName: nil, bundle: nil)
-    }
-    
-    required init?(coder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
     }
     
     override func loadView() {
@@ -48,8 +37,11 @@ class SelectGenderViewController: UIViewController {
             sender.layer.borderColor = UIColor(white: 1, alpha: 0.1).cgColor
         }
         
-        let gender = sender.tag == 0 ? "female" : "male"
-        let vc = CreateNameViewController(selectedImages: selectedImages, gender: gender)
+        let gender: UserManager.UserGender = sender.tag == 0 ? .woman : .man
+        let user = UserManager.shared.selectedUser
+        UserManager.shared.setGender(gender, for: user)
+        
+        let vc = CreateNameViewController()
         self.navigationController?.pushViewController(vc, animated: true)
     }
     

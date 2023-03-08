@@ -2,10 +2,10 @@ import IGListDiffKit
 
 class PackDescriptionModel {
     let description: String
-    let image: URL?
+    let image: String
     let title: String
     
-    init(description: String, image: URL?, title: String) {
+    init(description: String, image: String, title: String) {
         self.description = description
         self.image = image
         self.title = title

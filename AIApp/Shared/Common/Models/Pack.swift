@@ -2,19 +2,62 @@ import Foundation
 
 class Pack: Codable {
     let name: String
-    let promts: String
+    let prompts: String
     let description: String
-    let examples: [URL]
-    let previewImage: URL?
+    let className: String
+    let imageNumber: Int
+    let negativePrompts: String
+    let previewDescription: String
+    let seed: Int
+    let tags: String
     var isGenerating: Bool
+    var examples: [String]
+    var previewImage: String
     
-    init(name: String, promts: String, description: String, examples: [URL], previewImage: URL?, isGenerating: Bool = false) {
-        self.name = name
-        self.promts = promts
-        self.description = description
-        self.examples = examples
-        self.previewImage = previewImage
-        self.isGenerating = isGenerating
+    required init(from decoder: Decoder) throws {
+        let container = try decoder.container(keyedBy: CodingKeys.self)
+        self.name = try container.decode(String.self, forKey: .name)
+        self.prompts = try container.decodeIfPresent(String.self, forKey: .prompts) ?? ""
+        self.description = try container.decodeIfPresent(String.self, forKey: .description) ?? ""
+        self.examples = try container.decodeIfPresent([String].self, forKey: .examples) ?? []
+        self.previewImage = try container.decodeIfPresent(String.self, forKey: .previewImage) ?? ""
+        self.className = try container.decodeIfPresent(String.self, forKey: .className) ?? ""
+        self.imageNumber = try container.decodeIfPresent(Int.self, forKey: .imageNumber) ?? -1
+        self.negativePrompts = try container.decodeIfPresent(String.self, forKey: .negativePrompts) ?? ""
+        self.previewDescription = try container.decodeIfPresent(String.self, forKey: .previewDescription) ?? ""
+        self.seed = try container.decodeIfPresent(Int.self, forKey: .seed) ?? -1
+        self.tags = try container.decodeIfPresent(String.self, forKey: .tags) ?? ""
+        self.isGenerating = try container.decodeIfPresent(Bool.self, forKey: .isGenerating) ?? false
+    }
+    
+    init(json: [String: Any]) {
+        self.name = json[CodingKeys.name.rawValue] as? String ?? ""
+        self.prompts = json[CodingKeys.prompts.rawValue] as? String ?? ""
+        self.description = json[CodingKeys.description.rawValue] as? String ?? ""
+        self.examples = json[CodingKeys.examples.rawValue] as? [String] ?? []
+        self.previewImage = json[CodingKeys.previewImage.rawValue] as? String ?? ""
+        self.className = json[CodingKeys.className.rawValue] as? String ?? ""
+        self.imageNumber = json[CodingKeys.imageNumber.rawValue] as? Int ?? -1
+        self.negativePrompts = json[CodingKeys.negativePrompts.rawValue] as? String ?? ""
+        self.previewDescription = json[CodingKeys.previewDescription.rawValue] as? String ?? ""
+        self.seed = json[CodingKeys.seed.rawValue] as? Int ?? -1
+        self.tags = json[CodingKeys.tags.rawValue] as? String ?? ""
+        self.isGenerating = json[CodingKeys.isGenerating.rawValue] as? Bool ?? false
+    }
+    
+    enum CodingKeys: String, CodingKey {
+        case name
+        case prompts
+        case description
+        case examples
+        case previewImage
+        case className = "class"
+        case imageNumber = "img_numb"
+        case negativePrompts = "negative"
+        case previewDescription = "preview_description"
+        case seed
+        case tags
+        case isGenerating
     }
 }
 
