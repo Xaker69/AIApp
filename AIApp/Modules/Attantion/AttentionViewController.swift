@@ -14,7 +14,8 @@ class AttentionViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        modalPresentationStyle = .overFullScreen
+        
         mainView.mainButton.addTarget(self, action: #selector(mainButtonTapped), for: .touchUpInside)
         mainView.secondaryButton.addTarget(self, action: #selector(secondaryButtonTapped), for: .touchUpInside)
         

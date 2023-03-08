@@ -10,9 +10,11 @@ class Pack: Codable {
     let previewDescription: String
     let seed: Int
     let tags: String
+    let examples: [String]
+    let previewImage: String
+    
     var isGenerating: Bool
-    var examples: [String]
-    var previewImage: String
+    var prompt: Prompt?
     
     required init(from decoder: Decoder) throws {
         let container = try decoder.container(keyedBy: CodingKeys.self)
@@ -45,6 +47,21 @@ class Pack: Codable {
         self.isGenerating = json[CodingKeys.isGenerating.rawValue] as? Bool ?? false
     }
     
+    private init(name: String, prompts: String, description: String, className: String, imageNumber: Int, negativePrompts: String, previewDescription: String, seed: Int, tags: String, isGenerating: Bool, examples: [String], previewImage: String) {
+        self.name = name
+        self.prompts = prompts
+        self.description = description
+        self.className = className
+        self.imageNumber = imageNumber
+        self.negativePrompts = negativePrompts
+        self.previewDescription = previewDescription
+        self.seed = seed
+        self.tags = tags
+        self.isGenerating = isGenerating
+        self.examples = examples
+        self.previewImage = previewImage
+    }
+    
     enum CodingKeys: String, CodingKey {
         case name
         case prompts
@@ -58,6 +75,10 @@ class Pack: Codable {
         case seed
         case tags
         case isGenerating
+    }
+    
+    func copy() -> Pack {
+        return Pack(name: name, prompts: prompts, description: description, className: className, imageNumber: imageNumber, negativePrompts: negativePrompts, previewDescription: previewDescription, seed: seed, tags: tags, isGenerating: isGenerating, examples: examples, previewImage: previewImage)
     }
 }
 

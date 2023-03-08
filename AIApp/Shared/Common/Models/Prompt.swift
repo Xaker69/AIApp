@@ -1,6 +1,6 @@
 import UIKit
 
-struct Prompt {
+struct Prompt: Codable {
     let createdAt: String?
     let id: Int
     let images: [String]?

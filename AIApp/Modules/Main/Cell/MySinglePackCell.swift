@@ -21,6 +21,7 @@ class MySinglePackCell: UICollectionViewCell {
         let view = UIImageView()
         view.contentMode = .scaleAspectFill
         view.backgroundColor = .init(hex6: 0x272727)
+        view.clipsToBounds = true
         
         return view
     }()
@@ -50,6 +51,24 @@ class MySinglePackCell: UICollectionViewCell {
         return label
     }()
     
+    let generatingLabel: UILabel = {
+        let label = UILabel()
+        label.text = "Generating..."
+        label.font = .interFont(ofSize: 13, weight: .semiBold)
+        label.textColor = .white
+        label.isHidden = true
+        
+        return label
+    }()
+    
+    let generatingImageView: UIImageView = {
+        let view = UIImageView()
+        view.image = R.image.mySinglePackGenerating()
+        view.isHidden = true
+        
+        return view
+    }()
+    
     override init(frame: CGRect) {
         super.init(frame: frame)
         
@@ -59,6 +78,8 @@ class MySinglePackCell: UICollectionViewCell {
         contentView.addSubview(titleLabel)
         
         imageView.addSubview(gradientImageView)
+        imageView.addSubview(generatingLabel)
+        imageView.addSubview(generatingImageView)
         
         setupConstraints()
     }
@@ -76,7 +97,7 @@ class MySinglePackCell: UICollectionViewCell {
             .paragraphStyle(paragraphStyle)
             .font(.satoshiFont(ofSize: 15, weight: .bold))
             .foregroundColor(.white)
-            
+        
         titleLabel.attributedText = text.styleAll(style)
     }
     
@@ -102,9 +123,20 @@ class MySinglePackCell: UICollectionViewCell {
             make.bottom.equalToSuperview().offset(-16.0)
             make.left.right.equalToSuperview().inset(12.0)
         }
-        
+
         gradientImageView.snp.makeConstraints { make in
             make.bottom.left.right.equalToSuperview()
+        }
+        
+        generatingLabel.snp.makeConstraints { make in
+            make.centerY.equalTo(generatingImageView.snp.centerY)
+            make.left.equalTo(generatingImageView.snp.right).offset(8.0)
+        }
+        
+        generatingImageView.snp.makeConstraints { make in
+            make.left.equalToSuperview().offset(8.0)
+            make.top.equalToSuperview().offset(10.0)
+            make.size.equalTo(16.0)
         }
     }
     

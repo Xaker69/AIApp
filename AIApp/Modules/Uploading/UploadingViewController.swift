@@ -63,20 +63,28 @@ class UploadingViewController: UIViewController {
             switch result {
             case .success(let data):
                 self.mainView.bottomView.animateCompleteLoad()
+                let pack = self.pack.copy()
+                pack.isGenerating = true
                 
-                if UserManager.shared.selectedUser.tuneId == nil {
-                    let json = try! JSONSerialization.jsonObject(with: data) as! [String: Any]
-                    
-                    UserManager.shared.setTuneId(json["id"] as! String, for: UserManager.shared.selectedUser)
-                    print("💙 success complition with json:", json)
+                if UserManager.shared.selectedUser.tune == nil {
+                    do {
+                        let tune = try JSONDecoder().decode(Tune.self, from: data)
+                        UserManager.shared.setTune(tune)
+                        print("💙 success load tune \(tune)")
+                    } catch {
+                        print("❤️ error decode tune \(error)")
+                    }
                 } else {
-                    let json = try! JSONSerialization.jsonObject(with: data) as! [String: Any]
-                    
-                    
-                    print("💙 success complition with json:", json)
+                    do {
+                        let prompt = try JSONDecoder().decode(Prompt.self, from: data)
+                        pack.prompt = prompt
+                        print("💙 success load prompt \(prompt)")
+                    } catch {
+                        print("❤️ error decode prompt \(error)")
+                    }
                 }
                 
-                UserManager.shared.addPack(self.pack, for: UserManager.shared.selectedUser)
+                UserManager.shared.addPack(pack)
                 
             case .failure(let error):
                 print("❤️ failure complition uploadImage with error:", error)

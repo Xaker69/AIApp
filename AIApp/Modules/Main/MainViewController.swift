@@ -105,10 +105,14 @@ extension MainViewController: NewPacksDelegate {
 
 extension MainViewController: MyPacksDelegate {
     func myPacks(_ section: MyPacksSection, didSelect pack: Pack) {
-        let vc = AllGeneratedPhotosViewController()
-        vc.modalPresentationStyle = .fullScreen
-        
-        present(vc, animated: true)
+        if pack.isGenerating {
+            present(AttentionViewController(), animated: true)
+        } else {
+            let vc = AllGeneratedPhotosViewController()
+            vc.modalPresentationStyle = .fullScreen
+            
+            present(vc, animated: true)
+        }
     }
     
     func myPacks(needShowAllPacks section: MyPacksSection) {

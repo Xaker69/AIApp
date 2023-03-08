@@ -32,7 +32,7 @@ class AllGeneratedViewController: UIViewController {
 
 extension AllGeneratedViewController: ListAdapterDataSource {
     func objects(for listAdapter: ListAdapter) -> [ListDiffable] {
-        return UserManager.shared.selectedUser.packs.map { MySinglePackModel(pack: $0) }
+        return [MySinglePackModel(packs: UserManager.shared.selectedUser.packs)]
     }
     
     func listAdapter(_ listAdapter: ListAdapter, sectionControllerFor object: Any) -> ListSectionController {
@@ -51,7 +51,11 @@ extension AllGeneratedViewController: ListAdapterDataSource {
 
 extension AllGeneratedViewController: MySinglePackDelegate {
     func mySinglePack(_ section: MySinglePackSection, didSelect pack: Pack) {
-        let vc = AllGeneratedPhotosViewController()
-        navigationController?.pushViewController(vc, animated: true)
+        if pack.isGenerating {
+            present(AttentionViewController(), animated: true)
+        } else {
+            let vc = AllGeneratedPhotosViewController()
+            navigationController?.pushViewController(vc, animated: true)
+        }
     }
 }

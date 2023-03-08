@@ -82,7 +82,7 @@ extension MyPacksSection: ListSupplementaryViewSource {
 
 extension MyPacksSection: ListAdapterDataSource {
     func objects(for listAdapter: ListAdapter) -> [ListDiffable] {
-        return model.user.packs.map { MySinglePackModel(pack: $0) }
+        return [MySinglePackModel(packs: model.user.packs)]
     }
     
     func listAdapter(_ listAdapter: ListAdapter, sectionControllerFor object: Any) -> ListSectionController {

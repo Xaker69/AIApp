@@ -34,28 +34,28 @@ class MySinglePackSection: ListSectionController {
     }
     
     override func numberOfItems() -> Int {
-        return 1
+        return model.packs.count
     }
     
     override func didSelectItem(at index: Int) {
-        delegate?.mySinglePack(self, didSelect: model.pack)
+        let pack = model.packs[index]
+        delegate?.mySinglePack(self, didSelect: pack)
     }
     
     override func sizeForItem(at index: Int) -> CGSize {
-        let width = collectionContext!.containerSize.width/2 - 20 - 4
-        let ratio = 198.0/165.0
-        let height = width * ratio
-        
-        return CGSize(width: width, height: height)
+        return CGSize(width: 165, height: 198.0)
     }
     
     override func cellForItem(at index: Int) -> UICollectionViewCell {
         let cell = collectionContext!.dequeue(of: MySinglePackCell.self, for: self, at: index)
         
-        let imageURL = URL(string: model.pack.previewImage)
+        let pack = model.packs[index]
+        let imageURL = URL(string: pack.previewImage)
         
-        cell.setTitle(model.pack.name)
+        cell.setTitle(pack.name)
         cell.imageView.kf.setImage(with: imageURL)
+        cell.generatingLabel.isHidden = !pack.isGenerating
+        cell.generatingImageView.isHidden = !pack.isGenerating
         
         return cell
     }

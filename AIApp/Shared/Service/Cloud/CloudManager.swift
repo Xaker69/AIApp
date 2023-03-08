@@ -136,8 +136,8 @@ class CloudManager {
             "Authorization": "Bearer " + apiKey
         ]
         
-        if let tuneId = UserManager.shared.selectedUser.tuneId {
-            url = URL(string: DOMAIN + "/tunes/\(tuneId)/prompts")!
+        if let tune = UserManager.shared.selectedUser.tune {
+            url = URL(string: DOMAIN + "/tunes/\(tune.id)/prompts")!
             
             formData.append(prompts, withName: "prompt[text]")
             formData.append(negativePrompts, withName: "prompt[negative_prompt]")

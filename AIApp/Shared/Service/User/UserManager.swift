@@ -72,11 +72,11 @@ class UserManager {
         saveUsers()
     }
     
-    func setTuneId(_ id: String, for user: User? = nil) {
+    func setTune(_ tune: Tune, for user: User? = nil) {
         let user = user ?? selectedUser
         guard let user = users.first(where: { $0 == user }) else { return }
         
-        user.tuneId = id
+        user.tune = tune
         saveUsers()
     }
      

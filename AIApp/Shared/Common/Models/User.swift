@@ -7,7 +7,7 @@ class User: Codable {
     let photos: [Data]
     var isSelected: Bool
     var packs: [Pack]
-    var tuneId: String?
+    var tune: Tune?
     
     init(id: String, name: String = "", gender: String = "", photos: [Data]) {
         self.id = id
