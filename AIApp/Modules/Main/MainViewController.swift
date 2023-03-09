@@ -2,10 +2,13 @@ import UIKit
 import IGListKit
 
 class MainViewController: UIViewController {
-
+    
     var profileModel = ProfilesModel(users: UserManager.shared.users)
     var myPacksModel = MyPacksModel(user: UserManager.shared.selectedUser)
-    var newPacksModel = [NewPacksModel]()
+    var newPacksModel = PackManager.shared.classPacks
+        .filter { !UserManager.shared.selectedUser.packs.contains($0) }
+        .enumerated()
+        .map { NewPacksModel(pack: $1, needHeader: $0 == 0) }
     
     var mainView: MainView {
         return view as! MainView

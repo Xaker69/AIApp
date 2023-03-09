@@ -21,7 +21,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
         } else {
             rootVC = OnboardingViewController()
         }
-              
+        
         let navVC = RootNavigationController.shared
         navVC.setViewControllers([rootVC], animated: false)
         

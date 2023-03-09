@@ -76,8 +76,12 @@ class UploadingViewController: UIViewController {
                     }
                 } else {
                     do {
-                        let prompt = try JSONDecoder().decode(Prompt.self, from: data)
+                        let decoder = JSONDecoder()
+                        decoder.keyDecodingStrategy = .convertFromSnakeCase
+                        
+                        let prompt = try decoder.decode(Prompt.self, from: data)
                         pack.prompt = prompt
+                        
                         print("💙 success load prompt \(prompt)")
                     } catch {
                         print("❤️ error decode prompt \(error)")
