@@ -18,7 +18,7 @@ class PackManager {
     private let storage = Storage.storage(url: "gs://lensa-ai-app.appspot.com")
     private let db = Firestore.firestore()
     private let apiKey = "sd_eda1h1G19zmkSwsb9gqRYkc3tHiKix"
-    
+    private let loadQueue = DispatchQueue(label: "\(Bundle.main.bundleIdentifier!).packLoad")
     private(set) var allPacks = [Pack]()
     
     var classPacks: [Pack] {
@@ -48,74 +48,77 @@ class PackManager {
     func loadPacks() {
         db.collection("Packs").getDocuments { [weak self] querySnapshot, error in
             guard let self = self else { return }
-            if let error = error {
-                print("❤️ Error getting documents: \(error)")
-                return
-            }
             
-            let collectionGroup = DispatchGroup()
-            
-            for document in querySnapshot!.documents {
-                collectionGroup.enter()
-                let documentGroup = DispatchGroup()
-                let folder = "Packs/\(document.documentID)"
-                
-                var packExamples: [URL] = []
-                var packPreviewImage: URL?
-                
-                documentGroup.enter()
-                self.getImageUrl(for: .preview, folder: folder) { previewURL in
-                    defer { documentGroup.leave() }
-                    guard let previewURL = previewURL else { return }
-                    packPreviewImage = previewURL
+            self.loadQueue.async {
+                if let error = error {
+                    print("❤️ Error getting documents: \(error)")
+                    return
                 }
                 
-                documentGroup.enter()
-                self.getImageUrl(for: .firstExample, folder: folder) { firstURL in
-                    defer { documentGroup.leave() }
-                    guard let firstURL = firstURL else { return }
-                    packExamples.append(firstURL)
-                }
+                let collectionGroup = DispatchGroup()
                 
-                documentGroup.enter()
-                self.getImageUrl(for: .secondExample, folder: folder) { secURL in
-                    defer { documentGroup.leave() }
-                    guard let secURL = secURL else { return }
-                    packExamples.append(secURL)
-                }
-                
-                documentGroup.enter()
-                self.getImageUrl(for: .thirdExample, folder: folder) { thirdURL in
-                    defer { documentGroup.leave() }
-                    guard let thirdURL = thirdURL else { return }
-                    packExamples.append(thirdURL)
-                }
-                
-                documentGroup.enter()
-                self.getImageUrl(for: .fourthExample, folder: folder) { fourthURL in
-                    defer { documentGroup.leave() }
-                    guard let fourthURL = fourthURL else { return }
-                    packExamples.append(fourthURL)
-                }
-                
-                documentGroup.notify(queue: .global(qos: .background)) {
-                    var tmpData = document.data()
-                    tmpData["examples"] = packExamples.compactMap { $0.description }
+                for document in querySnapshot!.documents {
+                    collectionGroup.enter()
+                    let documentGroup = DispatchGroup()
+                    let folder = "Packs/\(document.documentID)"
                     
-                    if let packPreviewImage = packPreviewImage {
-                        tmpData["previewImage"] = packPreviewImage.description
+                    var packExamples: [URL] = []
+                    var packPreviewImage: URL?
+                    
+                    documentGroup.enter()
+                    self.getImageUrl(for: .preview, folder: folder) { previewURL in
+                        defer { documentGroup.leave() }
+                        guard let previewURL = previewURL else { return }
+                        packPreviewImage = previewURL
                     }
                     
-                    let pack = Pack(json: tmpData)
+                    documentGroup.enter()
+                    self.getImageUrl(for: .firstExample, folder: folder) { firstURL in
+                        defer { documentGroup.leave() }
+                        guard let firstURL = firstURL else { return }
+                        packExamples.append(firstURL)
+                    }
                     
-                    self.allPacks.append(pack)
+                    documentGroup.enter()
+                    self.getImageUrl(for: .secondExample, folder: folder) { secURL in
+                        defer { documentGroup.leave() }
+                        guard let secURL = secURL else { return }
+                        packExamples.append(secURL)
+                    }
                     
-                    collectionGroup.leave()
+                    documentGroup.enter()
+                    self.getImageUrl(for: .thirdExample, folder: folder) { thirdURL in
+                        defer { documentGroup.leave() }
+                        guard let thirdURL = thirdURL else { return }
+                        packExamples.append(thirdURL)
+                    }
+                    
+                    documentGroup.enter()
+                    self.getImageUrl(for: .fourthExample, folder: folder) { fourthURL in
+                        defer { documentGroup.leave() }
+                        guard let fourthURL = fourthURL else { return }
+                        packExamples.append(fourthURL)
+                    }
+                    
+                    documentGroup.notify(queue: self.loadQueue) {
+                        var tmpData = document.data()
+                        tmpData["examples"] = packExamples.compactMap { $0.description }
+                        
+                        if let packPreviewImage = packPreviewImage {
+                            tmpData["previewImage"] = packPreviewImage.description
+                        }
+                        
+                        let pack = Pack(json: tmpData)
+                        self.allPacks.append(pack)
+                        
+                        collectionGroup.leave()
+                    }
                 }
-            }
-            
-            collectionGroup.notify(queue: .main) {
-                NotificationCenter.default.post(name: .packsDidLoaded, object: nil)
+                
+                collectionGroup.notify(queue: .main) {
+                    print("💙 packs did loaded")
+                    NotificationCenter.default.post(name: .packsDidLoaded, object: nil)
+                }
             }
         }
     }
