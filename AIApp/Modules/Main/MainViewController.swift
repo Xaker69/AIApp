@@ -5,7 +5,7 @@ class MainViewController: UIViewController {
 
     var profileModel = ProfilesModel(users: UserManager.shared.users)
     var myPacksModel = MyPacksModel(user: UserManager.shared.selectedUser)
-    var newPacksModel = PackManager.shared.classPacks.enumerated().map { NewPacksModel(pack: $1, needHeader: $0 == 0) }
+    var newPacksModel = [NewPacksModel]()
     
     var mainView: MainView {
         return view as! MainView
@@ -39,7 +39,11 @@ class MainViewController: UIViewController {
     //TODO: Нужно сделать метод который обновляет модели новых паков и своих паков и уже обновлять с анимацией мб
     
     @objc private func packsDidLoaded() {
-        newPacksModel = PackManager.shared.classPacks.enumerated().map { NewPacksModel(pack: $1, needHeader: $0 == 0) }
+        newPacksModel = PackManager.shared.classPacks
+            .filter { !UserManager.shared.selectedUser.packs.contains($0) }
+            .enumerated()
+            .map { NewPacksModel(pack: $1, needHeader: $0 == 0) }
+        
         adapter.reloadData()
     }
     
@@ -135,8 +139,13 @@ extension MainViewController: ProfileSectionDelegate {
     func profileSection(_ controller: ProfilesSection, didSelect user: User?) {
         if let user = user {
             UserManager.shared.selectUser(user: user)
+            
             myPacksModel = MyPacksModel(user: UserManager.shared.selectedUser)
-            newPacksModel = PackManager.shared.classPacks.enumerated().map { NewPacksModel(pack: $1, needHeader: $0 == 0) }
+            newPacksModel = PackManager.shared.classPacks
+                .filter { !UserManager.shared.selectedUser.packs.contains($0) }
+                .enumerated()
+                .map { NewPacksModel(pack: $1, needHeader: $0 == 0) }
+            
             adapter.reloadData()
         } else {
             navigationController?.pushViewController(AddAvatarViewController(), animated: true)
