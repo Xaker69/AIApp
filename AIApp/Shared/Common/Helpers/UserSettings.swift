@@ -15,10 +15,15 @@ class UserSettings {
     
     static var users: Data? {
         get {
+            defaults.synchronize()
             return defaults.data(forKey: #function)
         }
         set {
-            defaults.set(newValue, forKey: #function)
+            DispatchQueue.main.async {
+                defaults.synchronize()
+                defaults.set(newValue, forKey: #function)
+                defaults.synchronize()
+            }
         }
     }
 }

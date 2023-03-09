@@ -13,7 +13,10 @@ target 'AIApp' do
   pod 'FirebaseFirestore'
   pod 'FirebaseStorage'
   pod 'Kingfisher'
-  pod 'RealmSwift'
-  pod 'Alamofire' 
+  pod 'Alamofire'
+  
+  # Debug
+  pod 'DebugManager', :git => 'git@github.com:startfellows/DebugManager_ios.git', :branch => 'master'
+  pod 'SwiftyBeaver'
 
 end

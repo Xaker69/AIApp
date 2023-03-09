@@ -13,6 +13,7 @@ class ManageViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        mainView.backButton.addTarget(self, action: #selector(backButtonTapped), for: .touchUpInside)
         mainView.removeButton.addTarget(self, action: #selector(removeButtonTapped), for: .touchUpInside)
     }
     
@@ -33,6 +34,10 @@ class ManageViewController: UIViewController {
         alert.addAction(cancelAction)
         
         present(alert, animated: true)
+    }
+    
+    @objc private func backButtonTapped() {
+        navigationController?.popViewController(animated: true)
     }
     
 }

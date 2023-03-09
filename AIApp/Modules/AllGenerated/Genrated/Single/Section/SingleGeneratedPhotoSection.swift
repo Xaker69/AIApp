@@ -2,6 +2,8 @@ import IGListKit
 
 class SingleGeneratedPhotoSection: ListSectionController {
     
+    var model: GeneratedPhotosModel!
+    
     override init() {
         super.init()
         
@@ -10,8 +12,13 @@ class SingleGeneratedPhotoSection: ListSectionController {
         minimumInteritemSpacing = 0
     }
     
+    override func didUpdate(to object: Any) {
+        precondition(object is GeneratedPhotosModel)
+        model = object as? GeneratedPhotosModel
+    }
+    
     override func numberOfItems() -> Int {
-        return 100
+        return model.photos.count
     }
     
     override func sizeForItem(at index: Int) -> CGSize {
@@ -21,6 +28,9 @@ class SingleGeneratedPhotoSection: ListSectionController {
     
     override func cellForItem(at index: Int) -> UICollectionViewCell {
         let cell = collectionContext!.dequeue(of: GeneratedPhotoCell.self, for: self, at: index)
+        
+        let imageURL = URL(string: model.photos[index])
+        cell.imageView.kf.setImage(with: imageURL)
         
         return cell
     }

@@ -65,7 +65,6 @@ class SingleGeneratedPhotoViewController: UIViewController {
             adapter.collectionView?.setContentOffset(point, animated: false)
             didSetStartIndex = true
         }
-        
     }
     
     @objc private func closeButtonTapped() {
@@ -93,6 +92,6 @@ extension SingleGeneratedPhotoViewController: ListAdapterDataSource {
 extension SingleGeneratedPhotoViewController: UIScrollViewDelegate {
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
         let index = scrollView.contentOffset.x / UIScreen.main.bounds.width
-        mainView.setCount(index: Int(index + 1), count: 100)
+        mainView.setCount(index: Int(index + 1), count: photos.count)
     }
 }

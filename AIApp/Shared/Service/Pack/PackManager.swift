@@ -127,7 +127,8 @@ class PackManager {
         let DOMAIN = "https://api.astria.ai"
         let url: URL
         let title = "\(UserManager.shared.selectedUser.name).\(UserManager.shared.selectedUser.id)".data(using: .utf8)!
-        let branch = "fast".data(using: .utf8)!
+//        let branch = "fast".data(using: .utf8)!
+        let branch = "sd21".data(using: .utf8)!
         let token = "sks".data(using: .utf8)!
         let name = UserManager.shared.selectedUser.gender.data(using: .utf8)!
         let prompts = pack.prompts.data(using: .utf8)!

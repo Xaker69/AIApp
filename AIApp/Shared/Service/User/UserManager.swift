@@ -18,8 +18,10 @@ class UserManager {
     
     init() {
         do {
+            logInfo("users isNil - \(UserSettings.users == nil)")
             guard let data = UserSettings.users else { return }
             users = try JSONDecoder().decode([User].self, from: data)
+            logInfo("\(users.count) saved users")
         } catch {
             print("❤️ Faild decode users in init(), error:", error)
         }
@@ -32,8 +34,6 @@ class UserManager {
         let newUser = User(id: generateUniqueID(), name: name, gender: gender, photos: photos)
         users.insert(newUser, at: 0)
         selectUser(user: newUser)
-        
-        saveUsers()
         
         return newUser
     }

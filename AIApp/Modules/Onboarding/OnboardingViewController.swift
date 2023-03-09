@@ -16,15 +16,10 @@ class OnboardingViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        loadImage()
-    }
-    
-    override func viewDidLayoutSubviews() {
-        super.viewDidLayoutSubviews()
+        logInfo("onboarding did load")
         
         mainView.startButton.addTarget(self, action: #selector(startButtonTapped), for: .touchUpInside)
         
-        loadImage()
         setupClicablePrivacy()
     }
     
@@ -36,12 +31,6 @@ class OnboardingViewController: UIViewController {
     }
     
     // MARK: Private methods
-    
-    private func loadImage() {
-        PackManager.shared.getImageUrl(for: .onboardingImage) { [weak self] url in
-            self?.mainView.imageView.kf.setImage(with: url, placeholder: R.image.onboardingTest())
-        }
-    }
     
     private func setupClicablePrivacy() {
         mainView.privacyLabel.onClick = { [weak self] label, detection in

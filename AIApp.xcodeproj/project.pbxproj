@@ -71,6 +71,7 @@
 		2C967F5E29B8BCA600F11F9D /* DeeplinkParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C967F5A29B8BCA600F11F9D /* DeeplinkParser.swift */; };
 		2C967F5F29B8BCA600F11F9D /* DeeplinkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C967F5B29B8BCA600F11F9D /* DeeplinkManager.swift */; };
 		2C967F6029B8BCA600F11F9D /* NotificationParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C967F5C29B8BCA600F11F9D /* NotificationParser.swift */; };
+		2C967F6329BA4F0400F11F9D /* DebugService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C967F6229BA4F0400F11F9D /* DebugService.swift */; };
 		2C9BEB2E2976C41A00202D54 /* RootNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C9BEB2D2976C41A00202D54 /* RootNavigationController.swift */; };
 		2C9BEB312976CD5900202D54 /* ChoosePackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C9BEB302976CD5900202D54 /* ChoosePackView.swift */; };
 		2C9BEB332976CD8400202D54 /* ChoosePackViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C9BEB322976CD8400202D54 /* ChoosePackViewController.swift */; };
@@ -190,6 +191,7 @@
 		2C967F5A29B8BCA600F11F9D /* DeeplinkParser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DeeplinkParser.swift; sourceTree = "<group>"; };
 		2C967F5B29B8BCA600F11F9D /* DeeplinkManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DeeplinkManager.swift; sourceTree = "<group>"; };
 		2C967F5C29B8BCA600F11F9D /* NotificationParser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NotificationParser.swift; sourceTree = "<group>"; };
+		2C967F6229BA4F0400F11F9D /* DebugService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DebugService.swift; sourceTree = "<group>"; };
 		2C9BEB2D2976C41A00202D54 /* RootNavigationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RootNavigationController.swift; sourceTree = "<group>"; };
 		2C9BEB302976CD5900202D54 /* ChoosePackView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChoosePackView.swift; sourceTree = "<group>"; };
 		2C9BEB322976CD8400202D54 /* ChoosePackViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChoosePackViewController.swift; sourceTree = "<group>"; };
@@ -667,6 +669,14 @@
 			path = Deeplink;
 			sourceTree = "<group>";
 		};
+		2C967F6129BA4F0400F11F9D /* Debug */ = {
+			isa = PBXGroup;
+			children = (
+				2C967F6229BA4F0400F11F9D /* DebugService.swift */,
+			);
+			path = Debug;
+			sourceTree = "<group>";
+		};
 		2C9BEB2A2976C3DD00202D54 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
@@ -1025,6 +1035,7 @@
 		2CB8A7162969A740009A954E /* Service */ = {
 			isa = PBXGroup;
 			children = (
+				2C967F6129BA4F0400F11F9D /* Debug */,
 				2C967F5829B8BCA600F11F9D /* Deeplink */,
 				2C4E718F299F736B00E44957 /* Image */,
 				2C4E718A299F5C9D00E44957 /* User */,
@@ -1265,6 +1276,7 @@
 				2C9BEB6929800D4700202D54 /* ProfilesSection.swift in Sources */,
 				2C954FD22975DD5F00D8881B /* SelectGenderViewController.swift in Sources */,
 				2C5C2D602987574D009027F1 /* GeneratedPhotoCell.swift in Sources */,
+				2C967F6329BA4F0400F11F9D /* DebugService.swift in Sources */,
 				2C1E4408296C8E530000D015 /* UIFont+Custom.swift in Sources */,
 				2C9BEB57297E66DE00202D54 /* PackPaymentView.swift in Sources */,
 				2C9BEB762980110A00202D54 /* ProfileView.swift in Sources */,
@@ -1434,7 +1446,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = AIApp/AIApp.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 16;
+				CURRENT_PROJECT_VERSION = 18;
 				DEVELOPMENT_TEAM = N422RJM586;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "AIApp/Supporting files/Info.plist";
@@ -1473,7 +1485,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = AIApp/AIApp.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 16;
+				CURRENT_PROJECT_VERSION = 18;
 				DEVELOPMENT_TEAM = N422RJM586;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "AIApp/Supporting files/Info.plist";

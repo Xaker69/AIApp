@@ -30,6 +30,7 @@ class Pack: Codable {
         self.seed = try container.decodeIfPresent(Int.self, forKey: .seed) ?? -1
         self.tags = try container.decodeIfPresent(String.self, forKey: .tags) ?? ""
         self.isGenerating = try container.decodeIfPresent(Bool.self, forKey: .isGenerating) ?? false
+        self.prompt = try container.decodeIfPresent(Prompt.self, forKey: .prompt)
     }
     
     init(json: [String: Any]) {
@@ -75,6 +76,7 @@ class Pack: Codable {
         case seed
         case tags
         case isGenerating
+        case prompt
     }
     
     func copy() -> Pack {
