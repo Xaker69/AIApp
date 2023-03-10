@@ -124,10 +124,10 @@ class PackManager {
     }
     
     func uploadImage(images: [Data], for pack: Pack, progress handler: @escaping Request.ProgressHandler, completion: @escaping (Result<Data, Error>) -> Void) {
-        let DOMAIN = "https://api.astria.ai"
+        let domain = "https://api.astria.ai"
         let url: URL
         let title = "\(UserManager.shared.selectedUser.name).\(UserManager.shared.selectedUser.id)".data(using: .utf8)!
-//        let branch = "fast".data(using: .utf8)!
+        //        let branch = "fast".data(using: .utf8)!
         let branch = "sd21".data(using: .utf8)!
         let token = "sks".data(using: .utf8)!
         let name = UserManager.shared.selectedUser.gender.data(using: .utf8)!
@@ -141,7 +141,7 @@ class PackManager {
         ]
         
         if let tune = UserManager.shared.selectedUser.tune {
-            url = URL(string: DOMAIN + "/tunes/\(tune.id)/prompts")!
+            url = URL(string: domain + "/tunes/\(tune.id)/prompts")!
             
             formData.append(prompts, withName: "prompt[text]")
             formData.append(negativePrompts, withName: "prompt[negative_prompt]")
@@ -152,7 +152,7 @@ class PackManager {
                 formData.append(callback.data(using: .utf8)!, withName: "prompt[callback]")
             }
         } else {
-            url = URL(string: DOMAIN + "/tunes")!
+            url = URL(string: domain + "/tunes")!
             
             formData.append(title, withName: "tune[title]")
             formData.append(branch, withName: "tune[branch]")
@@ -185,5 +185,30 @@ class PackManager {
                     completion(.failure(error))
                 }
             }
+    }
+    
+    func loadPrompts(for tuneID: Int, completion: @escaping (Result<[Prompt], Error>) -> Void) {
+        let url = URL(string: "https://api.astria.ai/tunes/\(tuneID)/prompts")!
+        let headers: HTTPHeaders = [
+            "Authorization": "Bearer " + apiKey
+        ]
+        
+        AF.request(url, method: .get, headers: headers).responseData { response in
+            switch response.result {
+            case .success(let data):
+                do {
+                    let decoder = JSONDecoder()
+                    decoder.keyDecodingStrategy = .convertFromSnakeCase
+                    
+                    let prompts = try decoder.decode([Prompt].self, from: data)
+                    completion(.success(prompts))
+                } catch {
+                    completion(.failure(error))
+                }
+                
+            case .failure(let error):
+                completion(.failure(error))
+            }
+        }
     }
 }

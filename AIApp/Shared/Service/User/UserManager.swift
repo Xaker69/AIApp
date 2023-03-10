@@ -18,10 +18,12 @@ class UserManager {
     
     init() {
         do {
-            logInfo("users isNil - \(UserSettings.users == nil)")
             guard let data = UserSettings.users else { return }
             users = try JSONDecoder().decode([User].self, from: data)
-            logInfo("\(users.count) saved users")
+            
+            userQueue.asyncAfter(deadline: .now() + 2) {
+                self.checkUsersPacks()
+            }
         } catch {
             print("❤️ Faild decode users in init(), error:", error)
         }
@@ -101,4 +103,50 @@ class UserManager {
         
         return id
     }
+    
+    private func checkUsersPacks() {
+        let group = DispatchGroup()
+        var needUpdatePacks = false
+        
+        for user in users {
+            if let tune = user.tune {
+                group.enter()
+                
+                PackManager.shared.loadPrompts(for: tune.id) { [weak self] result in
+                    switch result {
+                    case .success(let prompts):
+                        guard let self = self else { return }
+                        
+                        for pack in user.packs {
+                            if pack.isGenerating {
+                                if let prompt = prompts.first(where: { pack.prompt?.id == $0.id }), prompt.images?.isEmpty == false {
+                                    let newPack = pack.copy()
+                                    newPack.prompt = prompt
+                                    newPack.isGenerating = false
+                                    needUpdatePacks = true
+                                    
+                                    let index = user.packs.firstIndex(of: pack)!
+                                    user.packs.remove(at: index)
+                                    self.addPack(newPack, for: user)
+                                }
+                            }
+                        }
+                        
+                        group.leave()
+                        
+                    case .failure(let error):
+                        group.leave()
+                        logError(error)
+                    }
+                }
+            }
+        }
+        
+        group.notify(queue: .main) {
+            if needUpdatePacks {
+                NotificationCenter.default.post(name: .packsDidUpdated, object: nil)
+            }
+        }
+    }
+    
 }

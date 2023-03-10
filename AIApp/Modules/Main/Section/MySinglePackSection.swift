@@ -57,8 +57,6 @@ class MySinglePackSection: ListSectionController {
         cell.generatingLabel.isHidden = !pack.isGenerating
         cell.generatingImageView.isHidden = !pack.isGenerating
         
-        print("-pack pack prompt is nil", pack.prompt == nil)
-        
         return cell
     }
     
