@@ -1,6 +1,6 @@
 import UIKit
 
-class AllGeneratedPhotosView: RootView {
+class GeneratedPackView: RootView {
 
     let headerView: UIView = UIView()
     

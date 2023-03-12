@@ -39,7 +39,7 @@ class NewPacksSection: ListSectionController {
     
     override func sizeForItem(at index: Int) -> CGSize {
         let size = CGSize(width: collectionContext!.containerSize.width, height: CGFloat.greatestFiniteMagnitude)
-        configure(cell: template, index: index)
+        configure(cell: template)
         template.frame.size = size
         template.layoutIfNeeded()
         
@@ -60,7 +60,7 @@ class NewPacksSection: ListSectionController {
         cell.getContainer.addGestureRecognizer(gesture)
         cell.getContainer.tag = index
         
-        return configure(cell: cell, index: index)
+        return configure(cell: cell)
     }
     
     override func didSelectItem(at index: Int) {
@@ -76,8 +76,9 @@ class NewPacksSection: ListSectionController {
     // MARK: - Private methods
     
     @discardableResult
-    private func configure(cell: NewPackCell, index: Int) -> NewPackCell {
+    private func configure(cell: NewPackCell) -> NewPackCell {
         cell.titleLabel.text = model.pack.name
+        cell.picsLabel.text = R.string.localizable.mainNewPackImageCount(model.pack.imageNumber.description)
         
         return cell
     }

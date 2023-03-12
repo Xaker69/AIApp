@@ -35,7 +35,7 @@ class NewPackCell: UICollectionViewCell {
     
     let picsLabel: UILabel = {
         let label = UILabel()
-        label.text = "100 pics"
+        label.text = R.string.localizable.mainNewPackImageCount("100")
         label.font = .interFont(ofSize: 11, weight: .semiBold)
         label.textColor = .white
         label.textAlignment = .left

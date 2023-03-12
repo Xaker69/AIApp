@@ -1,16 +1,16 @@
 import UIKit
 import IGListKit
 
-class AllGeneratedViewController: UIViewController {
+class UserPacksViewController: UIViewController {
     
-    var mainView: AllGeneratedView {
-        return view as! AllGeneratedView
+    var mainView: UserPacksView {
+        return view as! UserPacksView
     }
     
     private lazy var adapter: ListAdapter = ListAdapter(updater: ListAdapterUpdater(), viewController: self)
     
     override func loadView() {
-        view = AllGeneratedView()
+        view = UserPacksView()
     }
     
     override func viewDidLoad() {
@@ -30,7 +30,7 @@ class AllGeneratedViewController: UIViewController {
 
 // MARK: - ListAdapterDataSource
 
-extension AllGeneratedViewController: ListAdapterDataSource {
+extension UserPacksViewController: ListAdapterDataSource {
     func objects(for listAdapter: ListAdapter) -> [ListDiffable] {
         return [MySinglePackModel(packs: UserManager.shared.selectedUser.packs)]
     }
@@ -49,12 +49,12 @@ extension AllGeneratedViewController: ListAdapterDataSource {
 
 // MARK: - MySinglePackDelegate
 
-extension AllGeneratedViewController: MySinglePackDelegate {
+extension UserPacksViewController: MySinglePackDelegate {
     func mySinglePack(_ section: MySinglePackSection, didSelect pack: Pack) {
         if pack.isGenerating {
             present(AttentionViewController(), animated: true)
         } else {
-            let vc = AllGeneratedPhotosViewController(pack: pack)
+            let vc = GeneratedPackViewController(pack: pack)
             navigationController?.pushViewController(vc, animated: true)
         }
     }

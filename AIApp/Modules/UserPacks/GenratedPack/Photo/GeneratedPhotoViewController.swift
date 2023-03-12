@@ -1,24 +1,24 @@
 import UIKit
 import IGListKit
 
-class SingleGeneratedPhotoViewController: UIViewController {
+class GeneratedPhotoViewController: UIViewController {
 
     let startIndex: Int
-    let photos: [String]
+    let pack: Pack
     var didSetStartIndex: Bool = false
     
-    var mainView: SingleGeneratedPhotoView {
-        return view as! SingleGeneratedPhotoView
+    var mainView: GeneratedPhotoView {
+        return view as! GeneratedPhotoView
     }
     
     lazy var adapter: ListAdapter = ListAdapter(updater: ListAdapterUpdater(), viewController: self)
     
-    init(startIndex: Int, count: Int, photos: [String]) {
-        self.photos = photos
+    init(startIndex: Int, pack: Pack) {
+        self.pack = pack
         self.startIndex = startIndex
         super.init(nibName: nil, bundle: nil)
         
-        mainView.setCount(index: startIndex + 1, count: count)
+        mainView.setCount(index: startIndex + 1, count: pack.prompt?.images?.count ?? 0)
     }
     
     required init?(coder: NSCoder) {
@@ -30,7 +30,7 @@ class SingleGeneratedPhotoViewController: UIViewController {
     }
     
     override func loadView() {
-        view = SingleGeneratedPhotoView()
+        view = GeneratedPhotoView()
     }
     
     override func viewDidLoad() {
@@ -41,20 +41,6 @@ class SingleGeneratedPhotoViewController: UIViewController {
         adapter.collectionView = mainView.collectionView
         adapter.dataSource = self
         adapter.scrollViewDelegate = self
-    }
-    
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
-//        let point = CGPoint(x: UIScreen.main.bounds.width * CGFloat(startIndex), y: 0)
-//        adapter.collectionView?.setContentOffset(point, animated: true)
-//        adapter.collectionView?.scrollToItem(at: IndexPath(item: startIndex, section: 0), at: .centeredHorizontally, animated: true)
-    }
-    
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-//        let point = CGPoint(x: UIScreen.main.bounds.width * CGFloat(startIndex), y: 0)
-//        adapter.collectionView?.setContentOffset(point, animated: true)
-//        adapter.collectionView?.scrollToItem(at: IndexPath(item: startIndex, section: 0), at: .centeredHorizontally, animated: false)
     }
     
     override func viewDidLayoutSubviews() {
@@ -75,13 +61,13 @@ class SingleGeneratedPhotoViewController: UIViewController {
 
 // MARK: - ListAdapterDataSource
 
-extension SingleGeneratedPhotoViewController: ListAdapterDataSource {
+extension GeneratedPhotoViewController: ListAdapterDataSource {
     func objects(for listAdapter: ListAdapter) -> [ListDiffable] {
-        return [GeneratedPhotosModel(photos: photos)]
+        return [GeneratedPackModel(pack: pack)]
     }
     
     func listAdapter(_ listAdapter: ListAdapter, sectionControllerFor object: Any) -> ListSectionController {
-        return SingleGeneratedPhotoSection()
+        return GeneratedPhotoSection()
     }
     
     func emptyView(for listAdapter: ListAdapter) -> UIView? {
@@ -89,9 +75,9 @@ extension SingleGeneratedPhotoViewController: ListAdapterDataSource {
     }
 }
 
-extension SingleGeneratedPhotoViewController: UIScrollViewDelegate {
+extension GeneratedPhotoViewController: UIScrollViewDelegate {
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
         let index = scrollView.contentOffset.x / UIScreen.main.bounds.width
-        mainView.setCount(index: Int(index + 1), count: photos.count)
+        mainView.setCount(index: Int(index + 1), count: pack.prompt?.images?.count ?? 0)
     }
 }

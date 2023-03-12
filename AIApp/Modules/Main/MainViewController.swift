@@ -121,7 +121,7 @@ extension MainViewController: MyPacksDelegate {
         if pack.isGenerating {
             present(AttentionViewController(), animated: true)
         } else {
-            let vc = AllGeneratedPhotosViewController(pack: pack)
+            let vc = GeneratedPackViewController(pack: pack)
             vc.modalPresentationStyle = .fullScreen
             
             present(vc, animated: true)
@@ -129,7 +129,7 @@ extension MainViewController: MyPacksDelegate {
     }
     
     func myPacks(needShowAllPacks section: MyPacksSection) {
-        let navVc = RootNavigationController(rootViewController: AllGeneratedViewController())
+        let navVc = RootNavigationController(rootViewController: UserPacksViewController())
         navVc.modalPresentationStyle = .fullScreen
         
         present(navVc, animated: true)

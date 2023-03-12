@@ -2,7 +2,6 @@
 create-avatar-step = "Step %@ of 4";
 
 // Onboardig
-
 onboarding-privacy = "<all>By getting started I agree with\n<terms href='https://xaker41.t.me'>Terms of Use</terms> and <privacy href='https://xaker41.t.me'>Privacy Policy</privacy></all>";
 onboarding-start-button = "Get started";
 onboarding-subtitle = "Create personalized portraits\nfor you and your friends";
@@ -64,14 +63,16 @@ main-add-profile = "Add new";
 main-one-pack = "1 pack";
 main-many-packs = "%@ packs";
 main-header-explore = "Explore more packs";
-main-header-my-packs = "Loren’s  packs";
+main-header-my-packs = "%@’s  packs";
 main-header-my-packs-button = "See all";
 main-explore-button = "<all>Get for <strike>$10</strike> $5</all>";
+main-new-pack-image-count = "%@ pics";
 
 // Generated
 generated-unlock = "Unlock 10 more photos for $0.50";
 generated-save = "Save image";
 generated-counter = "<current>%@</current><count>/%@</count>";
+generated-all-packs-header = "All %@'s packs";
 
 // Settings
 settings-title = "Settings";

@@ -1,14 +1,14 @@
 import IGListKit
 import Kingfisher
 
-protocol GeneratedPhotosDelegate: AnyObject {
-    func generatedPhotos(_ controller: GeneratedPhotosSection, didSelect index: Int)
+protocol GeneratedPackDelegate: AnyObject {
+    func generatedPack(_ controller: GeneratedPackSection, didSelect index: Int)
 }
 
-class GeneratedPhotosSection: ListSectionController {
+class GeneratedPackSection: ListSectionController {
     
-    weak var delegate: GeneratedPhotosDelegate?
-    var model: GeneratedPhotosModel!
+    weak var delegate: GeneratedPackDelegate?
+    var model: GeneratedPackModel!
     
     override init() {
         super.init()
@@ -19,16 +19,16 @@ class GeneratedPhotosSection: ListSectionController {
     }
     
     override func didUpdate(to object: Any) {
-        precondition(object is GeneratedPhotosModel)
-        model = object as? GeneratedPhotosModel
+        precondition(object is GeneratedPackModel)
+        model = object as? GeneratedPackModel
     }
     
     override func numberOfItems() -> Int {
-        return model.photos.count
+        return model.pack.prompt?.images?.count ?? 0
     }
     
     override func didSelectItem(at index: Int) {
-        delegate?.generatedPhotos(self, didSelect: index)
+        delegate?.generatedPack(self, didSelect: index)
     }
     
     override func sizeForItem(at index: Int) -> CGSize {
@@ -40,7 +40,8 @@ class GeneratedPhotosSection: ListSectionController {
     override func cellForItem(at index: Int) -> UICollectionViewCell {
         let cell = collectionContext!.dequeue(of: GeneratedPhotoCell.self, for: self, at: index)
         
-        let imageURL = URL(string: model.photos[index])
+        let images = model.pack.prompt?.images ?? []
+        let imageURL = URL(string: images[index])
         
         cell.imageView.kf.setImage(with: imageURL)
         

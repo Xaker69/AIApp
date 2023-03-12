@@ -66,7 +66,7 @@ extension MyPacksSection: ListSupplementaryViewSource {
     
     func viewForSupplementaryElement(ofKind elementKind: String, at index: Int) -> UICollectionReusableView {
         let view = collectionContext!.dequeue(ofKind: UICollectionView.elementKindSectionHeader, for: self, of: MainHeaderView.self, at: index)
-        view.titleLabel.text = R.string.localizable.mainHeaderMyPacks()
+        view.titleLabel.text = R.string.localizable.mainHeaderMyPacks(model.user.name)
         view.rightButton.isHidden = false
         view.rightButton.addTarget(self, action: #selector(seeAllButtonTapped), for: .touchUpInside)
         

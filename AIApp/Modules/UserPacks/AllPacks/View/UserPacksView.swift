@@ -1,6 +1,6 @@
 import UIKit
 
-class AllGeneratedView: RootView {
+class UserPacksView: RootView {
 
     let headerView: UIView = UIView()
     
@@ -14,7 +14,7 @@ class AllGeneratedView: RootView {
     
     let titleLabel: UILabel = {
         let label = UILabel()
-        label.text = "All Loren’s packs"
+        label.text = R.string.localizable.generatedAllPacksHeader(UserManager.shared.selectedUser.name)
         label.font = .interFont(ofSize: 15, weight: .bold)
         label.textColor = .white
         label.textAlignment = .center

@@ -1,10 +1,10 @@
 import UIKit
 import IGListKit
 
-class AllGeneratedPhotosViewController: UIViewController {
+class GeneratedPackViewController: UIViewController {
 
-    var mainView: AllGeneratedPhotosView {
-        return view as! AllGeneratedPhotosView
+    var mainView: GeneratedPackView {
+        return view as! GeneratedPackView
     }
     
     private lazy var adapter: ListAdapter = ListAdapter(updater: ListAdapterUpdater(), viewController: self)
@@ -24,12 +24,14 @@ class AllGeneratedPhotosViewController: UIViewController {
     }
     
     override func loadView() {
-        view = AllGeneratedPhotosView()
+        view = GeneratedPackView()
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        mainView.titleLabel.text = pack.name
+        
         mainView.closeButton.addTarget(self, action: #selector(closeButtonTapped), for: .touchUpInside)
         
         adapter.collectionView = mainView.collectionView
@@ -39,7 +41,11 @@ class AllGeneratedPhotosViewController: UIViewController {
     }
     
     @objc private func closeButtonTapped() {
-        dismiss(animated: true)
+        if navigationController != nil {
+            navigationController?.popViewController(animated: true)
+        } else {
+            dismiss(animated: true)
+        }
     }
     
     private func setupCloseButton() {
@@ -53,18 +59,18 @@ class AllGeneratedPhotosViewController: UIViewController {
 
 // MARK: - ListAdapterDataSource
 
-extension AllGeneratedPhotosViewController: ListAdapterDataSource {
+extension GeneratedPackViewController: ListAdapterDataSource {
     func objects(for listAdapter: ListAdapter) -> [ListDiffable] {
         return [
-            GeneratedPhotosModel(photos: pack.prompt?.images ?? []),
+            GeneratedPackModel(pack: pack),
             UnlockMoreModel(desctioption: "UnlockMoreModel")
         ]
     }
     
     func listAdapter(_ listAdapter: ListAdapter, sectionControllerFor object: Any) -> ListSectionController {
         switch object {
-        case is GeneratedPhotosModel:
-            let section = GeneratedPhotosSection()
+        case is GeneratedPackModel:
+            let section = GeneratedPackSection()
             section.delegate = self
             
             return section
@@ -82,12 +88,9 @@ extension AllGeneratedPhotosViewController: ListAdapterDataSource {
     }
 }
 
-extension AllGeneratedPhotosViewController: GeneratedPhotosDelegate {
-    func generatedPhotos(_ controller: GeneratedPhotosSection, didSelect index: Int) {
-        let count = pack.prompt?.images?.count ?? 0
-        let photos = pack.prompt?.images ?? []
-        
-        let vc = SingleGeneratedPhotoViewController(startIndex: index, count: count, photos: photos)
+extension GeneratedPackViewController: GeneratedPackDelegate {
+    func generatedPack(_ controller: GeneratedPackSection, didSelect index: Int) {        
+        let vc = GeneratedPhotoViewController(startIndex: index, pack: pack)
         vc.modalPresentationStyle = .fullScreen
         
         present(vc, animated: true)

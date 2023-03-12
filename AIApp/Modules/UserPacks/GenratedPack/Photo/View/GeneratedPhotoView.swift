@@ -1,7 +1,7 @@
 import UIKit
 import Atributika
 
-class SingleGeneratedPhotoView: RootView {
+class GeneratedPhotoView: RootView {
     
     let headerView: UIView = UIView()
     

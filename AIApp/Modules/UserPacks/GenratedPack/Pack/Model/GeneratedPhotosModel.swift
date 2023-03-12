@@ -1,21 +1,21 @@
 import IGListDiffKit
 
-class GeneratedPhotosModel {
-    let photos: [String]
+class GeneratedPackModel {
+    let pack: Pack
     
-    init(photos: [String]) {
-        self.photos = photos
+    init(pack: Pack) {
+        self.pack = pack
     }
 }
 
-extension GeneratedPhotosModel: ListDiffable {
+extension GeneratedPackModel: ListDiffable {
     func diffIdentifier() -> NSObjectProtocol {
-        return photos as NSObjectProtocol
+        return pack.name as NSObjectProtocol
     }
     
     func isEqual(toDiffableObject object: ListDiffable?) -> Bool {
         guard let object = object as? Self else { return false }
         
-        return object.photos == photos
+        return object.pack == pack
     }
 }
