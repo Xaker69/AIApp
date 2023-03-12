@@ -32,7 +32,11 @@ class PackDescriptionSection: ListSectionController {
         let cell = collectionContext!.dequeue(of: PackDescriptionCell.self, for: self, at: index)
         
         let imageURL = URL(string: model.image)
-        cell.imageView.kf.setImage(with: imageURL)
+        
+        cell.imageView.kf.setImage(with: imageURL) { _ in
+            cell.setNeedsLayout()
+        }
+        
         cell.layoutIfNeeded()
         
         return configure(cell: cell)

@@ -16,7 +16,7 @@ class PackDescriptionView: RootView {
         
         let view = UICollectionView(frame: .zero, collectionViewLayout: layout)
         view.backgroundColor = .clear
-        view.showsHorizontalScrollIndicator = false
+        view.showsVerticalScrollIndicator = false
         view.contentInset = .zero
         view.contentOffset = .zero
         view.contentInsetAdjustmentBehavior = .never
