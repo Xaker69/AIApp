@@ -54,7 +54,7 @@ class PackDescriptionViewController: UIViewController {
 extension PackDescriptionViewController: ListAdapterDataSource {
     func objects(for listAdapter: ListAdapter) -> [ListDiffable] {
         let models: [ListDiffable] = [
-            PackDescriptionModel(description: pack.description, image: pack.previewImage, title: pack.name),
+            PackDescriptionModel(pack: pack),
             PackImageExampleModel(images: pack.examples)
         ]
         

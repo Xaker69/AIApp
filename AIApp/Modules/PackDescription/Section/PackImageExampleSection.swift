@@ -29,8 +29,8 @@ class PackImageExampleSection: ListSectionController {
     
     override func cellForItem(at index: Int) -> UICollectionViewCell {
         let cell = collectionContext!.dequeue(of: PackImageExampleCell.self, for: self, at: index)
-        
         let imageURL = URL(string: model.images[index])
+        
         cell.imageView.kf.setImage(with: imageURL)
         
         return cell

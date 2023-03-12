@@ -1,20 +1,16 @@
 import IGListDiffKit
 
 class PackDescriptionModel {
-    let description: String
-    let image: String
-    let title: String
+    let pack: Pack
     
-    init(description: String, image: String, title: String) {
-        self.description = description
-        self.image = image
-        self.title = title
+    init(pack: Pack) {
+        self.pack = pack
     }
 }
 
 extension PackDescriptionModel: ListDiffable {
     func diffIdentifier() -> NSObjectProtocol {
-        return title as NSObjectProtocol
+        return pack.name as NSObjectProtocol
     }
     
     func isEqual(toDiffableObject object: ListDiffable?) -> Bool {
@@ -22,6 +18,6 @@ extension PackDescriptionModel: ListDiffable {
             return false
         }
         
-        return object.title == title
+        return object.pack == pack
     }
 }

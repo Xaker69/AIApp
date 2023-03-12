@@ -147,6 +147,10 @@ class PackDescriptionCell: UICollectionViewCell {
         setupConstraints()
     }
     
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
     override func layoutSubviews() {
         super.layoutSubviews()
 
@@ -154,10 +158,6 @@ class PackDescriptionCell: UICollectionViewCell {
         
         blackGradientLayer.frame = CGRect(origin: .zero, size: rect.size)
         blurGradientLayer.frame = imageView.bounds
-    }
-    
-    required init?(coder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
     }
     
     func setSubtitle(_ text: String) {

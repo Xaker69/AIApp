@@ -143,9 +143,12 @@ class PackManager {
         if let tune = UserManager.shared.selectedUser.tune {
             url = URL(string: domain + "/tunes/\(tune.id)/prompts")!
             
+            let faceCorrct = true.description.data(using: .utf8)!
+            
             formData.append(prompts, withName: "prompt[text]")
             formData.append(negativePrompts, withName: "prompt[negative_prompt]")
             formData.append(seed, withName: "prompt[seed]")
+            formData.append(faceCorrct, withName: "prompt[face_correct]")
             
             if let deviceToken = UserSettings.deviceToken {
                 let callback = "https://us-central1-lensa-ai-app.cloudfunctions.net/apn?deviceToken=\(deviceToken)"
